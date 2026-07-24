@@ -1,0 +1,14 @@
+# Dependecies
+/node_modules
+
+# Next.js build output
+/.next/
+/out/
+
+# Environment variables
+.env*.local
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
