@@ -11,33 +11,74 @@ Palett di colori:
 - Sfondo pannelli scuro: #181a22
 - Stroke: #9ca3af
 - Sconti:
-    arancione: #f2a65a
-    blue: #2b9ad8
-    rosso: #910505
-- Testo NEW: #d81733
+    arancione: #f2a65a background: linear-gradient(to bottom, rgba(242, 166, 90, 1) 50%,rgba(0, 0, 0, 0) 50%);
+    blue: #2b9ad8 background: linear-gradient(to bottom, rgba(43, 154, 216, 1) 50%,rgba(0, 0, 0, 0) 50%);
+    rosso: #910505 background: linear-gradient(to bottom, rgba(145, 5, 5, 1) 50%,rgba(0, 0, 0, 0) 50%);
+- Testo verde: #3ca122; 
+bottoni: linear-gradient(to bottom, rgba(215, 118, 53, 0.25) 20%,rgba(16, 10, 10, 0.75) 100%);
+
 */
-
+/* Theme Variables */
 @theme inline {
-  --color-background: var(--background);
-  --color-stroke: var(--stroke);
-  --color-normal-text: var(--text);
-
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-stroke-primary: var(--color-stroke-primary);
+  --color-stroke-secondary: var(--color-stroke-secondary);
+  --color-light-gray-text: var(--color-light-gray-text);
+  --color-orange-gradient-start: var(--color-orange-gradient-start);
+  --color-orange-gradient-end: var(--color-orange-gradient-end);
+  --color-orange-btn-gradient-start: var(--color-orange-btn-gradient-start);
+  --color-orange-btn-gradient-end: var(--color-orange-btn-gradient-end);
+  --color-orange-btn-border-color: var(--color-orange-btn-border-color);
+  --color-panel-background: var(--color-panel-background);
+  --color-orange-discount: var(--color-orange-discount);
+  --color-red-discount: var(--color-red-discount);
+  --color-blue-discount: var(--color-blue-discount);
+  --color-green-text: var(--color-green-text);
 }
 
+/* Light Theme */
+:root {
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-stroke-primary: #e2e8f0;
+  --color-stroke-secondary: #b1b2b5;
+  --color-light-gray-text: #6b7280;
+  --color-orange-gradient-start: #f97316;
+  --color-orange-gradient-end: #fbbf24;
+  --color-orange-btn-gradient-start: #f9731644;
+  --color-orange-btn-gradient-end: #fbbf2470;
+  --color-orange-btn-border-color: #f9731670;
+  --color-panel-background: #f9fafb;
+  --color-orange-discount: #f97316;
+  --color-red-discount: #ef4444;
+  --color-blue-discount: #3b82f6;
+  --color-green-text: #10b981;
+}
+
+/* Dark Theme */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0b10;
-    --stroke: #9ca3af;
-    --text: #f3f4f6;
-    --light-gray-text: #9ca3af;
-    --orange-gradient-start: #d77635;
-    --orange-gradient-end: #f2a65a;
-    --panel-background: #181a22;
+    --color-background: #0a0b10;
+    --color-foreground: #f3f4f6;
+    --color-stroke-primary: #9ca3af3B;
+    --color-stroke-secondary: #b1b2b53B;
+    --color-light-gray-text: #9ca3af;
+    --color-orange-gradient-start: #d77635;
+    --color-orange-gradient-end: #f2a65a;
+    --color-orange-btn-gradient-start: #d7763544;
+    --color-orange-btn-gradient-end: #100a0ab9;
+    --color-orange-btn-border-color: #d7763570;
+    --color-orange-discount: #f2a65a;
+    --color-red-discount: #910505;
+    --color-blue-discount: #2b9ad8;
+    --color-panel-background: #181a22;
+    --color-green-text: #3ca122;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--color-normal-text);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-family: sans-serif;
 }
