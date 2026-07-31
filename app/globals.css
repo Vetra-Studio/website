@@ -10,8 +10,11 @@ Palett di colori:
     arancione chiaro: #f2a65a
 - Sfondo pannelli scuro: #181a22
 - Stroke: #9ca3af
-
-
+- Sconti:
+    arancione: #f2a65a
+    blue: #2b9ad8
+    rosso: #910505
+- Testo NEW: #d81733
 */
 
 :root {
