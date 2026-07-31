@@ -35,6 +35,9 @@ bottoni: linear-gradient(to bottom, rgba(215, 118, 53, 0.25) 20%,rgba(16, 10, 10
   --color-red-discount: var(--color-red-discount);
   --color-blue-discount: var(--color-blue-discount);
   --color-green-text: var(--color-green-text);
+  --text-big: 40px;
+  --text-big--line-height: 1.2;
+  --text-normal: 25px;
 }
 
 /* Light Theme */
