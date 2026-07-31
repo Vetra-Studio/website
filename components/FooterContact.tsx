@@ -1,19 +1,27 @@
 import Image from 'next/image'
+import LocationIcon from '@/public/location.svg'
+import EmailIcon from '@/public/email.svg'
+import PhoneIcon from '@/public/phone.svg'
+
 
 export default function FooterContact() {
     return (
         <div className="flex flex-col space-y-4 ">
             <div className="flex items-center space-x-4">
-                <Image src="/location.svg" alt="Location Icon" width={24} height={24} />
+                <Image src={LocationIcon} alt=""/>
                 <p className="">Via Papa Luciani 14, 36025 Noventa Vicentina (VI)</p>
             </div>
-            <div className="flex items-center space-x-4">
-                <Image src="/email.svg" alt="Email Icon" width={24} height={24} />
-                <p className="">riccardo.rossato07@gmail.com</p>
+            <div>
+                <a className="flex items-center space-x-4" href="mailto:riccardo.rossato07@gmail.com" aria-label="Scrivi un'email">
+                    <Image src={EmailIcon} alt=""/>
+                    <p className="">riccardo.rossato07@gmail.com</p>
+                </a>
             </div>
-            <div className="flex items-center space-x-4">
-                <Image src="/phone.svg" alt="Phone Icon" width={24} height={24} />
-                <p className="">+39 327 3520087</p>
+            <div>
+                <a className="flex items-center space-x-4" href="tel:+393273520087" aria-label="Chiama per richiedere un preventivo">
+                    <Image src={PhoneIcon} alt=""/>
+                    <p className="">+39 327 352 0087</p>
+                </a>
             </div>
         </div>
     );
