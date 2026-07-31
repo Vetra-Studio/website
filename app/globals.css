@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/*
+Palett di colori:
+- Background scuro: #0a0b10
+- Testo chiaro: #f3f4f6
+- Testo grigio chiaro: #9ca3af
+- Testo arancione in linear gradient: 
+    arancione scuro: #d77635
+    arancione chiaro: #f2a65a
+- Sfondo pannelli scuro: #181a22
+- Stroke: #9ca3af
+
+
+*/
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
