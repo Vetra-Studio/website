@@ -6,10 +6,10 @@ import PhoneIcon from '@/public/phone.svg'
 
 export default function FooterContact() {
     return (
-        <div className="flex flex-col space-y-4 ">
+        <div className="flex-col space-y-4">
             <div className="flex items-center space-x-4">
                 <Image src={LocationIcon} alt=""/>
-                <p className="">Via Papa Luciani 14, 36025 Noventa Vicentina (VI)</p>
+                <p className="">Via Papa Luciani 14 <br /> 36025 Noventa Vicentina (VI)</p>
             </div>
             <div>
                 <a className="flex items-center space-x-4" href="mailto:riccardo.rossato07@gmail.com" aria-label="Scrivi un'email">
