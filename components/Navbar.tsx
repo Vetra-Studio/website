@@ -5,10 +5,14 @@ const navItems = [
   { label: 'Chi siamo', href: '#chi-siamo' },
 ];
 
-export default function Navbar() {
+interface NavClassNameProps {
+  className?: string;
+}
+
+export default function Navbar({ className }: NavClassNameProps) {
   return (
     <nav>
-      <ul className="flex space-x-8">
+      <ul className={`${className}`}>
         {navItems.map((item) => (
           <li key={item.label}>
             <a
