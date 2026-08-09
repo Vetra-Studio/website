@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Servizi', href: '#servizi' },
@@ -7,20 +9,21 @@ const navItems = [
 
 interface NavClassNameProps {
   className?: string;
+  linkClassName?: string;
 }
 
-export default function Navbar({ className }: NavClassNameProps) {
+export default function Navbar({ className, linkClassName }: NavClassNameProps) {
   return (
     <nav>
       <ul className={`${className}`}>
         {navItems.map((item) => (
           <li key={item.label}>
-            <a
+            <Link
               href={item.href}
-              className="transition-colors hover:cursor-pointer hover:underline hover:decoration-orange-500 hover:underline-offset-4"
+              className={`${linkClassName}`}
             >
               {item.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
