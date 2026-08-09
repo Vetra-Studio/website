@@ -7,9 +7,10 @@ const navItems = [
 
 interface NavClassNameProps {
   className?: string;
+  linkClassName?: string;
 }
 
-export default function Navbar({ className }: NavClassNameProps) {
+export default function Navbar({ className, linkClassName }: NavClassNameProps) {
   return (
     <nav>
       <ul className={`${className}`}>
@@ -17,7 +18,7 @@ export default function Navbar({ className }: NavClassNameProps) {
           <li key={item.label}>
             <a
               href={item.href}
-              className="transition-colors hover:cursor-pointer hover:underline hover:decoration-orange-500 hover:underline-offset-4"
+              className={`${linkClassName}`}
             >
               {item.label}
             </a>
