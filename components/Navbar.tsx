@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Servizi', href: '#servizi' },
@@ -16,12 +18,12 @@ export default function Navbar({ className, linkClassName }: NavClassNameProps) 
       <ul className={`${className}`}>
         {navItems.map((item) => (
           <li key={item.label}>
-            <a
+            <Link
               href={item.href}
               className={`${linkClassName}`}
             >
               {item.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
