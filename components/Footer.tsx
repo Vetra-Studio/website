@@ -30,7 +30,7 @@ export default function Footer() {
                 <div className="flex-col space-y-4">
                     <h2 className="text-5xl"><span className="font-bold">Vetra</span> Studio</h2>
                     <p className="text-xl text-gray-400">Creaiamo Esperienze Digitali<br /> di Successo.</p>
-                    <div className="flex space-x-6">
+                    <div className="flex justify-around">
                         {socialLinks.map((link) => (
                             <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name} className="text-gray-400 hover:text-white pt-4">
                                 <Image src={link.icon} alt={link.name} width={40} height={40} />
@@ -68,7 +68,7 @@ export default function Footer() {
                 <p className="text-gray-400" suppressHydrationWarning>&copy; {new Date().getFullYear()} Vetra Studio. All rights reserved.</p>
                 <div>
                     <Link href="/privacy" className="text-gray-400 hover:text-gray-200 pr-4">Privacy Policy</Link>
-                    <Link href="/terms" className="text-gray-400 hover:text-gray-200">Cookie Policy</Link>
+                    <Link href="/cookie-policy" className="text-gray-400 hover:text-gray-200">Cookie Policy</Link>
                 </div>
             </div>
 

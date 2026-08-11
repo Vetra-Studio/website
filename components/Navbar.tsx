@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
 const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Servizi', href: '#servizi' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Chi siamo', href: '#chi-siamo' },
+  { label: 'Home', href: '/' },
+  { label: 'Servizi', href: '/#servizi' },
+  { label: 'Portfolio', href: '/#portfolio' },
+  { label: 'Chi siamo', href: '/#chi-siamo' },
 ];
 
 interface NavClassNameProps {

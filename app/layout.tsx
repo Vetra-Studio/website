@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
-      <body>
+      <body className="min-h-screen grid grid-rows-[auto_1fr_auto]">
 
         <Header />
 
