@@ -12,9 +12,9 @@ export default function FooterContact() {
                 <p className="">Via Papa Luciani 14 <br /> 36025 Noventa Vicentina (VI)</p>
             </div>
             <div>
-                <a className="flex items-center space-x-4" href="mailto:riccardo.rossato07@gmail.com" aria-label="Scrivi un'email">
+                <a className="flex items-center space-x-4" href="mailto:info@vetrastudio.org" aria-label="Scrivi un'email">
                     <Image src={EmailIcon} alt=""/>
-                    <p className="">riccardo.rossato07@gmail.com</p>
+                    <p className="">info@vetrastudio.org</p>
                 </a>
             </div>
             <div>
