@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import Link from "next/link";
 
 export default function Header() {
   const [hidden, setHidden] = useState(false);
@@ -33,11 +34,20 @@ export default function Header() {
           transition-transform duration-300 ease-in-out 
           ${hidden ? "-translate-y-full" : "translate-y-0"}
           `}>
-      <h1 className="text-3xl font-bold">Vetra Studio</h1>
-      <Navbar className="flex space-x-8" linkClassName="transition-colors hover:cursor-pointer hover:underline hover:decoration-orange-500 hover:underline-offset-4" />
+
+      <Link href="/">
+        <h1 className="text-3xl font-bold">Vetra Studio</h1>
+      </Link>
+
+      <Navbar className="text-lg flex space-x-16"
+              linkClassName="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full hover:after:origin-left
+              after:origin-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-400 hover:after:scale-x-100
+              "/>
+      
       <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">
         Contattaci
       </button>
+
     </header>
   );
 }
