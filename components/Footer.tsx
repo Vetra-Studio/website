@@ -1,5 +1,5 @@
 import FooterContact from './FooterContact';
-import Navbar from './Navbar';
+import Navbar from './Navbar/Navbar';
 import Image from 'next/image';
 import Link from 'next/link'
 
