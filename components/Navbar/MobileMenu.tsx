@@ -1,5 +1,7 @@
 "use client";
 
+import Navbar from "./Navbar";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -38,19 +40,9 @@ export default function MobileMenu({
     
     <main className="flex h-screen flex-col text-3xl pt-24 p-8 space-y-20 text-center whitespace-nowrap overflow-hidden text-ellipsis">
 
-      <a href="#servizi" onClick={onClose}>
-      Servizi
-      </a>
+      <Navbar className="flex flex-col space-y-20 text-3xl"/>
 
-      <a href="#progetti" onClick={onClose}>
-      Progetti
-      </a>
-
-      <a href="#chi-siamo" onClick={onClose}>
-      Chi siamo
-      </a>
-
-      <Link href="/" className="md:hidden block">
+      <Link href="/contattaci" className="md:hidden block">
         <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">
           Contattaci
         </button>
