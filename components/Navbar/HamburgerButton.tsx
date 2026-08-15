@@ -12,7 +12,7 @@ export default function HamburgerButton({
   return (
     <button
       onClick={onClick}
-      className="relative flex h-10 w-10 items-center justify-center md:hidden {className}"
+      className={`relative flex h-10 w-10 items-center justify-center md:hidden ${className}`}
       aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
       aria-expanded={isOpen}
     >
