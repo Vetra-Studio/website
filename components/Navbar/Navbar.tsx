@@ -9,9 +9,10 @@ const navItems = [
 interface NavClassNameProps {
   className?: string;
   linkClassName?: string;
+  onClick?: () => void;
 }
 
-export default function Navbar({ className, linkClassName }: NavClassNameProps) {
+export default function Navbar({ className, linkClassName, onClick }: NavClassNameProps) {
   return (
     <nav>
       <ul className={`${className}`}>
@@ -20,6 +21,7 @@ export default function Navbar({ className, linkClassName }: NavClassNameProps) 
             <Link
               href={item.href}
               className={`${linkClassName}`}
+              onClick={onClick}
             >
               {item.label}
             </Link>

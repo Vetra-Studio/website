@@ -32,15 +32,18 @@ export default function MobileMenu({
             overflow-hidden
             bg-background
             md:hidden
-            transition-[width] duration-${animationDuration} ease-in-out
+            transition-[width] ease-in-out
             ${isOpen ? "w-full" : "w-0"}
             ${isAnimating ? "border-l border-gray-700" : "border-0"}
         `}
+        style={{
+          transitionDuration: `${animationDuration}ms`,
+        }}
     >
     
     <main className="flex h-screen flex-col text-3xl pt-24 p-8 space-y-20 text-center whitespace-nowrap overflow-hidden text-ellipsis">
 
-      <Navbar className="flex flex-col space-y-20 text-3xl"/>
+      <Navbar className="flex flex-col space-y-20 text-3xl" onClick={onClose}/>
 
       <Link href="/contattaci" className="md:hidden block">
         <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">

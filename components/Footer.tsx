@@ -23,14 +23,14 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="p-4 w-17/20 mx-auto">
+        <footer className="p-4 sm:w-17/20 mx-auto w-full">
 
             <div className="border-b border-t border-gray-700">
-            <div className="flex justify-between py-12 px-8">
-                <div className="flex-col space-y-4">
+            <div className="flex-col flex justify-between py-12 lg:px-8 lg:flex-row">
+                <div className="flex-col text-center space-y-4 lg:text-left">
                     <h2 className="text-5xl"><span className="font-bold">Vetra</span> Studio</h2>
-                    <p className="text-xl text-gray-400">Creaiamo Esperienze Digitali<br /> di Successo.</p>
-                    <div className="flex justify-around">
+                    <p className="text-xl text-gray-400">Creiamo Esperienze Digitali <br className="hidden lg:block" /> di Successo.</p>
+                    <div className="flex space-x-4 justify-center lg:justify-between lg:space-x-0">
                         {socialLinks.map((link) => (
                             <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name} className="text-gray-400 hover:text-white pt-4">
                                 <Image src={link.icon} alt={link.name} width={40} height={40} />
@@ -39,34 +39,45 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="space-y-4">
-                    <h3 className="text-sm font-bold uppercase">Navigazione</h3>
-                    <Navbar className="flex-col text-gray-400 space-y-4" linkClassName="text-gray-400 hover:text-gray-200" />
+                <div className="grid grid-cols-2
+                                border-y-2 border-gray-700
+                                my-8 py-8
+                                text-left
+                                lg:flex
+                                lg:border-0
+                                lg:my-0 lg:py-0
+                                lg:w-1/3
+                                lg:justify-between
+                                ">
+                    <div className="px-[10%] border-r-2 border-gray-700 lg:border-0 lg:px-0 space-y-4">
+                        <h3 className="text-sm font-bold uppercase">Navigazione</h3>
+                        <Navbar className="flex-col text-gray-400 space-y-4" linkClassName="text-gray-400 hover:text-gray-200" />
+                    </div>
+
+                    <div className="px-[10%] space-y-4 lg:px-0">
+                        <h3 className="text-sm font-bold uppercase">Link Utili</h3>
+                        <ul className="space-y-4">
+                            {usefulLinks.map((link) => (
+                                <li key={link.name}>
+                                    <Link className="text-gray-400 hover:text-gray-200" href={link.href} target="_blank" aria-label={link.name}>
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
-                <div className="space-y-4">
-                    <h3 className="text-sm font-bold uppercase">Link Utili</h3>
-                    <ul className="space-y-4">
-                        {usefulLinks.map((link) => (
-                            <li key={link.name}>
-                                <Link className="text-gray-400 hover:text-gray-200" href={link.href} target="_blank" aria-label={link.name}>
-                                    {link.name}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <div className="space-y-4">
-                    <h3 className="text-sm font-bold uppercase">Contatti</h3>
-                    <FooterContact />
+                <div className="space-y-4 flex-col flex items-center justify-center lg:block">
+                    <h3 className="text-center lg:text-left text-sm font-bold uppercase">Contatti</h3>
+                    <FooterContact className="flex-col flex space-y-4 lg:block"/>
                 </div>
             </div>
             </div>
 
-            <div className="flex justify-between items-center pb-4 pt-10 px-16">
+            <div className="flex-col sm:flex-row flex justify-between items-center pb-4 pt-10 lg:px-16">
                 <p className="text-gray-400" suppressHydrationWarning>&copy; {new Date().getFullYear()} Vetra Studio. All rights reserved.</p>
-                <div>
+                <div className="flex">
                     <Link href="/privacy" className="text-gray-400 hover:text-gray-200 pr-4">Privacy Policy</Link>
                     <Link href="/cookie-policy" className="text-gray-400 hover:text-gray-200">Cookie Policy</Link>
                 </div>

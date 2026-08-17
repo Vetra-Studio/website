@@ -3,10 +3,13 @@ import LocationIcon from '@/public/location.svg'
 import EmailIcon from '@/public/email.svg'
 import PhoneIcon from '@/public/phone.svg'
 
+interface FooterContactProps {
+    className?: string;
+}
 
-export default function FooterContact() {
+export default function FooterContact({ className }: FooterContactProps) {
     return (
-        <div className="flex-col space-y-4">
+        <div className={className}>
             <div className="flex items-center space-x-4">
                 <Image src={LocationIcon} alt=""/>
                 <p className="">Via Papa Luciani 14 <br /> 36025 Noventa Vicentina (VI)</p>
