@@ -20,7 +20,7 @@ export default function ConsultationSection({
   return (
     <section className={className}>
         {/* Titolo Principale in H2 (dimensione contenuta, max 40px) */}
-        <div className="text-lg sm:text-xl md:text-2xl font-bold leading-tight text-foreground tracking-tight">
+        <div className="text-base sm:text-lg md:text-xl font-bold leading-tight text-foreground tracking-tight">
           {titleLine1}
           <br className="hidden sm:block" />
           {titleLine2}
@@ -32,13 +32,13 @@ export default function ConsultationSection({
           onClick={onButtonClick}
           className="inline-flex items-center justify-center 
                      px-6 md:px-10 py-4 md:py-5  
-                     font-bold text-sm md:text-lg uppercase tracking-wider text-foreground 
+                     font-bold text-base sm:text-lg md:text-xl uppercase tracking-wider text-foreground 
                      bg-gradient-to-b from-orange-btn-gradient-start to--orange-btn-gradient-end 
                      border-2 border-orange-btn-border-color shadow-lg rounded-2xl
                      hover:brightness-125 active:scale-95 
                      transition-all duration-300 
-                     select-none cursor-pointer"
-        >
+                     cursor-pointer
+                    ">
           {buttonText}
         </Link>
     </section>

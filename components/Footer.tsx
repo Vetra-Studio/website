@@ -1,4 +1,4 @@
-import ConsultationSection from './Footer/FooterConsultationSection';
+import FooterCTA from './Footer/FooterCTA';
 import FooterContact from './Footer/FooterContact';
 import Navbar from './Navbar/Navbar';
 import Image from 'next/image';
@@ -27,23 +27,29 @@ export default function Footer() {
         <footer className="p-4 sm:w-17/20 mx-auto w-full">
             
 
-            <ConsultationSection className="py-12 px-4 md:py-16 md:px-8 border-y-2 border-gray-700 bg-background flex flex-col items-center text-center gap-8 md:gap-10" />
+            <FooterCTA className="py-12 px-4 md:py-16 md:px-8
+                                  border-y border-gray-700
+                                  bg-background
+                                  flex flex-col
+                                  items-center text-center
+                                  gap-8 md:gap-10
+                                  "/>
 
             <div className="border-b border-t border-gray-700">
-            <div className="flex-col flex justify-between py-12 lg:px-8 lg:flex-row">
+            <div className="flex-col flex justify-between py-8 lg:px-8 lg:flex-row">
                 <div className="flex-col text-center space-y-4 lg:text-left">
-                    <h2 className="text-5xl"><span className="font-bold">Vetra</span> Studio</h2>
-                    <p className="text-xl text-gray-400">Creiamo Esperienze Digitali <br className="hidden lg:block" /> di Successo.</p>
+                    <h2 className="text-2xl md:text-5xl"><span className="font-bold">Vetra</span> Studio</h2>
+                    <p className="text-xl text-gray-400">Creiamo Esperienze Digitali <br /> di Successo.</p>
                     <div className="flex space-x-4 justify-center lg:justify-between lg:space-x-0">
                         {socialLinks.map((link) => (
                             <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name} className="text-gray-400 hover:text-white pt-4">
-                                <Image src={link.icon} alt={link.name} width={40} height={40} />
+                                <Image src={link.icon} alt={link.name} width={40} height={40} className="size-7 md:size-10"/>
                             </a>
                         ))}
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2
+                <div className="grid grid-cols-[1fr_auto_1fr]
                                 border-y-2 border-gray-700
                                 my-8 py-8
                                 text-left
@@ -53,13 +59,15 @@ export default function Footer() {
                                 lg:w-1/3
                                 lg:justify-between
                                 ">
-                    <div className="px-[10%] border-r-2 border-gray-700 lg:border-0 lg:px-0 space-y-4">
-                        <h3 className="text-sm font-bold uppercase">Navigazione</h3>
+                    <div className="justify-self-center border-gray-700 pr-8 lg:pr-0 lg:border-0 space-y-4">
+                        <h3 className="text-lg font-bold uppercase">Navigazione</h3>
                         <Navbar className="flex-col text-gray-400 space-y-4" linkClassName="text-gray-400 hover:text-gray-200" />
                     </div>
 
-                    <div className="px-[10%] space-y-4 lg:px-0">
-                        <h3 className="text-sm font-bold uppercase">Link Utili</h3>
+                    <span className="h-full border-r-2 border-gray-700 lg:hidden"></span>
+
+                    <div className="justify-self-center space-y-4 pl-8 lg:pl-0">
+                        <h3 className="text-lg font-bold uppercase">Link Utili</h3>
                         <ul className="space-y-4">
                             {usefulLinks.map((link) => (
                                 <li key={link.name}>
@@ -73,7 +81,7 @@ export default function Footer() {
                 </div>
 
                 <div className="space-y-4 flex-col flex items-center justify-center lg:block">
-                    <h3 className="text-center lg:text-left text-sm font-bold uppercase">Contatti</h3>
+                    <h3 className="text-left text-lg font-bold uppercase">Contatti</h3>
                     <FooterContact className="flex-col flex space-y-4 lg:block"/>
                 </div>
             </div>

@@ -41,9 +41,9 @@ export default function MobileMenu({
         }}
     >
     
-    <main className="flex h-screen flex-col text-3xl pt-24 p-8 space-y-20 text-center whitespace-nowrap overflow-hidden text-ellipsis">
+    <main className="flex h-screen flex-col text-2xl pt-24 p-8 space-y-10 text-center whitespace-nowrap overflow-hidden text-ellipsis">
 
-      <Navbar className="flex flex-col space-y-20 text-3xl" onClick={onClose}/>
+      <Navbar className="flex flex-col space-y-10 text-2xl" onClick={onClose}/>
 
       <Link href="/contattaci" className="md:hidden block">
         <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">
