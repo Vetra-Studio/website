@@ -11,12 +11,13 @@ export default function Header() {
   const [hidden, setHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  let lastScroll = 0;
+  
 
   useEffect(() => {
+    let lastScroll = 0;
     const onScroll = () => {
       const current = window.scrollY;
-
+      
       if (current > lastScroll && current > 75) {
         setHidden(true);
       } else {
@@ -26,15 +27,22 @@ export default function Header() {
       lastScroll = current;
     };
 
-    window.addEventListener("scroll", onScroll);
+    if (!isOpen) {
+        window.addEventListener("scroll", onScroll);
+        document.body.style.overflowY = '';
+    } 
     
     return () => {
       window.removeEventListener("scroll", onScroll);
+      document.body.style.overflowY = 'hidden';
     };
-  }, []);
+
+    
+  }, [isOpen]);
+
   return (
     <header className={`bg-background sticky
-          flex items-center justify-between px-12 border-b border-gray-700 top-0 py-4.25
+          relative z-50 flex items-center justify-between px-12 border-b border-gray-700 top-0 py-4.25
           transition-transform duration-300 ease-in-out 
           ${hidden ? "-translate-y-full" : "translate-y-0"}
           `}>
