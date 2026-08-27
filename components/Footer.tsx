@@ -1,4 +1,5 @@
-import FooterContact from './FooterContact';
+import ConsultationSection from './Footer/FooterConsultationSection';
+import FooterContact from './Footer/FooterContact';
 import Navbar from './Navbar/Navbar';
 import Image from 'next/image';
 import Link from 'next/link'
@@ -24,6 +25,9 @@ export default function Footer() {
 
     return (
         <footer className="p-4 sm:w-17/20 mx-auto w-full">
+            
+
+            <ConsultationSection className="py-12 px-4 md:py-16 md:px-8 border-y-2 border-gray-700 bg-background flex flex-col items-center text-center gap-8 md:gap-10" />
 
             <div className="border-b border-t border-gray-700">
             <div className="flex-col flex justify-between py-12 lg:px-8 lg:flex-row">

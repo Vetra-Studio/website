@@ -1,3 +1,12 @@
+const hamburgerButtonLines = {
+  generalClassName: 'absolute h-0.5 w-6 bg-foreground transition-transform duration-300',
+  lines: [
+    { isOpenTrue: 'rotate-45', isOpenFalse: '-translate-y-2' },
+    { isOpenTrue: 'opacity-0', isOpenFalse: 'opacity-100' },
+    { isOpenTrue: '-rotate-45', isOpenFalse: 'translate-y-2' },
+  ],
+};
+
 interface HamburgerButtonProps {
   isOpen: boolean;
   className?: string;
@@ -16,23 +25,14 @@ export default function HamburgerButton({
       aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
       aria-expanded={isOpen}
     >
-      <span
-        className={`absolute h-0.5 w-6 bg-white transition-transform duration-300 ${
-          isOpen ? "rotate-45" : "-translate-y-2"
-        }`}
-      />
-
-      <span
-        className={`absolute h-0.5 w-6 bg-white transition-opacity duration-300 ${
-          isOpen ? "opacity-0" : "opacity-100"
-        }`}
-      />
-
-      <span
-        className={`absolute h-0.5 w-6 bg-white transition-transform duration-300 ${
-          isOpen ? "-rotate-45" : "translate-y-2"
-        }`}
-      />
+      {hamburgerButtonLines.lines.map((line, index) => (
+        <span
+          key={index}
+          className={`${hamburgerButtonLines.generalClassName} ${
+            isOpen ? line.isOpenTrue : line.isOpenFalse
+          }`}
+        />
+      ))}
     </button>
   );
 }
