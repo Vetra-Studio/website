@@ -1,7 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0b10' },
+  ],
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.vetrastudio.org'),
@@ -14,15 +22,15 @@ export const metadata: Metadata = {
   category: 'technology',
 
   openGraph: {
-    title: 'Vetra Studio',
-    description: 'Creiamo Esperienze Digitali di Successo.',
+    title: 'Vetra Studio — Creiamo Esperienze Digitali di Successo.',
+    description: 'Creiamo Esperienze Digitali di Successo. Realizziamo siti web, e-commerce e applicazioni web su misura per aziende e professionisti.',
     url: 'https://www.vetrastudio.org',
     siteName: 'Vetra Studio',
     images: [
       {
         url: '/og-image.png',
-        width: 1731,
-        height: 909,
+        width: 1200,
+        height: 630,
         alt: 'Vetra Studio',
       },
     ],
@@ -41,11 +49,21 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Vetra Studio — Realizzazione siti web',
-    description: 'Creiamo Esperienze Digitali di Successo.',
+    title: 'Vetra Studio — Creiamo Esperienze Digitali di Successo.',
+    description: 'Creiamo Esperienze Digitali di Successo. Realizziamo siti web, e-commerce e applicazioni web su misura per aziende e professionisti.',
+    //creator: '@vetrastudio',
     images: ['/og-image.png'],
   },
 
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Vetra Studio',
+  url: 'https://www.vetrastudio.org',
+  logo: 'https://www.vetrastudio.org/vetra-icon.svg',
+  description: 'Creiamo Esperienze Digitali di Successo.',
 }
 
 export default function RootLayout({
@@ -55,6 +73,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
+      <head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(jsonLd),
+            }}
+          />
+      </head>
+      
       <body className="min-h-screen grid grid-rows-[auto_1fr_auto]">
         <Header />
 
