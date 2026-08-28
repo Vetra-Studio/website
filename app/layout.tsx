@@ -1,7 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0b10' },
+  ],
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.vetrastudio.org'),
@@ -43,9 +51,19 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Vetra Studio — Realizzazione siti web',
     description: 'Creiamo Esperienze Digitali di Successo.',
+    //creator: '@vetrastudio',
     images: ['/og-image.png'],
   },
 
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Vetra Studio',
+  url: 'https://www.vetrastudio.org',
+  logo: 'https://www.vetrastudio.org/vetra-icon.svg',
+  description: 'Creiamo Esperienze Digitali di Successo.',
 }
 
 export default function RootLayout({
@@ -55,6 +73,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
+      <head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(jsonLd),
+            }}
+          />
+      </head>
+      
       <body className="min-h-screen grid grid-rows-[auto_1fr_auto]">
         <Header />
 
