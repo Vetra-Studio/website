@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   category: 'technology',
 
   openGraph: {
-    title: 'Vetra Studio',
-    description: 'Creiamo Esperienze Digitali di Successo.',
+    title: 'Vetra Studio — Creiamo Esperienze Digitali di Successo.',
+    description: 'Creiamo Esperienze Digitali di Successo. Realizziamo siti web, e-commerce e applicazioni web su misura per aziende e professionisti.',
     url: 'https://www.vetrastudio.org',
     siteName: 'Vetra Studio',
     images: [
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Vetra Studio — Realizzazione siti web',
-    description: 'Creiamo Esperienze Digitali di Successo.',
+    title: 'Vetra Studio — Creiamo Esperienze Digitali di Successo.',
+    description: 'Creiamo Esperienze Digitali di Successo. Realizziamo siti web, e-commerce e applicazioni web su misura per aziende e professionisti.',
     //creator: '@vetrastudio',
     images: ['/og-image.png'],
   },
