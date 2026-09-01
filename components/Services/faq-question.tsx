@@ -58,17 +58,7 @@ export default function FaqSection({
 
   return (
     <section className="w-full max-w-4xl mx-auto px-4 py-12 flex flex-col items-center gap-10">
-      {/* Definizioni SVG per il gradiente dell'icona */}
-      <svg className="hidden" aria-hidden="true">
-        <defs>
-          <linearGradient id="faq-plus-gradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--color-orange-gradient-start)" />
-            <stop offset="100%" stopColor="var(--color-orange-gradient-end)" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      {/* Titolo con gradiente della tua palette */}
+      {/* Titolo */}
       <h2 className="text-5xl md:text-7xl font-semibold text-center bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent">
         {title}
       </h2>
@@ -82,9 +72,7 @@ export default function FaqSection({
             <div
               key={item.id}
               className={`bg-panel-background border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
-                isOpen
-                  ? 'border-orange-gradient-start'
-                  : 'border-stroke-primary'
+                isOpen ? 'border-orange-gradient-start' : 'border-stroke-primary'
               }`}
             >
               <button
@@ -92,21 +80,28 @@ export default function FaqSection({
                 onClick={() => toggleItem(item.id)}
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${item.id}`}
-                className="w-full flex justify-between items-center p-6 md:p-8 text-left text-xl md:text-2xl font-semibold text-foreground transition-colors cursor-pointer select-none"
+                className="w-full flex justify-between items-center p-6 md:p-8 text-left text-xl md:text-2xl font-semibold text-foreground"
               >
                 <span className="pr-4">{item.question}</span>
-                <div
+
+                {/* SVG diretto senza div wrapper */}
+                <svg
+                  viewBox="0 0 50 50"
                   className={`w-9 h-9 shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-45' : 'rotate-0'
+                    isOpen ? 'rotate-45' : ''
                   }`}
                 >
-                  <svg viewBox="0 0 50 50" fill="none" className="w-full h-full block">
-                    <path
-                      d="M22 0H28V22H50V28H28V50H22V28H0V22H22V0Z"
-                      fill="url(#faq-plus-gradient)"
-                    />
-                  </svg>
-                </div>
+                  <defs>
+                    <linearGradient id="faq-plus-gradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="var(--color-orange-gradient-start)" />
+                      <stop offset="100%" stopColor="var(--color-orange-gradient-end)" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M22 0H28V22H50V28H28V50H22V28H0V22H22V0Z"
+                    fill="url(#faq-plus-gradient)"
+                  />
+                </svg>
               </button>
 
               {isOpen && (

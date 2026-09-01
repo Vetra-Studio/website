@@ -1,6 +1,6 @@
 // app/servizi/page.tsx
-import ServiceDescription from "@/components/Services/service-description";
-import Sculpture from "@/components/Services/sculpture";
+import ServiceDescription from "@/components/Services/description";
+import Sculpture from "@/components/Icon";
 import Choice from "@/components/Services/choice";
 import FaqSection from "@/components/Services/faq-question";
 import PricingPlans from "@/components/Services/pakets";
