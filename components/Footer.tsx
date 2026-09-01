@@ -82,8 +82,8 @@ export default function Footer() {
             <div className="flex-col sm:flex-row flex justify-between items-center pb-4 pt-10 lg:px-16">
                 <p className="text-gray-400" suppressHydrationWarning>&copy; {new Date().getFullYear()} Vetra Studio. All rights reserved.</p>
                 <div className="flex">
-                    <Link href="/privacy" className="text-gray-400 hover:text-gray-200 pr-4">Privacy Policy</Link>
-                    <Link href="/cookie-policy" className="text-gray-400 hover:text-gray-200">Cookie Policy</Link>
+                    <Link href="/privacy-policy" className="text-gray-400 hover:text-gray-200 pr-4">Privacy Policy</Link>
+                    <Link href="/cookies-policy" className="text-gray-400 hover:text-gray-200">Cookie Policy</Link>
                 </div>
             </div>
 
