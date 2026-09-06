@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { MarqueeTech } from "@/components/ui/MarqueeTech"
+import Link from "next/link";
+import { Eye, ListCheck, MousePointerClick, FingerprintPattern } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Chi Siamo',
@@ -56,7 +58,7 @@ export default function AboutUs() {
         <div className="grid grid-cols-2">
 
           <div className="flex gap-4 pb-2 pt-6 pr-4">
-            <div></div>
+            <div><Eye /></div>
             <div>
               <h3 className="block font-bold">Più visibilità</h3>
               <p>Una presenza online curata permette a un'attività di raggiungere più utenti.</p>
@@ -64,7 +66,7 @@ export default function AboutUs() {
           </div>
 
           <div className="flex gap-4 pb-2 pt-6 pr-4">
-            <div></div>
+            <div><ListCheck /></div>
             <div>
               <h3 className="block font-bold">Più chiarezza</h3>
               <p>Struttura e contenuti devono rendere immediato capire chi sei, cosa offri e come contattarti.</p>
@@ -72,7 +74,7 @@ export default function AboutUs() {
           </div>
 
           <div className="flex gap-4 pb-2 pt-6 pr-4">
-            <div></div>
+            <div><MousePointerClick /></div>
             <div>
               <h3 className="block font-bold">Un'esperienza migliore</h3>
               <p>Prestazioni, responsive design e usabilità contribuiscono a rendere il sito efficace su ogni dispositivo.</p>
@@ -80,7 +82,7 @@ export default function AboutUs() {
           </div>
           
           <div className="flex gap-4 pb-2 pt-6 pr-4">
-            <div></div>
+            <div><FingerprintPattern /></div>
             <div>
               <h3 className="block font-bold">Una storia unica</h3>
               <p>Ogni progetto ha un'anima propria che trasformiamo in un'identità digitale capace di rappresentarlo.</p>
@@ -113,9 +115,9 @@ export default function AboutUs() {
               sviluppo e comunicazione lavorano nella stessa direzione.
             </p>
           </div>
-          <button className="">
+          <Link href="/contatti" className="inline-block border-2 p-4 rounded-lg border-orange-gradient-start cursor-pointer">
             Raccontaci la tua storia →
-          </button>
+          </Link>
         </div>
 
         <div>
@@ -152,9 +154,9 @@ export default function AboutUs() {
               sviluppo e comunicazione lavorano nella stessa direzione.
             </p>
           </div>
-          <button className="">
-            Scopri i nostri servizi →
-          </button>
+          <Link href="/servizi" className="inline-block border-2 p-4 rounded-lg border-orange-gradient-start cursor-pointer">
+              Scopri i nostri servizi →
+          </Link>
         </div>
       </div>
 

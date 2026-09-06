@@ -3,22 +3,51 @@ import Image from "next/image"
 
 const technologies = [
   {
-    name: "Next.js",
-    icon: "/tech/nextdotjs.svg",
-    darkIcon: "/tech/nextdotjs-dark.svg",
+    name: "HTML5",
+    icon: "/tech/html5.svg"
+  },
+  {
+    name: "CSS3",
+    icon: "/tech/css3.svg"
+  },
+  {
+    name: "JavaScript",
+    icon: "/tech/javascript.svg"
+  },
+  {
+    name: "TypeScript",
+    icon: "/tech/typescript.svg"
   },
   {
     name: "React",
     icon: "/tech/react.svg"
   },
   {
+    name: "Next.js",
+    icon: "/tech/nextdotjs.svg",
+    darkIcon: "/tech/nextdotjs-dark.svg"
+  },
+  {
     name: "Tailwind CSS",
     icon: "/tech/tailwindcss.svg"
   },
   {
-    name: "TypeScript",
-    icon: "/tech/typescript.svg"
+    name: "Node.js",
+    icon: "/tech/nodedotjs.svg"
   },
+  {
+    name: "WordPress",
+    icon: "/tech/wordpress.svg"
+  },
+  {
+    name: "Penpot",
+    icon: "/tech/penpot.svg",
+    darkIcon: "/tech/penpot-dark.svg"
+  },
+  {
+    name: "Cloudflare",
+    icon: "/tech/cloudflare.svg"
+  }
 ];
 
 const TechCard = ({
@@ -33,7 +62,7 @@ const TechCard = ({
   return (
     <figure
       className="
-        relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4
+        relative h-full w-64 overflow-hidden rounded-xl border p-4
         bg-stroke-primary border-stroke-secondary hover:bg-stroke-primary/[.15]
       "
     >
