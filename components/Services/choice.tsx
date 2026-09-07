@@ -10,7 +10,7 @@ export interface ElementChoice {
 const elementiDefault: ElementChoice[] = [
   {
     id: 1,
-    iconSrc: "/esperience.svg",
+    iconSrc: "/experience.svg",
     title: "Esperienza",
     description: "Anni di esperienza",
   },
