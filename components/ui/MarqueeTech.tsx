@@ -62,7 +62,7 @@ const TechCard = ({
   return (
     <figure
       className="
-        relative h-full w-64 overflow-hidden rounded-xl border p-4
+        relative h-full w-48 sm:w-64 overflow-hidden rounded-xl border p-4
         bg-stroke-primary border-stroke-secondary hover:bg-stroke-primary/[.15]
       "
     >
