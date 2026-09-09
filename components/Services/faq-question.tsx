@@ -57,49 +57,62 @@ export default function FaqSection({
   };
 
   return (
-    <section className="w-full max-w-4xl mx-auto px-4 py-12 flex flex-col items-center gap-10">
-      {/* Titolo */}
-      <h2 className="text-5xl md:text-7xl font-semibold text-center bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent">
+    <section className="w-full max-w-4xl 
+                        mx-auto 
+                        px-4 py-12
+                        space-y-10"
+                        >
+  
+      <h2 className="text-center
+                     text-5xl md:text-7xl font-semibold  
+                     bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent"
+                     >
         {title}
       </h2>
 
-      {/* Lista FAQ */}
-      <div className="w-full flex flex-col gap-5">
+      <div className="space-y-5">
         {items.map((item) => {
           const isOpen = openId === item.id;
 
           return (
-            <div
+            <article
               key={item.id}
-              className={`bg-panel-background border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
-                isOpen ? 'border-orange-gradient-start' : 'border-stroke-primary'
-              }`}
-            >
+              className={`bg-panel-background 
+                          border-2 rounded-2xl 
+                          overflow-hidden transition-colors duration-300 
+                          ${ isOpen ? 'border-orange-gradient-start' : 'border-stroke-primary'}`
+                        }
+              >
               <button
                 type="button"
                 onClick={() => toggleItem(item.id)}
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${item.id}`}
-                className="w-full flex justify-between items-center p-6 md:p-8 text-left text-xl md:text-2xl font-semibold text-foreground"
+                className="flex justify-between items-center text-left
+                           w-full
+                           p-6 md:p-8 
+                           text-xl md:text-2xl font-semibold text-foreground"
               >
                 <span className="pr-4">{item.question}</span>
 
-                {/* SVG diretto senza div wrapper */}
                 <svg
                   viewBox="0 0 50 50"
-                  className={`w-9 h-9 shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-45' : ''
-                  }`}
+                  className={`w-9 h-9 shrink-0 
+                              transition-transform duration-300 
+                              ${isOpen ? 'rotate-45' : ''}`
+                            }
                 >
                   <defs>
-                    <linearGradient id="faq-plus-gradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="var(--color-orange-gradient-start)" />
-                      <stop offset="100%" stopColor="var(--color-orange-gradient-end)" />
-                    </linearGradient>
+                    <defs>
+                      <linearGradient id={`faq-grad-${item.id}`} x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" className="[stop-color:theme(colors.orange-gradient-start)]" />
+                        <stop offset="100%" className="[stop-color:theme(colors.orange-gradient-end)]" />
+                      </linearGradient>
+                    </defs>
                   </defs>
                   <path
                     d="M22 0H28V22H50V28H28V50H22V28H0V22H22V0Z"
-                    fill="url(#faq-plus-gradient)"
+                    fill={`url(#faq-grad-${item.id})`}
                   />
                 </svg>
               </button>
@@ -107,15 +120,18 @@ export default function FaqSection({
               {isOpen && (
                 <div
                   id={`faq-answer-${item.id}`}
-                  className="px-6 pb-6 md:px-8 md:pb-8 text-light-gray-text text-base md:text-lg leading-relaxed"
+                  className="px-6 pb-6 md:px-8 md:pb-8 
+                  text-light-gray-text text-base md:text-lg 
+                  leading-relaxed"
                 >
                   {item.answer}
                 </div>
               )}
-            </div>
+            </article>
           );
         })}
       </div>
+
     </section>
   );
 }

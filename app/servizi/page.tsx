@@ -16,10 +16,7 @@ export default function ServiziPage() {
         <ServiceDescription />
 
         {/* Colonna Destra: Grafica Logo con Sfocatura */}
-        <div className="flex justify-center">
-          <Sculpture />
-        </div>
-
+        <Sculpture />
       </div>
 
       {/* Sezione Perché Scegliere Noi */}

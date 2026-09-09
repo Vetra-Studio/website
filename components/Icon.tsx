@@ -4,14 +4,14 @@ interface SculptureProps {
   className?: string;
 }
 
-export default function Sculpture({ className = "" }: SculptureProps) {
+export default function Sculpture({ className }: SculptureProps) {
   return (
     /* L'aggiunta di 'isolate' chiude gli effetti interni */
-    <div className={`relative isolate flex items-center justify-center w-full max-w-[600px] aspect-square ${className}`}>
-      
+    <div className={`relative flex items-center justify-center w-full max-w-[600px] aspect-square ${className}`}>
+  
       {/* 1. Effetto Bagliore Sfocato */}
       <div 
-        className="absolute inset-0 rounded-full bg-orange-gradient-start/30 blur-[100px] pointer-events-none"
+        className="absolute inset-0 rounded-full bg-orange-gradient-start/30 blur-[100px]"
         aria-hidden="true"
       />
 

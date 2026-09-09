@@ -30,38 +30,55 @@ const SERVICES: Service[] = [
 
 export default function OptionalServices() {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-8">
+    <section className="max-w-7xl 
+                        mx-auto 
+                        px-4 py-8 
+                        space-y-8 md:space-y-12">
       {/* Separatore */}
-      <hr className="border-t-2 border-stroke-secondary/50 mb-8 md:mb-12" />
+      <hr className="border-t-2 
+                     border-stroke-secondary/50" 
+                     />
 
       {/* Titolo Sezione */}
-      <h2 className="text-2xl md:text-4xl font-semibold text-center mb-8 md:mb-12 bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent">
-        SERVIZI AGGIUNTIVI (OPZIONALI)
-      </h2>
+      <p className="text-center
+                    text-2xl md:text-4xl font-semibold uppercase tracking-wider
+                    bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent"
+                    >
+        Servizi Aggiuntivi (Opzionali)
+      </p>
 
       {/* Griglia Schede */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid 
+                      grid-cols-1 md:grid-cols-3 
+                      gap-6 lg:gap-8"
+                      >
         {SERVICES.map((service) => (
           <article
             key={service.id}
-            className="bg-panel-background/35 border-2 border-stroke-primary rounded-xl p-6 lg:p-8 flex flex-col items-center"
+            className="flex flex-col items-center text-center
+                       bg-panel-background/35 
+                       border-2 border-stroke-primary rounded-xl 
+                       p-6 lg:p-8  space-y-3"
           >
-            {/* Icona senza div wrapper */}
             <Image
               src={service.icona}
               alt={service.titolo}
               width={80}
               height={80}
-              className="mb-6 object-contain"
+              className="pb-3 object-contain"
             />
 
-            {/* Titolo */}
-            <h3 className="text-xl lg:text-2xl font-semibold text-foreground mb-3 text-center leading-tight">
+            <p className="text-xl lg:text-2xl font-semibold 
+                          text-foreground 
+                          leading-tight"
+                          >
               {service.titolo}
-            </h3>
+            </p>
 
-            {/* Descrizione */}
-            <p className="text-base text-light-gray-text text-center leading-relaxed">
+            <p className="text-base 
+                          text-light-gray-text 
+                          leading-relaxed"
+                          >
               {service.descrizione}
             </p>
           </article>

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface PricingPlan {
   id: string;
   name: string;
@@ -91,38 +89,53 @@ const plans: PricingPlan[] = [
 ];
 
 const badgeBgMap = {
-  orange: "bg-[var(--color-orange-discount)]",
-  blue: "bg-[var(--color-blue-discount)]",
-  red: "bg-[var(--color-red-discount)]",
+  orange: "bg-orange-discount",
+  blue: "bg-blue-discount",
+  red: "bg-red-discount",
 };
 
 export default function PricingSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16">
+    <section className="max-w-7xl 
+                        mx-auto 
+                        px-4 py-16 space-y-12"
+                        >
       {/* Intestazione Sezione */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent">
+      <header className="text-center space-y-3">
+        <p className="text-4xl font-bold tracking-tight 
+                      bg-gradient-to-r from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent"
+                      >
           Scegli il tuo Piano
-        </h2>
-        <p className="mt-3 text-light-gray-text text-lg">
+        </p>
+        <p className="text-light-gray-text text-lg">
           Trasparente, flessibile e senza costi nascosti.
         </p>
-      </div>
+      </header>
 
       {/* Griglia Piani */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid 
+                      grid-cols-1 md:grid-cols-3 
+                      gap-8 items-stretch"
+                      >
         {plans.map((plan) => (
-          <div
+          <article
             key={plan.id}
-            className={`relative flex flex-col justify-between p-8 rounded-2xl bg-panel-background border transition-all duration-300 ${
+            className={`relative flex flex-col justify-between 
+                        p-8 
+                        border rounded-2xl 
+                        bg-panel-background  
+                        transition-all duration-300 ${
               plan.isPopular
-                ? "border-orange-gradient-start shadow-lg shadow-orange-gradient-start/10 scale-105"
+                ? "border-orange-gradient-start shadow-lg shadow-orange-gradient-start/10 md:-translate-y-2"
                 : "border-stroke-primary"
             }`}
           >
             {plan.discountTag && (
               <span
-                className={`absolute -top-3 right-6 px-3 py-1 rounded-full text-xs font-bold text-white tracking-wider uppercase ${
+                className={`absolute -top-3 right-6 
+                            px-3 py-1 
+                            rounded-full 
+                            text-xs font-bold text-white tracking-wider uppercase ${
                   badgeBgMap[plan.discountTag.variant]
                 }`}
               >
@@ -130,19 +143,20 @@ export default function PricingSection() {
               </span>
             )}
 
-            <div>
-              <h3 className="text-2xl font-bold">{plan.name}</h3>
+            <div className="space-y-4 mb-8">
+              <div>
+                <p className="text-2xl font-bold text-foreground">{plan.name}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-orange-gradient-start mt-1">
+                  {plan.subtitle}
+                </p>
+              </div>
 
-              <p className="text-xs font-semibold uppercase tracking-wider text-orange-gradient-start mt-1 mb-3">
-                {plan.subtitle}
-              </p>
-
-              <p className="text-sm text-light-gray-text mb-6 min-h-[40px]">
+              <p className="text-sm text-light-gray-text min-h-[40px]">
                 {plan.description}
               </p>
 
-              <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-sm text-light-gray-text">A partire da: </span>
+              <div className="flex items-baseline gap-2 pt-2">
+                <span className="text-sm text-light-gray-text">A partire da:</span>
                 <span className="text-4xl font-extrabold text-green-text">
                   {plan.price}
                 </span>
@@ -154,7 +168,7 @@ export default function PricingSection() {
               </div>
 
               {/* Lista Caratteristiche */}
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 pt-4">
                 {plan.features.map((feature, idx) => {
                   const isDisabled =
                     plan.includedCount !== undefined && idx >= plan.includedCount;
@@ -168,7 +182,8 @@ export default function PricingSection() {
                     >
                       <img
                         src={isDisabled ? "/x-mark.svg" : "/tick-mark.svg"}
-                        alt={isDisabled ? "Non incluso" : "Incluso"}
+                        alt=""
+                        aria-hidden="true"
                         className="w-5 h-5 shrink-0"
                       />
                       <span>{feature}</span>
@@ -179,10 +194,18 @@ export default function PricingSection() {
             </div>
 
             {/* Bottone d'azione */}
-            <button className="w-full py-3 px-6 rounded-xl font-semibold border border-orange-btn-border-color bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end hover:opacity-90 active:scale-[0.98] transition-transform">
+            <button 
+              type="button" 
+              className="w-full 
+                         py-3 px-6 
+                         font-semibold
+                         bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end 
+                         border border-orange-btn-border-color rounded-xl
+                         hover:opacity-90 active:scale-[0.98] transition-transform"
+            >
               {plan.ctaText}
             </button>
-          </div>
+          </article>
         ))}
       </div>
     </section>
