@@ -1,4 +1,3 @@
-import ConsultationSection from './Footer/FooterConsultationSection';
 import FooterContact from './Footer/FooterContact';
 import Navbar from './Navbar/Navbar';
 import Image from 'next/image';
@@ -8,6 +7,7 @@ import FacebookIcon from '@/public/facebook.svg'
 import InstagramIcon from '@/public/instagram.svg'
 import LinkedinIcon from '@/public/linkedin.svg'
 import XIcon from '@/public/x.svg'
+import FooterCTA from './Footer/FooterCTA';
 
 export default function Footer() {
     const socialLinks = [
@@ -25,35 +25,49 @@ export default function Footer() {
 
     return (
         <footer className="p-4 sm:w-17/20 mx-auto w-full">
-            
 
-            <ConsultationSection className="py-12 px-4 md:py-16 md:px-8 border-y-2 border-gray-700 bg-background flex flex-col items-center text-center gap-8 md:gap-10" />
+            <FooterCTA
+                className="
+                    flex flex-col items-center gap-8
+                    py-12 px-4
+                    text-center
+                    border-t border-stroke-primary
+                    bg-background
+                    md:gap-10 md:py-16 md:px-8"
 
-            <div className="border-b border-t border-gray-700">
+                ButtonClassName="
+                    inline-flex items-center justify-center
+                    px-6 py-4
+                    text-sm font-bold uppercase tracking-wider text-foreground
+                    bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end
+                    border-2 border-orange-btn-border-color rounded-2xl
+                    shadow-lg
+                    transition-all duration-300
+                    hover:brightness-125
+                    active:scale-95
+                    select-none cursor-pointer
+                    md:px-10 md:py-5 md:text-lg"
+            />
+
+            <div className="border-b border-t border-stroke-primary">
             <div className="flex-col flex justify-between py-12 lg:px-8 lg:flex-row">
                 <div className="flex-col text-center space-y-4 lg:text-left">
                     <h2 className="text-5xl"><span className="font-bold">Vetra</span> Studio</h2>
                     <p className="text-xl text-gray-400">Creiamo Esperienze Digitali <br className="hidden lg:block" /> di Successo.</p>
                     <div className="flex space-x-4 justify-center lg:justify-between lg:space-x-0">
                         {socialLinks.map((link) => (
-                            <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name} className="text-gray-400 hover:text-white pt-4">
+                            <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer"
+                               aria-label={link.name} className="text-gray-400 hover:text-white pt-4">
                                 <Image src={link.icon} alt={link.name} width={40} height={40} />
                             </a>
                         ))}
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2
-                                border-y-2 border-gray-700
-                                my-8 py-8
-                                text-left
-                                lg:flex
-                                lg:border-0
-                                lg:my-0 lg:py-0
-                                lg:w-1/3
-                                lg:justify-between
+                <div className="grid grid-cols-2 border-y border-stroke-primary my-8 py-8 text-left
+                                lg:flex lg:border-0 lg:my-0 lg:py-0 lg:w-1/3 lg:justify-between
                                 ">
-                    <div className="px-[10%] border-r-2 border-gray-700 lg:border-0 lg:px-0 space-y-4">
+                    <div className="px-[10%] border-r border-stroke-primary lg:border-0 lg:px-0 space-y-4">
                         <h3 className="text-sm font-bold uppercase">Navigazione</h3>
                         <Navbar className="flex-col text-gray-400 space-y-4" linkClassName="text-gray-400 hover:text-gray-200" />
                     </div>
@@ -83,7 +97,7 @@ export default function Footer() {
                 <p className="text-gray-400" suppressHydrationWarning>&copy; {new Date().getFullYear()} Vetra Studio. All rights reserved.</p>
                 <div className="flex">
                     <Link href="/privacy-policy" className="text-gray-400 hover:text-gray-200 pr-4">Privacy Policy</Link>
-                    <Link href="/cookies-policy" className="text-gray-400 hover:text-gray-200">Cookie Policy</Link>
+                    <Link href="/cookie-policy" className="text-gray-400 hover:text-gray-200">Cookie Policy</Link>
                 </div>
             </div>
 

@@ -34,7 +34,7 @@ export default function MobileMenu({
             md:hidden
             transition-[width] ease-in-out
             ${isOpen ? "w-full" : "w-0"}
-            ${isAnimating ? "border-l border-gray-700" : "border-0"}
+            ${isAnimating ? "border-l border-stroke-primary" : "border-0"}
         `}
         style={{
           transitionDuration: `${animationDuration}ms`,

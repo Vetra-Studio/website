@@ -42,7 +42,7 @@ export default function Header() {
 
   return (
     <header className={`bg-background sticky
-          relative z-50 flex items-center justify-between px-12 border-b border-gray-700 top-0 py-4.25
+          relative z-50 flex items-center justify-between px-12 border-b border-stroke-primary top-0 py-4.25
           transition-transform duration-300 ease-in-out 
           ${hidden ? "-translate-y-full" : "translate-y-0"}
           `}>
