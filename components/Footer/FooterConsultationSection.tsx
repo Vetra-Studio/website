@@ -33,7 +33,7 @@ export default function ConsultationSection({
           className="inline-flex items-center justify-center 
                      px-6 md:px-10 py-4 md:py-5  
                      font-bold text-sm md:text-lg uppercase tracking-wider text-foreground 
-                     bg-gradient-to-b from-orange-btn-gradient-start to--orange-btn-gradient-end 
+                     bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end 
                      border-2 border-orange-btn-border-color shadow-lg rounded-2xl
                      hover:brightness-125 active:scale-95 
                      transition-all duration-300 
