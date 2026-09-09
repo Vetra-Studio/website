@@ -1,15 +1,21 @@
-import Link from 'next/link';
-import { Metadata } from 'next';
+import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Nome Azienda',
-  description: 'Informativa sulla privacy e gestione dei dati personali.',
-};
+  title: 'Privacy Policy',
+  description: 'Informativa sulla privacy di Vetra Studio.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
-export default function PrivacyPolicyPage() {
+// da sistemare guardando questo sito: https://www.iubenda.com/it/generatore-di-privacy-e-cookie-policy/
+
+export default function PrivacyPolicy() {
   return (
-    <main className="mx-auto w-full max-w-4xl px-4 py-10 md:py-16">
-      <article className="flex flex-col gap-8 rounded-[20px] border border-stroke-primary bg-panel-background/35 p-6 backdrop-blur-md md:p-10">
+    <main className="mx-auto w-full max-w-4xl py-10 md:py-16">
+      <article className="flex flex-col gap-8 p-6 md:p-10">
         
         {/* Header */}
         <header className="border-b border-stroke-primary/50 pb-6">
@@ -17,7 +23,7 @@ export default function PrivacyPolicyPage() {
             Informativa sulla Privacy
           </h1>
           <p className="mt-2 text-xs text-light-gray-text md:text-sm">
-            Ultimo aggiornamento: {new Date().toLocaleDateString('it-IT')}
+            Ultimo aggiornamento: 09/09/2026
           </p>
         </header>
 
@@ -82,14 +88,14 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* Footer della scheda */}
-        <footer className="border-t border-stroke-primary/50 pt-6">
+        <div className="pt-6">
           <Link
             href="/"
             className="inline-flex items-center text-sm font-semibold text-orange-gradient-start hover:underline"
           >
             ← Torna alla Home
           </Link>
-        </footer>
+        </div>
 
       </article>
     </main>
