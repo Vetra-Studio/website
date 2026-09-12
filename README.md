@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vetra Studio — Website
+
+<div align="center">
+
+**Official website of Vetra Studio**
+
+A modern, responsive website built with `Next.js`, `React`, `TypeScript` and `Tailwind CSS`.
+
+</div>
+
+---
+
+## Overview
+
+This repository contains the source code of the official **Vetra Studio** website.
+
+It includes the application's pages, reusable components, styling, static assets, metadata and configuration required to develop and build the website.
+
+## Tech Stack
+
+| Technology | Purpose |
+| --- | --- |
+| `Next.js` | React framework and application architecture |
+| `React` | UI development |
+| `TypeScript` | Type-safe development |
+| `Tailwind CSS` | Utility-first styling |
+| `OpenNext` | Next.js deployment adapter |
+| `Cloudflare Workers` | Production & Preview runtime |
 
 ## Getting Started
 
-First, run the development server:
+### Requirements
+
+- `Node.js`
+- `npm`
+
+### Installation
+
+Clone the repository and install its dependencies:
+
+```bash
+git clone https://github.com/Vetra-Studio/website.git
+cd website
+npm install
+```
+
+### Development
+
+Start the development server with:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The website will be available at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Production
 
-## Learn More
+Create a production build:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start the production server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+app/             Application routes and pages
+components/      Reusable React components
+lib/             Shared utilities and application logic
+public/          Static assets
+registry/        Third-party UI components
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Project configuration and tooling files are located in the repository root.
+
+## License
+
+This project is **proprietary software** and is not released under an open-source license.
+
+The source code is made publicly available for transparency and reference, but **no rights are granted to use, copy, modify, reproduce, distribute, sublicense or create derivative works from the code without prior written permission from Vetra Studio**.
+
+The Vetra Studio name, trademarks, logos, visual identity, website content, imagery and other proprietary materials are also excluded from any implied permission and remain the property of their respective owners.
+
+By accessing this repository, you do not acquire ownership of or any license to the intellectual property contained within it, except where explicitly stated otherwise.
+
+For the full terms governing the use of this repository, see the [`LICENSE`](LICENSE) file.
+
+---
+
+<div align="center">
+
+© 2026 **Vetra Studio** · All rights reserved.
+
+</div>
