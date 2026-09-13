@@ -1,4 +1,4 @@
-import ConsultationSection from './Footer/FooterConsultationSection';
+import FooterCTA from './Footer/FooterCTA';
 import FooterContact from './Footer/FooterContact';
 import Navbar from './Navbar/Navbar';
 import Image from 'next/image';
@@ -26,7 +26,14 @@ export default function Footer() {
     return (
         <footer className="p-4 sm:w-17/20 mx-auto w-full">
 
-            <ConsultationSection className="py-12 px-4 md:py-16 md:px-8 border-y-2 border-gray-700 bg-background flex flex-col items-center text-center gap-8 md:gap-10" />
+            <FooterCTA
+                className="
+                    flex flex-col items-center gap-8
+                    py-12 px-4
+                    text-center
+                    border-t border-stroke-primary
+                    bg-background
+                    md:gap-10 md:py-16 md:px-8"
 
                 ButtonClassName="
                     inline-flex items-center justify-center
