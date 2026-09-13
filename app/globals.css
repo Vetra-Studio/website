@@ -85,3 +85,47 @@ body {
   color: var(--color-foreground);
   font-family: sans-serif;
 }
+
+/* gradient orange text */
+.text-gradient-orange {
+  @apply bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent;
+}
+
+.btn-transparent-gradient-orange {
+  @apply bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end border border-orange-btn-border-color;
+}
+.btn-gradient-orange {
+  @apply bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end border;
+}
+
+/* Contatti */
+/* inputs base style */
+.input-base {
+  @apply w-full py-2 px-4 rounded-xl
+  bg-[#A3A9B43B] border-2 border-stroke-secondary
+  text-foreground text-sm md:text-base font-medium
+  placeholder:text-foreground/70
+  focus:outline-none focus:border-orange-gradient-start
+  transition-colors;
+}
+
+/* textarea scrollbar */
+@layer components {
+  .textarea-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-light-gray-text) transparent;
+  }
+
+  .textarea-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .textarea-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .textarea-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-light-gray-text);
+    border-radius: 3px;
+  }
+}

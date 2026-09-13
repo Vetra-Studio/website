@@ -56,8 +56,8 @@ export default function Header() {
               after:origin-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-400 hover:after:scale-x-100
               "/>
 
-      <Link href="/">
-        <button className="hidden md:block bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">
+      <Link href="/contattaci">
+        <button className="hidden md:block bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg cursor-pointer">
           Contattaci
         </button>
       </Link>

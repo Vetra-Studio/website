@@ -1,79 +1,68 @@
-// app/servizi/page.tsx
-
-import Icon from "@/components/Icon";
-import Information from "@/components/Contact-Us/information";
+import Form from "@/components/Contact/Form";
 import WhyContactUs from "@/components/Reasons";
+import Image from "next/image";
+//import { CircleUserRound, Compass, Shield, UserGroup } from 'lucide-react';
 
-
-export default function ServiziPage({
-  title = "Contattaci",
-  description = "Siamo qui per ascoltarti",
-  bottomDescription = "Hai in mente o vuoi maggiori informazioni sui nostri servizi? Compila il modulo o contattaci direttamente. Ti risponderemo al più presto.",
-}) {
+export default function ContactPage() {
   return (
-    <main className="px-6 md:px-12 py-12 max-w-7xl mx-auto">
+    <main className="flex flex-col items-center justify-center scroll-smooth ">
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* Colonna Sinistra: Testi */}
-        <div className="flex flex-col items-start gap-4 max-w-2xl">
-          {/* Sottotitolo / Titolo Sezione con gradiente arancione */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight
-                        bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent"
-                        >
-            {title}
+      <div className="items-center p-4 gap-12 mb-10 grid grid-cols-2 ">
+
+        {/* Colonna Sinistra */}
+        <div className="flex flex-col">
+          <h1 className="text-4xl font-bold leading-tight tracking-tight text-gradient-orange md:text-6xl sm:text-5xl">
+            Contattaci
           </h1>
-
-          {/* Descrizione grigia */}
-          <p className="text-lg sm:text-xl md:text-2xl 
-                        text-light-gray-text leading-relaxed"
-                        >
-            {description}
-          </p>
-
-          {/* Descrizione inferiore */}
-          <p className="text-base sm:text-lg md:text-xl 
-                        text-light-gray-text leading-relaxed
-                        mb-4"
-                        >
-            {bottomDescription}
-          </p>
+          <h2 className="text-lg font-bold text-light-gray-text leading-relaxed md:text-2xl sm:text-xl">
+            Siamo qui per ascoltarti
+          </h2>
+          <h3 className="text-base text-light-gray-text leading-relaxed md:text-xl sm:text-lg">
+            Hai in mente o vuoi maggiori informazioni sui nostri servizi? <br />
+            Compila il modulo o contattaci direttamente.<br />
+            Ti risponderemo al più presto.<br />
+          </h3>
         </div>
 
-        {/* Colonna Destra: Grafica Logo con Sfocatura */}
+        {/* Colonna Destra */}
         <div className="flex justify-center">
-          <Icon />
+          <Image src="/vetra-icon.svg" alt="logo" width={300} height={300} className="hidden md:block" />
         </div>
 
       </div>
 
-      {/* Sezione Informazioni */}
-      <Information />
-      
-      {/* Sezione "Perché" completamente esterna e indipendente */}
-      <WhyContactUs 
-        title="PERCHÉ CONTATTARCI"
-        className= "lg:grid-cols-4 sm:grid-cols-2 grid-cols-1"
+      <div className="w-full bg-panel-background border-y-2 border-stroke-primary">
+        <Form className="mx-auto my-8 w-fit"/>
+      </div>
+
+      <WhyContactUs
+        title="perché contattarci"
+        listClassName= "lg:grid-cols-4 sm:grid-cols-2 grid-cols-1"
+        className="py-16 my-16"
         items={[
           {
-            iconSrc: "/person.svg",
-            title: "Consulenze gratuite",
-            description: "Analizziamo le tue esigenze per offrirti la soluzione migliore.",
+            iconSrc: "/CircleUserRound.svg",
+            title: "Incontro senza impegno",
+            description:
+              "Parliamo del tuo progetto, rispondiamo alle tue domande e valutiamo insieme le strade migliori.",
           },
           {
-            iconSrc: "/clock.svg",
-            title: "Risposta rapida",
-            description: "Ti garantiamo un riscontro entro 24 ore lavorative.",
+            iconSrc: "/target.svg",
+            title: "Soluzione dedicata",
+            description:
+              "Analizziamo le esigenze della tua attività per sviluppare una strategia coerente con i tuoi obiettivi.",
           },
           {
-            iconSrc: "/experience.svg",
-            title: "Preventivi chiari",
-            description: "Proposte trasparenti, dettagliate e senza alcun impegno.",
+            iconSrc: "/shield.svg",
+            title: "Zero costi nascosti",
+            description:
+              "Panoramica completa dell'investimento necessario, senza alcuna revisione di prezzo a sorpresa in corso d'opera.",
           },
           {
-            iconSrc: "/professional.svg",
-            title: "Professionalità",
-            description: "Un team di esperti qualificati al tuo fianco.",
+            iconSrc: "/UserGroup.svg",
+            title: "Un team al tuo fianco",
+            description:
+              "Competenze diverse lavorano insieme per seguire ogni dettaglio del progetto con attenzione e precisione.",
           },
         ]}
       />
