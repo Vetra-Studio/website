@@ -57,7 +57,7 @@ export default function Header() {
               "/>
 
       <Link href="/">
-        <button className="hidden md:block bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">
+        <button className="hidden md:block btn-gradient-orange text-black font-bold py-2 px-4 rounded-lg">
           Contattaci
         </button>
       </Link>
