@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export interface FaqItem {
   id: string | number;
@@ -65,7 +65,7 @@ export default function FaqSection({
   
       <h2 className="text-center
                      text-5xl md:text-7xl font-semibold  
-                     bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent"
+                     bg-gradient-to-b text-gradient-orange"
                      >
         {title}
       </h2>

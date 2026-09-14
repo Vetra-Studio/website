@@ -1,5 +1,4 @@
 interface PricingPlan {
-  id: string;
   name: string;
   subtitle: string;
   description: string;
@@ -17,7 +16,6 @@ interface PricingPlan {
 
 const plans: PricingPlan[] = [
   {
-    id: "basic",
     name: "Starter",
     subtitle: "Sito vetrina basico",
     description: "Per chi parte e vuole una presenza online solida",
@@ -25,22 +23,21 @@ const plans: PricingPlan[] = [
     originalPrice: "€800",
     discountTag: { label: "-25%", variant: "blue" },
     features: [
-        "UI/UX design personalizzato", 
-        "Sviluppo front-end responsive", 
-        "Ottimizzazione SEO di base",
-        "Deploy e configurazione dominio",
-        "Fino a 5 pagine statiche",
-        "Aggiornamenti inclusi",
-        "Email promozzionali",
-        "Sviluppo back-end avanzato",
-        "Area clienti personalizzata",
-        "Pagamento in app"
+      "UI/UX design personalizzato",
+      "Sviluppo front-end responsive",
+      "Ottimizzazione SEO di base",
+      "Deploy e configurazione dominio",
+      "Fino a 5 pagine statiche",
+      "Aggiornamenti inclusi",
+      "Email promozzionali",
+      "Sviluppo back-end avanzato",
+      "Area clienti personalizzata",
+      "Pagamento in app"
     ],
     includedCount: 5,
     ctaText: "Inizia Ora",
   },
   {
-    id: "pro",
     name: "Pro",
     subtitle: "Sito vetrina avanzato",
     description: "Per aziende che vogliono distinguersi e crescere online",
@@ -48,23 +45,22 @@ const plans: PricingPlan[] = [
     originalPrice: "€1500",
     discountTag: { label: "POPOLARE -30%", variant: "orange" },
     features: [
-      "UI/UX design personalizzato", 
-        "Sviluppo front-end responsive", 
-        "Ottimizzazione SEO di base",
-        "Deploy e configurazione dominio",
-        "Fino a 5 pagine statiche",
-        "Aggiornamenti inclusi",
-        "Email promozzionali",
-        "Sviluppo back-end avanzato",
-        "Area clienti personalizzata",
-        "Pagamento in app"
+      "UI/UX design personalizzato",
+      "Sviluppo front-end responsive",
+      "Ottimizzazione SEO di base",
+      "Deploy e configurazione dominio",
+      "Fino a 5 pagine statiche",
+      "Aggiornamenti inclusi",
+      "Email promozzionali",
+      "Sviluppo back-end avanzato",
+      "Area clienti personalizzata",
+      "Pagamento in app"
     ],
-    includedCount: 6, 
+    includedCount: 6,
     isPopular: true,
     ctaText: "Attiva Pro",
   },
   {
-    id: "enterprise",
     name: "Enterprise",
     subtitle: "Web App su misura",
     description: "Soluzione su misura per grandi aziende e volumi elevati.",
@@ -72,16 +68,16 @@ const plans: PricingPlan[] = [
     originalPrice: "€3000",
     discountTag: { label: "OFFERTA -40%", variant: "red" },
     features: [
-     "UI/UX design personalizzato", 
-        "Sviluppo front-end responsive", 
-        "Ottimizzazione SEO di base",
-        "Deploy e configurazione dominio",
-        "Fino a 5 pagine statiche",
-        "Aggiornamenti inclusi",
-        "Email promozzionali",
-        "Sviluppo back-end avanzato",
-        "Area clienti personalizzata",
-        "Pagamento in app"
+      "UI/UX design personalizzato",
+      "Sviluppo front-end responsive",
+      "Ottimizzazione SEO di base",
+      "Deploy e configurazione dominio",
+      "Fino a 5 pagine statiche",
+      "Aggiornamenti inclusi",
+      "Email promozzionali",
+      "Sviluppo back-end avanzato",
+      "Area clienti personalizzata",
+      "Pagamento in app"
     ],
     includedCount: 10,
     ctaText: "Contattaci",
@@ -99,12 +95,12 @@ export default function PricingSection() {
     <section className="max-w-7xl 
                         mx-auto 
                         px-4 py-16 space-y-12"
-                        >
+    >
       {/* Intestazione Sezione */}
       <header className="text-center space-y-3">
         <p className="text-4xl font-bold tracking-tight 
-                      bg-gradient-to-r from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent"
-                      >
+                      bg-gradient-to-r text-gradient-orange"
+        >
           Scegli il tuo Piano
         </p>
         <p className="text-light-gray-text text-lg">
@@ -116,28 +112,26 @@ export default function PricingSection() {
       <div className="grid 
                       grid-cols-1 md:grid-cols-3 
                       gap-8 items-stretch"
-                      >
+      >
         {plans.map((plan) => (
           <article
-            key={plan.id}
+            key={plan.name}
             className={`relative flex flex-col justify-between 
                         p-8 
                         border rounded-2xl 
                         bg-panel-background  
-                        transition-all duration-300 ${
-              plan.isPopular
-                ? "border-orange-gradient-start shadow-lg shadow-orange-gradient-start/10 md:-translate-y-2"
+                        ${plan.isPopular
+                ? "border-orange-gradient-start md:-translate-y-2"
                 : "border-stroke-primary"
-            }`}
+              }`}
           >
             {plan.discountTag && (
               <span
                 className={`absolute -top-3 right-6 
                             px-3 py-1 
                             rounded-full 
-                            text-xs font-bold text-white tracking-wider uppercase ${
-                  badgeBgMap[plan.discountTag.variant]
-                }`}
+                            text-xs font-bold text-white tracking-wider uppercase ${badgeBgMap[plan.discountTag.variant]
+                  }`}
               >
                 {plan.discountTag.label}
               </span>
@@ -176,9 +170,8 @@ export default function PricingSection() {
                   return (
                     <li
                       key={idx}
-                      className={`flex items-center gap-3 text-sm ${
-                        isDisabled ? "opacity-50 line-through" : ""
-                      }`}
+                      className={`flex items-center gap-3 text-sm ${isDisabled ? "opacity-50 line-through" : ""
+                        }`}
                     >
                       <img
                         src={isDisabled ? "/x-mark.svg" : "/tick-mark.svg"}
@@ -194,13 +187,12 @@ export default function PricingSection() {
             </div>
 
             {/* Bottone d'azione */}
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="w-full 
                          py-3 px-6 
                          font-semibold
-                         bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end 
-                         border border-orange-btn-border-color rounded-xl
+                         rounded-xl btn-transparent-gradient-orange
                          hover:opacity-90 active:scale-[0.98] transition-transform"
             >
               {plan.ctaText}
