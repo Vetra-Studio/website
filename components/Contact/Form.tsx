@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 //import { Send } from 'lucide-react';
-
 
 const inputFields = [
   { id: 'fullName', type: 'text', placeholder: 'Nome e cognome', required: true },
@@ -19,7 +19,14 @@ interface FormProps {
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  const formData = new FormData(e.currentTarget);
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+  const turnstileToken = formData.get('cf-turnstile-response');
+
+  if (!turnstileToken) {
+    alert('Completa la verifica anti-bot.');
+    return;
+  }
 
   const response = await fetch('/api/contact', {
     method: 'POST',
@@ -32,12 +39,14 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       phone: formData.get('phone'),
       subject: formData.get('subject'),
       message: formData.get('message'),
+      turnstileToken,
+      website: formData.get('website'),
     }),
   });
 
   if (response.ok) {
     alert('Messaggio inviato!');
-    e.currentTarget.reset();
+    form.reset();
   } else {
     alert("Errore durante l'invio del messaggio.");
   }
@@ -50,6 +59,12 @@ export default function ContactForm({className}: FormProps) {
       <h2 className="mb-2 text-xl sm:text-2xl font-bold uppercase tracking-wide text-gradient-orange">
         invia un messaggio
       </h2>
+
+
+       <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="afterInteractive"
+      />
 
       {/* Form */}
       <form 
@@ -66,6 +81,15 @@ export default function ContactForm({className}: FormProps) {
             <textarea name="message" placeholder="Messaggio *" rows={4} className="input-base textarea-scrollbar" required />
           </div>
         </div>
+
+        {/* Honeypot */}
+        <input type="text" name="website" autoComplete="off" className="absolute left-[-9999px]" tabIndex={-1}/>
+
+        {/* Turnstile */}
+        <div
+          className="cf-turnstile"
+          data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+        />
 
         {/* Note Privacy Policy */}
         <p className="text-xs leading-relaxed text-light-gray-text sm:text-sm">
