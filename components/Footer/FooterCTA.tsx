@@ -23,7 +23,7 @@ export default function FooterCTA({
     <section className={className}>
       <div className="text-lg sm:text-xl md:text-2xl font-bold leading-tight text-foreground tracking-tight">
         <h3>
-          Scopri il nostro metodo e come possiamo 
+          Scopri il nostro metodo e come possiamo{' '}
           <br className="hidden sm:block" />
           aiutarti a raggiungere i tuoi obiettivi.
         </h3>
