@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Icon from "@/components/Icon";
 import ProjectFilterSection from "@/components/Projects/filters-section";
 import ProjectGrid from "@/components/Projects/project-grid";
@@ -38,11 +39,14 @@ export default function ProjectsPage() {
         </div>
 
         {/* Sezione Filtri e Pulsante */}
-        <ProjectFilterSection className="p-6 md:px-12" />
-
+        <Suspense fallback={null}>
+          <ProjectFilterSection className="p-6 md:px-12" />
+        </Suspense>
+        
         {/* Sezione Showroom */}
-        <ProjectGrid className="p-6 md:px-12" />
-
+        <Suspense fallback={null}>
+          <ProjectGrid className="p-6 md:px-12" />
+        </Suspense>
       </div>
     </main>
   );
