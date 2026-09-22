@@ -53,8 +53,7 @@ export default function SortButton({ options, onSelect }: SortButtonProps) {
   };
 
   return (
-    <div ref={dropdownRef} className="relative w-full 
-                                      sm:w-44 md:w-52 sm:shrink-0">
+    <div ref={dropdownRef} className="relative w-full">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
@@ -70,7 +69,7 @@ export default function SortButton({ options, onSelect }: SortButtonProps) {
         </span>
         <div className={`flex shrink-0 items-center justify-center 
                          transition-transform duration-300 ${isOpen ? 'rotate-180' : 'group-hover:translate-y-1'}`}>
-          <Image src={arrowIcon} alt="Icona di ordinamento" width={18} height={22} className="h-4 w-3.5 md:h-5 md:w-4 lg:h-6 lg:w-5" />
+          <Image src={arrowIcon} alt="" width={18} height={22} />
         </div>
       </button>
 

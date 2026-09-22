@@ -4,12 +4,12 @@ import SearchBar from './search-bar';
 import CategoryMenu from './category-menu';
 import SortButton from './sort-button';
 
-export interface FilterOption {
+interface FilterOption {
   id: string;
   label: string;
 }
 
-export const CATEGORIES: FilterOption[] = [
+const categories: FilterOption[] = [
   { id: 'all', label: 'Tutti i progetti' },
   { id: 'corporate', label: 'Siti aziendali' },
   { id: 'ecommerce', label: 'E-Commerce' },
@@ -17,7 +17,7 @@ export const CATEGORIES: FilterOption[] = [
   { id: 'app', label: 'Web App' },
 ];
 
-export const SORT_OPTIONS: FilterOption[] = [
+const sortOptions: FilterOption[] = [
   { id: 'recent', label: 'Più recenti' },
   { id: 'old', label: 'Meno recenti' },
 ];
@@ -25,25 +25,27 @@ export const SORT_OPTIONS: FilterOption[] = [
 interface ProjectFilterSectionProps {
   onCategoryChange?: (id: string) => void;
   onSortChange?: (option: FilterOption) => void;
+  className?: string;
 }
 
 export default function ProjectFilterSection({
   onCategoryChange,
   onSortChange,
+  className
 }: ProjectFilterSectionProps) {
   return (
-    <section className="">
+    <section className={className}>
       <SearchBar />
 
-      <div className="flex w-full flex-col gap-5 
-                      lg:flex-row lg:items-center lg:justify-between">
+      <div className="flex flex-col gap-3
+                      md:flex-row md:items-center md:justify-between">
         <CategoryMenu
-          categories={CATEGORIES}
+          categories={categories}
           onSelectCategory={onCategoryChange}
         />
 
         <SortButton
-          options={SORT_OPTIONS}
+          options={sortOptions}
           onSelect={onSortChange}
         />
       </div>

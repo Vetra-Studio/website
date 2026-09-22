@@ -61,7 +61,7 @@ export default function CategoryMenu({
   return (
     <div className="w-full">
       {/* Versione Mobile: dropdown */}
-      <div ref={dropdownRef} className="relative w-full sm:hidden">
+      <div ref={dropdownRef} className="relative w-full md:hidden">
         <button
           type="button"
           aria-haspopup="listbox"
@@ -69,12 +69,12 @@ export default function CategoryMenu({
           onClick={() => setIsOpen((prev) => !prev)}
           className="group 
                      flex items-center justify-between gap-3
-                     h-14 w-full 
-                     rounded-2xl border border-stroke-primary 
-                     bg-panel-background px-4 backdrop-blur-sm transition-colors 
+                     w-full py-2 px-4
+                     rounded-xl border border-stroke-primary 
+                     bg-panel-background backdrop-blur-sm transition-colors 
                      hover:border-orange-gradient-start focus:outline-none"
         >
-          <span className="text-base font-semibold text-foreground 
+          <span className="text-sm md:text-base font-semibold text-foreground 
                            transition-colors group-hover:text-orange-gradient-end">
             {activeCategory?.label}
           </span>
@@ -82,33 +82,34 @@ export default function CategoryMenu({
             className={`flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180' : 'group-hover:translate-y-1'
               }`}
           >
-            <Image src={arrowIcon} alt="Seleziona categoria" width={18} height={22} className="h-6 w-5" />
+            <Image src={arrowIcon} alt="" width={18} height={22} />
           </div>
         </button>
 
         {isOpen && (
           <div
             role="listbox"
-            className="absolute left-0 right-0 top-full z-50
+            className="absolute left-0 right-0 top-full z-30
                        flex flex-col overflow-hidden 
                        mt-2 p-1
                        rounded-2xl border border-stroke-primary 
                        bg-panel-background backdrop-blur-md"
           >
-            {categories.map((cat) => (
+            {categories.map((category) => (
               <button
-                key={cat.id}
+                key={category.id}
                 type="button"
                 role="option"
-                aria-selected={cat.id === activeId}
-                onClick={() => handleSelect(cat.id)}
+                aria-selected={category.id === activeId}
+                onClick={() => handleSelect(category.id)}
                 className={`flex items-center
-                            w-full h-11 px-3
-                            rounded-xl text-left text-base font-semibold 
-                            transition-colors hover:bg-orange-gradient-start/10 hover:text-orange-gradient-end ${cat.id === activeId ? 'text-orange-gradient-end' : 'text-foreground'
+                            w-full p-2
+                            rounded-xl text-left text-sm font-semibold 
+                            transition-colors hover:bg-orange-gradient-start/10 hover:text-orange-gradient-end
+                            ${category.id === activeId ? 'text-orange-gradient-end' : 'text-foreground'
                   }`}
               >
-                {cat.label}
+                {category.label}
               </button>
             ))}
           </div>
@@ -116,17 +117,17 @@ export default function CategoryMenu({
       </div>
 
       {/* Versione Desktop: barra pulsanti */}
-      <div className="hidden sm:flex 
+      <div className="hidden md:flex 
                       w-full items-center justify-between 
-                      gap-2 md:gap-2 lg:gap-3 py-1">
-        {categories.map((cat) => {
-          const isActive = cat.id === activeId;
+                      gap-3">
+        {categories.map((category) => {
+          const isActive = category.id === activeId;
           return (
             <button
-              key={cat.id}
+              key={category.id}
               type="button"
               aria-pressed={isActive}
-              onClick={() => handleSelect(cat.id)}
+              onClick={() => handleSelect(category.id)}
               className={`flex items-center justify-center
                           h-11 md:h-12 lg:h-14 flex-1 
                           rounded-xl md:rounded-2xl px-2 md:px-3 lg:px-5 
@@ -136,7 +137,7 @@ export default function CategoryMenu({
                 : 'border border-stroke-primary bg-panel-background text-foreground hover:border-orange-btn-border-color'
                 }`}
             >
-              {cat.label}
+              {category.label}
             </button>
           );
         })}

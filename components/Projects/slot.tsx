@@ -9,20 +9,18 @@ import arrowIcon from '@/public/right-arrow.svg';
 interface SlotProps {
   id?: string;
   category: string;
-  relese: Date;
+  release: Date;
   title: string;
   description: string;
-  imageSrc: string;
-  href: string;
+  slug: string;
 }
 
 export default function SlotCard({
   category,
-  relese,
+  release,
   title,
   description,
-  imageSrc,
-  href,
+  slug
 }: SlotProps) {
   return (
     <article className="group 
@@ -36,7 +34,7 @@ export default function SlotCard({
                       rounded-2xl border border-stroke-primary 
                       bg-panel-background/50">
         <Image
-          src={imageSrc}
+          src={`/${slug}.webp`}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -54,7 +52,7 @@ export default function SlotCard({
             {category}
           </span>
           <span className="text-sm font-normal text-light-gray-text">
-            {relese.toLocaleDateString('it-IT', {
+            {new Date(release).toLocaleDateString('it-IT', {
               day: '2-digit',
               month: 'long',
               year: 'numeric',
@@ -77,7 +75,7 @@ export default function SlotCard({
 
         {/* Link / CTA */}
         <div className="mt-4 md:mt-5">
-          <Link href={href} className="group/link 
+          <Link href={`/progetti/${slug}`} className="group/link 
                                        inline-flex items-center gap-3 
                                        focus:outline-none">
             <span className="text-gradient-orange 
@@ -87,7 +85,7 @@ export default function SlotCard({
 
             <Image
               src={arrowIcon}
-              alt="Freccia vedi progetto"
+              alt=""
               width={28}
               height={24}
               className="h-5 w-6 
