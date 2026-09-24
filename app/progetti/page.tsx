@@ -58,7 +58,7 @@ export default async function ProjectsPage() {
         <Suspense fallback={null}>
           <ProjectFilterSection categories={categories} dateSortOptions={dateSortOptions} className="p-6 md:px-12" />
           
-          <ProjectGrid projects={dbProjects} defaultCategory={categories[0].slug} defaultDateSortOptions={dateSortOptions[0].slug} className="p-6 md:px-12" />
+          <ProjectGrid projects={dbProjects} defaultCategory={categories[0].slug} defaultDateSortOption={dateSortOptions[0].slug} className="p-6 md:px-12" />
         </Suspense>
       </div>
     </main>

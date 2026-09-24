@@ -81,9 +81,9 @@ export default function SortButton({
                         rounded-xl md:rounded-2xl border border-stroke-primary bg-panel-background 
                         p-1 md:p-1.5 w-full
                         shadow-xl backdrop-blur-md">
-          {dateSortOptions.map((dateSortOption, index) => (
+          {dateSortOptions.map((dateSortOption) => (
             <button
-              key={index}
+              key={dateSortOption.slug}
               type="button"
               onClick={() => handleSelect(dateSortOption)}
               className={`flex items-center text-left
@@ -91,7 +91,7 @@ export default function SortButton({
                           rounded-lg md:rounded-xl 
                           text-sm lg:text-base font-semibold whitespace-nowrap 
                           transition-colors hover:bg-orange-gradient-start/10 hover:text-orange-gradient-end 
-                          ${currentOption?.slug === dateSortOption.slug ? 'text-orange-gradient-end' : 'text-foreground'
+                          ${currentOption.slug === dateSortOption.slug ? 'text-orange-gradient-end' : 'text-foreground'
                 }`}
             >
               {dateSortOption.name}

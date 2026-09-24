@@ -13,13 +13,15 @@ export async function getCategories() {
     throw new Error('Failed to fetch categories')
   }
 
-  return data
+  return data;
 }
 
-export type Category = Awaited<ReturnType<typeof getCategories>>;
+export interface Category {
+  name: string;
+  slug: string;
+}
 
-
-export async function getProjects() {
+export async function getProjects(): Promise<Project[]> {
   const supabase = await createClient()
 
   const { data, error } = await supabase
@@ -31,7 +33,7 @@ export async function getProjects() {
       release,
       slug,
       category_id,
-      category:categories (
+      category:categories!projects_category_id_fkey (
         id,
         name,
         slug
@@ -47,4 +49,16 @@ export async function getProjects() {
   return data;
 }
 
-export type Project = Awaited<ReturnType<typeof getProjects>>;
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  release: string;
+  slug: string;
+  category_id: number;
+  category: {
+    id: number;
+    name: string;
+    slug: string;
+  };
+}

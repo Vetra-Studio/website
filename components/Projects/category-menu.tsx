@@ -4,10 +4,10 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import arrowIcon from '@/public/down-arrow.svg';
-import { Category } from '@/lib/supabase/queries';
+import type { Category } from '@/lib/supabase/queries';
 
 interface CategoryMenuProps {
-  categories: Category;
+  categories: Category[];
   className?: string;
 }
 
@@ -72,7 +72,7 @@ export default function CategoryMenu({
         >
           <span className="text-sm md:text-base font-semibold text-foreground 
                            transition-colors group-hover:text-orange-gradient-end">
-            {currentCategory?.name}
+            {currentCategory.name}
           </span>
           <div
             className={`flex items-center justify-center transition-transform duration-300 

@@ -7,7 +7,7 @@ import type { Category } from '@/lib/supabase/queries';
 import { FilterOption } from '@/components/Projects/types';
 
 interface ProjectFilterSectionProps {
-  categories: Category;
+  categories: Category[];
   className?: string;
   dateSortOptions: FilterOption[];
 }

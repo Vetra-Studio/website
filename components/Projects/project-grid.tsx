@@ -13,9 +13,9 @@ interface ProjectsGridProps {
   initialCount?: number;
   step?: number;
   className?: string;
-  projects: Project;
+  projects: Project[];
   defaultCategory: string;
-  defaultDateSortOptions: string;
+  defaultDateSortOption: string;
 }
 
 export default function ProjectsGrid({
@@ -24,22 +24,23 @@ export default function ProjectsGrid({
   className,
   projects,
   defaultCategory,
-  defaultDateSortOptions
+  defaultDateSortOption
 }: ProjectsGridProps) {
   const [visibleCount, setVisibleCount] = useState(initialCount);
   const searchParams = useSearchParams();
 
   const categorySlug = searchParams.get(categoryParam) ?? defaultCategory;
-  const sortSlug = searchParams.get(sortParam) ?? defaultDateSortOptions;
+  const sortSlug = searchParams.get(sortParam) ?? defaultDateSortOption;
   const searchQuery = searchParams.get(searchParam) ?? '';
 
   const filteredAndSortedProjects = useMemo(() => {
     const byCategory =
       categorySlug === defaultCategory
         ? projects
-        : projects.filter(
-            (project) => project.category?.[0]?.slug === categorySlug
-          );
+        : projects.filter((project) => {
+            console.log(project.title, project.category);
+            return project.category.slug === categorySlug;
+          });
 
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
@@ -84,7 +85,7 @@ export default function ProjectsGrid({
         {visibleProjects.map((project) => (
           <SlotCard
             key={project.id}
-            category={project.category?.[0]?.name}
+            category={project.category.name}
             release={project.release}
             title={project.title}
             description={project.description}
