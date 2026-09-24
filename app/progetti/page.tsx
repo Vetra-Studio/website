@@ -2,8 +2,24 @@ import { Suspense } from 'react';
 import Icon from "@/components/Icon";
 import ProjectFilterSection from "@/components/Projects/filters-section";
 import ProjectGrid from "@/components/Projects/project-grid";
+import { getCategories, getProjects } from '@/lib/supabase/queries';
+import { FilterOption } from '@/components/Projects/types';
 
-export default function ProjectsPage() {
+
+export default async function ProjectsPage() {
+  const dbCategories = await getCategories();
+  const categories = [
+    { slug: 'all', name: 'Tutti i progetti' },
+    ...dbCategories,
+  ];
+
+  const dateSortOptions: FilterOption[] = [
+    { slug: 'recent', name: 'Più recenti' },
+    { slug: 'old', name: 'Meno recenti' },
+  ];
+
+  const dbProjects = await getProjects();
+
   return (
     <main className="flex flex-col items-center justify-center">
       <div className="md:w-5/6">
@@ -40,12 +56,9 @@ export default function ProjectsPage() {
 
         {/* Sezione Filtri e Pulsante */}
         <Suspense fallback={null}>
-          <ProjectFilterSection className="p-6 md:px-12" />
-        </Suspense>
-        
-        {/* Sezione Showroom */}
-        <Suspense fallback={null}>
-          <ProjectGrid className="p-6 md:px-12" />
+          <ProjectFilterSection categories={categories} dateSortOptions={dateSortOptions} className="p-6 md:px-12" />
+          
+          <ProjectGrid projects={dbProjects} defaultCategory={categories[0].slug} defaultDateSortOptions={dateSortOptions[0].slug} className="p-6 md:px-12" />
         </Suspense>
       </div>
     </main>

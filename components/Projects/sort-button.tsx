@@ -4,28 +4,29 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import arrowIcon from '@/public/down-arrow.svg';
-
-interface SortChoice {
-  id: string;
-  label: string;
-}
+import { FilterOption } from './types';
 
 interface SortButtonProps {
-  options: SortChoice[];
-  onSelect?: (option: SortChoice) => void;
+  dateSortOptions: FilterOption[];
 }
 
-export default function SortButton({ options, onSelect }: SortButtonProps) {
+export const sortParam = 'sort';
+
+export default function SortButton({
+  dateSortOptions,
+}: SortButtonProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  // Cerca l'opzione selezionata
+  const currentOption = dateSortOptions.find(
+    (dateSortOption) => dateSortOption.slug === searchParams.get(sortParam)) ?? dateSortOptions[0];
 
-  const currentSortId = searchParams.get('sort') || options[0]?.id;
-  const selectedOption = options.find((opt) => opt.id === currentSortId) ?? options[0];
-
+  // Menu a tendina
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -43,15 +44,16 @@ export default function SortButton({ options, onSelect }: SortButtonProps) {
     };
   }, []);
 
-  const handleSelect = (option: SortChoice) => {
+  // Aggiunta parametro nell'url
+  const handleSelect = (dateSortOption: FilterOption) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set('sort', option.id);
+    params.set(sortParam, dateSortOption.slug);
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
 
     setIsOpen(false);
-    onSelect?.(option);
   };
 
+  // Contenuto
   return (
     <div ref={dropdownRef} className="relative w-full">
       <button
@@ -65,7 +67,7 @@ export default function SortButton({ options, onSelect }: SortButtonProps) {
       >
         <span className="text-sm md:text-base font-semibold whitespace-nowrap 
                          text-foreground transition-colors group-hover:text-orange-gradient-end">
-          {selectedOption?.label}
+          {currentOption.name}
         </span>
         <div className={`flex shrink-0 items-center justify-center 
                          transition-transform duration-300 ${isOpen ? 'rotate-180' : 'group-hover:translate-y-1'}`}>
@@ -79,19 +81,20 @@ export default function SortButton({ options, onSelect }: SortButtonProps) {
                         rounded-xl md:rounded-2xl border border-stroke-primary bg-panel-background 
                         p-1 md:p-1.5 w-full
                         shadow-xl backdrop-blur-md">
-          {options.map((option) => (
+          {dateSortOptions.map((dateSortOption, index) => (
             <button
-              key={option.id}
+              key={index}
               type="button"
-              onClick={() => handleSelect(option)}
+              onClick={() => handleSelect(dateSortOption)}
               className={`flex items-center text-left
                           h-9 md:h-10 lg:h-11 w-full px-3
                           rounded-lg md:rounded-xl 
                           text-sm lg:text-base font-semibold whitespace-nowrap 
-                          transition-colors hover:bg-orange-gradient-start/10 hover:text-orange-gradient-end ${selectedOption?.id === option.id ? 'text-orange-gradient-end' : 'text-foreground'
+                          transition-colors hover:bg-orange-gradient-start/10 hover:text-orange-gradient-end 
+                          ${currentOption?.slug === dateSortOption.slug ? 'text-orange-gradient-end' : 'text-foreground'
                 }`}
             >
-              {option.label}
+              {dateSortOption.name}
             </button>
           ))}
         </div>

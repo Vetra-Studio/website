@@ -4,32 +4,31 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import arrowIcon from '@/public/down-arrow.svg';
-
-interface CategoryOption {
-  id: string;
-  label: string;
-}
+import { Category } from '@/lib/supabase/queries';
 
 interface CategoryMenuProps {
-  categories: CategoryOption[];
-  onSelectCategory?: (id: string) => void;
+  categories: Category;
+  className?: string;
 }
+
+export const categoryParam = 'category';
 
 export default function CategoryMenu({
   categories,
-  onSelectCategory,
+  className,
 }: CategoryMenuProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
+  // Cerca la categoria attiva direttamente dall'URL
+  const currentCategory = categories.find(
+    (category) => category.slug === searchParams.get(categoryParam)) ?? categories[0];
 
-  // 1. Legge la categoria attiva direttamente dall'URL (o imposta la prima di default)
-  const activeId = searchParams.get('category') ?? categories[0]?.id;
-  const activeCategory = categories.find((cat) => cat.id === activeId) ?? categories[0];
-
+  // Menu a tendina per mobile
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -47,23 +46,20 @@ export default function CategoryMenu({
     };
   }, []);
 
-  // 2. Aggiorna i parametri dell'URL al click
+  // Aggiorna i parametri dell'URL cliccando sui pulsanti
   const handleSelect = (id: string) => {
-    setIsOpen(false);
-
     const params = new URLSearchParams(searchParams.toString());
-    params.set('category', id);
+    params.set(categoryParam, id);
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
 
-    onSelectCategory?.(id);
+    setIsOpen(false);
   };
 
   return (
-    <div className="w-full">
+    <div className={className}>
       {/* Versione Mobile: dropdown */}
       <div ref={dropdownRef} className="relative w-full md:hidden">
         <button
-          type="button"
           aria-haspopup="listbox"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((prev) => !prev)}
@@ -76,11 +72,12 @@ export default function CategoryMenu({
         >
           <span className="text-sm md:text-base font-semibold text-foreground 
                            transition-colors group-hover:text-orange-gradient-end">
-            {activeCategory?.label}
+            {currentCategory?.name}
           </span>
           <div
-            className={`flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180' : 'group-hover:translate-y-1'
-              }`}
+            className={`flex items-center justify-center transition-transform duration-300 
+                        ${isOpen ? 'rotate-180' : 'group-hover:translate-y-1'}
+                      `}
           >
             <Image src={arrowIcon} alt="" width={18} height={22} />
           </div>
@@ -97,19 +94,19 @@ export default function CategoryMenu({
           >
             {categories.map((category) => (
               <button
-                key={category.id}
+                key={category.slug}
                 type="button"
                 role="option"
-                aria-selected={category.id === activeId}
-                onClick={() => handleSelect(category.id)}
+                aria-selected={category.slug === currentCategory.slug}
+                onClick={() => handleSelect(category.slug)}
                 className={`flex items-center
                             w-full p-2
                             rounded-xl text-left text-sm font-semibold 
                             transition-colors hover:bg-orange-gradient-start/10 hover:text-orange-gradient-end
-                            ${category.id === activeId ? 'text-orange-gradient-end' : 'text-foreground'
+                            ${category.slug === currentCategory.slug ? 'text-orange-gradient-end' : 'text-foreground'
                   }`}
               >
-                {category.label}
+                {category.name}
               </button>
             ))}
           </div>
@@ -121,23 +118,23 @@ export default function CategoryMenu({
                       w-full items-center justify-between 
                       gap-3">
         {categories.map((category) => {
-          const isActive = category.id === activeId;
+          const isActive = category.slug === currentCategory.slug;
           return (
             <button
-              key={category.id}
+              key={category.slug}
               type="button"
               aria-pressed={isActive}
-              onClick={() => handleSelect(category.id)}
+              onClick={() => handleSelect(category.slug)}
               className={`flex items-center justify-center
                           h-11 md:h-12 lg:h-14 flex-1 
                           rounded-xl md:rounded-2xl px-2 md:px-3 lg:px-5 
                           text-sm md:text-base font-semibold whitespace-nowrap 
-                          transition-all duration-200 focus:outline-none ${isActive
-                ? 'btn-gradient-orange text-[#070a0f] shadow-md shadow-[#d77635]/20'
-                : 'border border-stroke-primary bg-panel-background text-foreground hover:border-orange-btn-border-color'
+                          transition-all duration-200 focus:outline-none 
+                          ${isActive ? 'btn-gradient-orange text-[#070a0f] shadow-md shadow-[#d77635]/20'
+                                     : 'border border-stroke-primary bg-panel-background text-foreground hover:border-orange-btn-border-color'
                 }`}
             >
-              {category.label}
+              {category.name}
             </button>
           );
         })}

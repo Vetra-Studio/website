@@ -5,7 +5,7 @@ export async function getCategories() {
 
   const { data, error } = await supabase
     .from('categories')
-    .select('*')
+    .select('name, slug')
     .order('name', { ascending: true })
 
   if (error) {
@@ -31,7 +31,7 @@ export async function getProjects() {
       release,
       slug,
       category_id,
-      categories (
+      category:categories (
         id,
         name,
         slug

@@ -1,26 +1,21 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-
-// Import dell'icona SVG dai tuoi asset (modifica il percorso con quello reale del tuo progetto)
 import arrowIcon from '@/public/right-arrow.svg';
 
 interface SlotProps {
-  id?: string;
-  category: string;
-  release: Date;
   title: string;
   description: string;
   slug: string;
+  category: string;
+  release: string;
 }
 
 export default function SlotCard({
-  category,
-  release,
   title,
   description,
-  slug
+  slug,
+  category,
+  release
 }: SlotProps) {
   return (
     <article className="group 

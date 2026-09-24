@@ -1,15 +1,13 @@
 'use client';
 
 interface LoadMoreButtonProps {
-  onClick?: () => void;
-  text?: string;
+  onClick: () => void;
   className?: string;
 }
 
 export default function LoadMoreButton({
   onClick,
-  text = 'Carica altri progetti',
-  className = '',
+  className,
 }: LoadMoreButtonProps) {
   return (
     <button
@@ -22,8 +20,8 @@ export default function LoadMoreButton({
                   transition-all duration-300 hover:scale-[1] hover:border-orange-gradient-start active:scale-[1] focus:outline-none md:h-17.5 
                   ${className}`}
     >
-      <span className="text-gradient-orange md:text-[30px] lg:text-[36px]">
-        {text}
+      <span className="text-gradient-orange md:text-3xl lg:text-4xl">
+        Carica altri progetti
       </span>
     </button>
   );
