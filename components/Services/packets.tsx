@@ -16,7 +16,7 @@ interface PricingPlan {
 
 const plans: PricingPlan[] = [
   {
-    name: "Starter",
+    name: "Start",
     subtitle: "Sito vetrina basico",
     description: "Per chi parte e vuole una presenza online solida",
     price: "€599",
@@ -38,7 +38,7 @@ const plans: PricingPlan[] = [
     ctaText: "Inizia Ora",
   },
   {
-    name: "Pro",
+    name: "Top",
     subtitle: "Sito vetrina avanzato",
     description: "Per aziende che vogliono distinguersi e crescere online",
     price: "€999",
@@ -61,7 +61,7 @@ const plans: PricingPlan[] = [
     ctaText: "Attiva Pro",
   },
   {
-    name: "Enterprise",
+    name: "Deluxe",
     subtitle: "Web App su misura",
     description: "Soluzione su misura per grandi aziende e volumi elevati.",
     price: "€1800",
