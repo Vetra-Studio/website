@@ -1,10 +1,9 @@
 'use client';
 
-import SearchBar from './search-bar';
-import CategoryMenu from './category-menu';
-import SortButton from './sort-button';
+import SearchBar from './SearchBar';
+import FiltersMenu from './CategoryMenu';
 import type { Category } from '@/lib/supabase/queries';
-import { FilterOption } from '@/components/Projects/types';
+import { FilterOption } from './CategoryMenu';
 
 interface ProjectFilterSectionProps {
   categories: Category[];
@@ -20,13 +19,8 @@ export default function ProjectFilterSection({
   return (
     <section className={className}>
       <SearchBar />
-
-      <div className="flex flex-col gap-3
-                      md:flex-row md:items-center md:justify-between">
-
-        <CategoryMenu categories={categories} />
-        <SortButton dateSortOptions={dateSortOptions} />
-
+      <div>
+        <FiltersMenu dateSortOptions={dateSortOptions} categories={categories} className="w-full" />
       </div>
     </section>
   );

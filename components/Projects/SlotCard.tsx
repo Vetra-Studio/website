@@ -18,8 +18,7 @@ export default function SlotCard({
   release
 }: SlotProps) {
   return (
-    <article className="group 
-                        relative flex w-full flex-col overflow-hidden 
+    <article className="group flex flex-col overflow-hidden
                         rounded-2xl border border-stroke-primary 
                         bg-panel-background/35 p-4 backdrop-blur-md 
                         transition-all duration-300 hover:border-orange-gradient-start/50 
@@ -46,7 +45,7 @@ export default function SlotCard({
                            >
             {category}
           </span>
-          <span className="text-sm font-normal text-light-gray-text">
+          <span className="text-sm text-light-gray-text">
             {new Date(release).toLocaleDateString('it-IT', {
               day: '2-digit',
               month: 'long',
@@ -55,14 +54,14 @@ export default function SlotCard({
           </span>
 
           {/* Nome Azienda / Titolo */}
-          <h3 className="text-lg font-normal leading-tight text-foreground 
+          <h3 className="text-lg leading-tight text-foreground 
                          md:text-xl lg:text-2xl">
             {title}
           </h3>
 
           {/* Descrizione */}
           <p className="mt-1 line-clamp-3 
-                        text-sm font-normal leading-relaxed 
+                        text-sm leading-relaxed 
                         text-light-gray-text md:text-base">
             {description}
           </p>
@@ -83,8 +82,7 @@ export default function SlotCard({
               alt=""
               width={28}
               height={24}
-              className="h-5 w-6 
-                         transition-transform duration-300 group-hover/link:translate-x-1"
+              className="transition-transform duration-300 group-hover/link:translate-x-1"
             />
           </Link>
         </div>

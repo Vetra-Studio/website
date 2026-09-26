@@ -36,12 +36,14 @@ export default function SearchBar() {
       value={value}
       onChange={(e) => setValue(e.target.value)}
       placeholder="Cerca..."
-      className="w-full
-                      rounded-xl border border-stroke-primary 
-                      mb-4 py-2 px-4
-                      bg-panel-background backdrop-blur-sm transition-colors 
-                      text-sm lg:text-base font-semibold text-foreground placeholder:text-foreground/50 
-                      focus:border-orange-gradient-start focus:outline-none "
+      className="mb-4 w-full
+                rounded-xl border border-stroke-primary
+                bg-panel-background px-4 py-2
+                text-sm font-semibold text-foreground
+                placeholder:text-foreground/50
+                backdrop-blur-sm transition-colors
+                focus:border-orange-gradient-start focus:outline-none
+                lg:text-base"
     />
   );
 }

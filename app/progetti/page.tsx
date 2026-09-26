@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import Icon from "@/components/Icon";
-import ProjectFilterSection from "@/components/Projects/filters-section";
-import ProjectGrid from "@/components/Projects/project-grid";
+import ProjectFilterSection from "@/components/Projects/ProjectFilterSection";
+import ProjectGrid from "@/components/Projects/ProjectGrid";
 import { getCategories, getProjects } from '@/lib/supabase/queries';
-import { FilterOption } from '@/components/Projects/types';
+import { FilterOption } from '@/components/Projects/CategoryMenu';
 
 
 export default async function ProjectsPage() {

@@ -2,12 +2,12 @@
 
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import SlotCard from './slot';
-import LoadMoreButton from './load-more-button';
+import SlotCard from './SlotCard';
+import LoadMoreButton from './LoadMoreButton';
 import type { Project } from '@/lib/supabase/queries';
-import { searchParam } from './search-bar';
-import { categoryParam } from './category-menu';
-import { sortParam } from './sort-button';
+import { searchParam } from './SearchBar';
+import { categoryParam } from './CategoryMenu';
+import { sortParam } from './SortButton';
 
 interface ProjectsGridProps {
   initialCount?: number;

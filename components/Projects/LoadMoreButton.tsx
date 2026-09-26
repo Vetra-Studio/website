@@ -13,11 +13,14 @@ export default function LoadMoreButton({
     <button
       onClick={onClick}
       type="button"
-      className={`group relative items-center justify-center
-                  flex h-15 w-full max-w-xs px-6
-                  sm:max-w-md  
-                  rounded-xl border-2 btn-transparent-gradient-orange
-                  transition-all duration-300 hover:scale-[1] hover:border-orange-gradient-start active:scale-[1] focus:outline-none md:h-17.5 
+      className={`group relative px-6
+                  flex h-15 items-center justify-center
+                  rounded-xl border-2
+                  btn-transparent-gradient-orange
+                  transition-all duration-300
+                  hover:border-orange-gradient-start
+                  focus:outline-none
+                  md:h-17
                   ${className}`}
     >
       <span className="text-gradient-orange md:text-3xl lg:text-4xl">
