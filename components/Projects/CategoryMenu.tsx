@@ -64,95 +64,114 @@ export default function CategoryMenu({
   };
 
   return (
-    <div className={className}>
-      {/* Versione Mobile: dropdown */}
-      <div ref={dropdownRef} className="relative flex gap-3">
-        <button
-          aria-haspopup="listbox"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((prev) => !prev)}
-          className="group md:hidden
-                     flex items-center justify-between gap-3
-                     w-full py-2 px-4
-                     rounded-xl border border-stroke-primary 
-                     bg-panel-background backdrop-blur-sm transition-colors 
-                     hover:border-orange-gradient-start focus:outline-none"
-        >
-          <span className="text-sm font-semibold text-foreground 
-                           transition-colors group-hover:text-orange-gradient-end">
-            {currentCategory.name}
-          </span>
-          <div
-            className={`flex items-center justify-center transition-transform duration-300 
-                        ${isOpen ? 'rotate-180' : 'group-hover:translate-y-1'}
-                      `}
-          >
-            <Image src={arrowIcon} alt="" width={18} height={22} />
-          </div>
-        </button>
+<div className={className}>
+  {/* Versione Mobile: dropdown */}
+  <div ref={dropdownRef} className="relative flex gap-3">
+    <button
+      aria-haspopup="listbox"
+      aria-expanded={isOpen}
+      onClick={() => setIsOpen((prev) => !prev)}
+      className="group flex w-full items-center justify-between gap-3
+                 rounded-xl border border-stroke-primary
+                 bg-panel-background px-4 py-2
+                 backdrop-blur-sm transition-colors
+                 hover:border-orange-gradient-start focus:outline-none
+                 md:hidden"
+    >
+      <span
+        className="text-sm font-semibold text-foreground
+                   transition-colors group-hover:text-orange-gradient-end"
+      >
+        {currentCategory.name}
+      </span>
 
-        {isOpen && (
-          <div
-            role="listbox"
-            className="absolute left-0 right-0 top-full z-30
-                       flex flex-col overflow-hidden 
-                       mt-2 p-1
-                       rounded-2xl border border-stroke-primary 
-                       bg-panel-background backdrop-blur-md"
-          >
-            {categories.map((category) => (
-              <button
-                key={category.slug}
-                type="button"
-                role="option"
-                aria-selected={category.slug === currentCategory.slug}
-                onClick={() => handleSelect(category.slug)}
-                className={`flex items-center
-                            w-full p-2
-                            rounded-xl text-left text-sm font-semibold 
-                            transition-colors hover:bg-orange-gradient-start/10 hover:text-orange-gradient-end
-                            ${category.slug === currentCategory.slug ? 'text-orange-gradient-end' : 'text-foreground'
-                  }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-        )}
-
-
-        {/* Versione Desktop: barra pulsanti */}
-        {categories.map((category) => {
-          const isActive = category.slug === currentCategory.slug;
-          return (
-            <button
-              key={category.slug}
-              type="button"
-              aria-pressed={isActive}
-              onClick={() => handleSelect(category.slug)}
-              className={`hidden md:flex flex-1 min-w-0
-                          items-center justify-center
-                          h-11 md:h-12 lg:h-14
-                          rounded-xl md:rounded-2xl
-                          px-2 md:px-3 lg:px-5
-                          text-sm md:text-base font-semibold whitespace-nowrap
-                          transition-all duration-200 focus:outline-none
-                          ${isActive ? 'btn-gradient-orange text-[#070a0f] shadow-md shadow-[#d77635]/20'
-                                    : 'border border-stroke-primary bg-panel-background text-foreground hover:border-orange-btn-border-color'
-                }`}
-            >
-              {category.name}
-            </button>
-          );
-        })}
-
-        <SortButton
-          dateSortOptions={dateSortOptions}
-          classNameButton="flex-1 min-w-0 h-11 md:h-12 lg:h-14 px-2 md:px-3 lg:px-5 rounded-xl md:rounded-2xl"
-          className="contents"
-        />
+      <div
+        className={`flex items-center justify-center
+                    transition-transform duration-300
+                    ${isOpen ? 'rotate-180' : 'group-hover:translate-y-1'}`}
+      >
+        <Image src={arrowIcon} alt="" width={18} height={22} />
       </div>
+    </button>
 
-    </div>
+    {isOpen && (
+      <div
+        role="listbox"
+        className="absolute left-0 right-0 top-full z-30 mt-2
+                   flex flex-col overflow-hidden rounded-2xl
+                   border border-stroke-primary
+                   bg-panel-background p-1 backdrop-blur-md"
+      >
+        {categories.map((category) => (
+          <button
+            key={category.slug}
+            type="button"
+            role="option"
+            aria-selected={category.slug === currentCategory.slug}
+            onClick={() => handleSelect(category.slug)}
+            className={`flex w-full items-center
+                        rounded-xl p-2
+                        text-left text-sm font-semibold
+                        transition-colors
+                        hover:bg-orange-gradient-start/10
+                        hover:text-orange-gradient-end
+                        ${
+                          category.slug === currentCategory.slug
+                            ? 'text-orange-gradient-end'
+                            : 'text-foreground'
+                        }`}
+          >
+            {category.name}
+          </button>
+        ))}
+      </div>
+    )}
+
+    {/* Versione Desktop: barra pulsanti */}
+    {categories.map((category) => {
+      const isActive = category.slug === currentCategory.slug;
+
+      return (
+        <button
+          key={category.slug}
+          type="button"
+          aria-pressed={isActive}
+          onClick={() => handleSelect(category.slug)}
+          className={`hidden min-w-0 flex-1 items-center justify-center
+                      h-11 rounded-xl
+                      px-2
+                      text-sm font-semibold whitespace-nowrap
+                      transition-all duration-200
+                      focus:outline-none
+                      md:flex md:h-12 md:rounded-2xl md:px-3 md:text-base
+                      lg:h-14 lg:px-5
+                      ${
+                        isActive
+                          ? 'btn-gradient-orange text-[#070a0f] shadow-md shadow-[#d77635]/20'
+                          : 'border border-stroke-primary bg-panel-background text-foreground hover:border-orange-btn-border-color'
+                      }`}
+        >
+          {category.name}
+        </button>
+      );
+    })}
+    
+    <SortButton
+      dateSortOptions={dateSortOptions}
+      className="hidden min-w-0 flex-1 flex items-center justify-center
+                h-11 rounded-xl px-2
+                text-sm font-semibold whitespace-nowrap
+                transition-all duration-200
+                focus:outline-none
+                md:flex md:h-12 md:rounded-2xl md:px-3 md:text-base
+                lg:h-14 lg:px-5
+                border border-stroke-primary bg-panel-background
+                text-foreground hover:border-orange-btn-border-color"
+      spanClassName="text-sm font-semibold whitespace-nowrap
+                    transition-colors group-hover:text-orange-gradient-end
+                    md:text-base"
+    />
+  </div>
+</div>
   );
 }

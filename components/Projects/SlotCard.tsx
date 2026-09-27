@@ -41,7 +41,7 @@ export default function SlotCard({
         <div className="flex flex-col gap-1.5">
           {/* Tipologia */}
           <span className="text-gradient-orange bg-clip-text 
-                           text-base font-bold  md:text-lg"
+                           text-base font-bold md:text-lg"
                            >
             {category}
           </span>
