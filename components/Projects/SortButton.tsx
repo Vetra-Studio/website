@@ -56,7 +56,11 @@ export default function SortButton({
 
     params.set(sortParam, option.slug);
 
-    router.push(`${pathname}?${params.toString()}`);
+    window.history.replaceState(
+      null,
+      '',
+      `${pathname}?${params.toString()}`
+    );
     setIsOpen(false);
   };
 

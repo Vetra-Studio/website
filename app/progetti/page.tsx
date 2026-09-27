@@ -7,7 +7,13 @@ import { FilterOption } from '@/components/Projects/CategoryMenu';
 
 
 export default async function ProjectsPage() {
+  console.time('getCategories');
   const dbCategories = await getCategories();
+  console.timeEnd('getCategories');
+
+  console.time('getProjects');
+  const dbProjects = await getProjects();
+  console.timeEnd('getProjects');
   const categories = [
     { slug: 'all', name: 'Tutti i progetti' },
     ...dbCategories,
@@ -17,8 +23,6 @@ export default async function ProjectsPage() {
     { slug: 'recent', name: 'Più recenti' },
     { slug: 'old', name: 'Meno recenti' },
   ];
-
-  const dbProjects = await getProjects();
 
   return (
     <main className="flex flex-col items-center justify-center">

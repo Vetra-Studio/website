@@ -22,7 +22,12 @@ export default function SearchBar() {
       } else {
         params.delete(searchParam);
       }
-      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+      window.history.replaceState(
+        null,
+        '',
+        `${pathname}?${params.toString()}`
+      );
+      
     }, 300);
 
     return () => clearTimeout(timeout);

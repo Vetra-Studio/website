@@ -58,8 +58,12 @@ export default function CategoryMenu({
   const handleSelect = (id: string) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set(categoryParam, id);
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-
+    window.history.replaceState(
+      null,
+      '',
+      `${pathname}?${params.toString()}`
+    );
+    
     setIsOpen(false);
   };
 
