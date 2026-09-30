@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { MarqueeTech } from "@/components/ui/MarqueeTech"
 import Link from "next/link";
+import Image from "next/image";
 import { Eye, ListCheck, MousePointerClick, FingerprintPattern } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -125,8 +126,16 @@ export default function AboutUs() {
             ))}
           </div>
         </div>
-        <div>
-          {/* TODO-MERGE: sostituire con Image component dopo il merge + "hidden sm:block" */}
+        <div className="hidden sm:block">
+          <Image
+            src="/foto/IMG_0244.webp"
+            alt="Il team di Vetra Studio al lavoro in ufficio"
+            width={5712}
+            height={4284}
+            sizes="(min-width: 640px) 40vw, 100vw"
+            className="w-full h-auto max-h-[36rem] object-cover rounded-lg"
+            priority
+          />
         </div>
       </div>
 
@@ -185,15 +194,29 @@ export default function AboutUs() {
           </Link>
         </div>
 
-        <div>
-          {/* TODO-MERGE: sostituire con Image component dopo il merge */}
+        <div className="mt-10 sm:mt-0">
+          <Image
+            src="/foto/IMG_0222.webp"
+            alt="Il team di Vetra Studio riunito in ufficio"
+            width={5712}
+            height={4284}
+            sizes="(min-width: 640px) 40vw, 100vw"
+            className="w-full h-auto max-h-[36rem] object-cover rounded-lg"
+          />
         </div>
       </div>
 
       {/* Il nostro modo di lavorare */}
       <div className="sm:grid sm:grid-cols-2 py-20 items-center border-b border-stroke-primary">
-        <div>
-          {/* TODO-MERGE: sostituire con Image component dopo il merge */}
+        <div className="mb-10 sm:mb-0 sm:pr-10">
+          <Image
+            src="/foto/IMG_0260.webp"
+            alt="Stretta di mano tra un membro del team e un cliente"
+            width={4284}
+            height={5712}
+            sizes="(min-width: 640px) 40vw, 100vw"
+            className="w-full h-auto max-h-[36rem] object-cover rounded-lg"
+          />
         </div>
 
         <div>
@@ -254,8 +277,15 @@ export default function AboutUs() {
               Le nostre competenze si completano attraverso ruoli distinti, così da poter dedicare attenzione ai diversi aspetti del progetto.
             </p>
           </div>
-          <div>
-            {/* TODO-MERGE: sostituire con Image component dopo il merge */}
+          <div className="mt-8 sm:mt-0">
+            <Image
+            src="/foto/IMG_0296.webp"
+            alt="I cinque membri del team di Vetra Studio attorno a un tavolo di lavoro"
+            width={5712}
+            height={4284}
+            sizes="(min-width: 640px) 40vw, 100vw"
+            className="w-full h-auto max-h-[36rem] object-cover rounded-lg"
+          />
           </div>
         </div>
 
