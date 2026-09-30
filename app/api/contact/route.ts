@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const { fullName, email, phone, subject, message, turnstileToken, website} = body;
+    const { firstName, lastName, email, phone, subject, message, turnstileToken, website} = body;
 
     if (website) {
       return Response.json({ success: true });
@@ -50,14 +50,15 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!fullName || !email || !subject || !message) {
+    if (!firstName || !lastName || !email || !subject || !message) {
       return Response.json(
         { error: 'Compila tutti i campi obbligatori' },
         { status: 400 }
       );
     }
 
-    const safeFullName = escapeHtml(fullName);
+    const safeFirstName = escapeHtml(firstName);
+    const safeLastName = escapeHtml(lastName);
     const safeEmail = escapeHtml(email);
     const safePhone = escapeHtml(phone || 'Non specificato');
     const safeSubject = escapeHtml(subject);
@@ -71,7 +72,8 @@ export async function POST(request: Request) {
       html: `
         <h2>Nuovo messaggio dal sito</h2>
 
-        <p><strong>Nome:</strong> ${safeFullName}</p>
+        <p><strong>Nome:</strong> ${safeFirstName}</p>
+        <p><strong>Cognome:</strong> ${safeLastName}</p>
         <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Telefono:</strong> ${safePhone}</p>
         <p><strong>Oggetto:</strong> ${safeSubject}</p>

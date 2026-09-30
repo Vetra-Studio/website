@@ -6,7 +6,6 @@ import Script from "next/script";
 //import { Send } from 'lucide-react';
 
 const inputFields = [
-  { id: 'fullName', type: 'text', placeholder: 'Nome e cognome', required: true },
   { id: 'email', type: 'email', placeholder: 'Email', required: true },
   { id: 'phone', type: 'tel', placeholder: 'Telefono', required: false},
   { id: 'subject', type: 'text', placeholder: 'Oggetto', required: true },
@@ -34,7 +33,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      fullName: formData.get('fullName'),
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
       email: formData.get('email'),
       phone: formData.get('phone'),
       subject: formData.get('subject'),
@@ -60,25 +60,71 @@ export default function ContactForm({className}: FormProps) {
         invia un messaggio
       </h2>
 
-
-       <Script
+      {/* Turnstile | cloudflare bot protection */}
+      <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
         strategy="afterInteractive"
       />
 
       {/* Form */}
-      <form 
+      <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-5">
         <div className="flex flex-col gap-4">
-          {inputFields.map(({ id, type, placeholder, required }) => (
-            <div key={id}>
-              <input name={id} type={type} required={required} placeholder={`${placeholder}${required ? " *" : ""}`} className="input-base" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="firstName">Nome * :</label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                required
+                placeholder="Nome *"
+                className="input-base mt-2"
+              />
             </div>
-          ))}
+
+            <div>
+              <label htmlFor="lastName">Cognome * :</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                required
+                placeholder="Cognome *"
+                className="input-base mt-2"
+              />
+            </div>
+          </div>
+
+          {inputFields.map(({ id, type, placeholder, required }) => {
+            const label = `${placeholder}${required ? " *" : ""}`;
+
+            return(
+              <div key={id}>
+                <label htmlFor={id}>{`${label} :`}</label>
+                <input
+                  id={id}
+                  name={id}
+                  type={type}
+                  required={required}
+                  placeholder={label}
+                  className="input-base mt-2"
+                />
+              </div>
+            )
+          })}
 
           <div>
-            <textarea name="message" placeholder="Messaggio *" rows={4} className="input-base textarea-scrollbar" required />
+            <label htmlFor="message">Messaggio * :</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Messaggio *"
+              rows={4}
+              className="input-base textarea-scrollbar mt-2"
+              required
+            />
           </div>
         </div>
 

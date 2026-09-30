@@ -11,8 +11,6 @@
     "url": "git+https://github.com/Vetra-Studio/website.git"
   },
   "license": "ISC",
-  "type": "commonjs",
-  "main": "index.js",
   "scripts": {
     "build": "next build",
     "dev": "next dev",

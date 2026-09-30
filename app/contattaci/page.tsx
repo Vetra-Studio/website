@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <main className="flex flex-col items-center justify-center scroll-smooth ">
 
-      <div className="items-center p-4 gap-12 mb-10 md:grid md:grid-cols-2 ">
+      <div className="items-center p-4 gap-12 mb-10 md:grid md:grid-cols-2">
 
         {/* Colonna Sinistra */}
         <div className="flex flex-col">
@@ -25,14 +25,14 @@ export default function ContactPage() {
         </div>
 
         {/* Colonna Destra */}
-        <div className="flex justify-center hidden md:block">
+        <div className="hidden md:flex items-center justify-center">
           <Image src="/vetra-icon.svg" alt="logo" width={300} height={300} />
         </div>
 
       </div>
 
       <div className="">
-        <Form className="mx-auto my-8 w-fit"/>
+        <Form className="my-8 w-[640px]"/>
       </div>
 
       <WhyContactUs
