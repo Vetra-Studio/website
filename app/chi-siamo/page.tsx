@@ -4,6 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Eye, ListCheck, MousePointerClick, FingerprintPattern } from 'lucide-react';
 
+import teamImage from "@/public/foto/IMG_0296.webp"
+import heroImage from "@/public/foto/IMG_0244.webp"
+import storyImage from "@/public/foto/IMG_0222.webp"
+import workImage from "@/public/foto/IMG_0260.webp"
+
+
 export const metadata: Metadata = {
   title: 'Chi Siamo',
   description: 'Scopri Vetra Studio, il nostro approccio e il team che trasforma le idee in esperienze digitali.',
@@ -106,34 +112,31 @@ const principles = [
 
 export default function AboutUs() {
   return (
-    <main className="flex flex-col items-center justify-center font-mono scroll-smooth sm:mx-25 mx-6">
+    <main className="flex flex-col items-center justify-center font-mono scroll-smooth md:mx-25 mx-6 text-sm md:text-base">
 
       {/* Hero */}
-      <div className="sm:grid sm:grid-cols-2 pt-5 sm:pt-15 pb-15 sm:gap-15 border-b border-stroke-primary">
+      <div className="md:grid md:grid-cols-2 pt-5 pb-15 py-20 md:pt-15 md:gap-15 border-b border-stroke-primary items-center">
         <div>
           <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Chi Siamo</h1>
-          <h2 className="text-3xl sm:text-5xl font-semibold mb-6">Costruiamo il digitale partendo dalle persone.</h2>
-          <p className="text-base mb-8">
+          <h2 className="text-3xl md:text-5xl font-semibold mb-6">Costruiamo il digitale partendo dalle persone.</h2>
+          <p className="mb-8">
             Siamo Vetra Studio, un team che progetta e sviluppa siti web su misura. Siamo partiti dalla voglia di metterci alla prova insieme,
             unendo competenze diverse per creare soluzioni in cui ogni parte, dal design al codice, abbia uno scopo preciso.
           </p>
-          <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-stroke-primary sm:divide-x-1 sm:divide-stroke-primary">
+          <div className="md:grid md:grid-cols-3 md:gap-4 md:border-t md:border-stroke-primary md:divide-x-1 md:divide-stroke-primary">
             {values.map((value) => (
-              <div key={value.title} className="pb-2 pt-6 last:pb-0 sm:pr-4">
+              <div key={value.title} className="pb-2 pt-6 last:pb-0 md:pr-4">
                 <h3 className="block font-bold">{value.title}</h3>
                 <p>{value.description}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="hidden sm:block">
+        <div className="mt-10 md:mt-0 flex justify-center">
           <Image
-            src="/foto/IMG_0244.webp"
+            src={heroImage}
             alt="Il team di Vetra Studio al lavoro in ufficio"
-            width={5712}
-            height={4284}
-            sizes="(min-width: 640px) 40vw, 100vw"
-            className="w-full h-auto max-h-[36rem] object-cover rounded-lg"
+            className="w-full max-w-4xl rounded-lg"
             priority
           />
         </div>
@@ -141,21 +144,21 @@ export default function AboutUs() {
 
       {/* Perche lo facciamo */}
       <div className="flex flex-col py-20 items-center border-b border-stroke-primary">
-        <div className="sm:w-5/8 sm:text-center">
+        <div className="md:w-5/8 md:text-center">
           <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Perché lo facciamo</h1>
           <h2 className="text-3xl font-semibold mb-4">Un sito deve avere un motivo per esistere.</h2>
-          <p className="text-base mb-8">
+          <p className="mb-8">
             Non ci interessa realizzare una pagina che sia soltanto gradevole da vedere. Un sito non è solo una vetrina, 
             ma uno strumento che deve funzionare, comunicare e portare valore alla tua attività.
           </p>
         </div>
         {/* griglia 2x2 */}
-        <div className="sm:grid sm:grid-cols-2">
+        <div className="md:grid md:grid-cols-2">
           {benefits.map((benefit) => {
             const Icon = benefit.icon;
 
             return (
-              <div key={benefit.title} className="flex gap-4 pb-2 pt-6 last:pb-0 sm:pr-4">
+              <div key={benefit.title} className="flex gap-4 pb-2 pt-6 last:pb-0 md:pr-4">
                 <div><Icon /></div>
                 <div>
                   <h3 className="font-bold">{benefit.title}</h3>
@@ -168,11 +171,11 @@ export default function AboutUs() {
       </div>
 
       {/* la nostra storia */}
-      <div className="sm:grid sm:grid-cols-2 py-20 items-center border-b border-stroke-primary">
+      <div className="md:grid md:grid-cols-2 py-20 md:gap-15 items-center border-b border-stroke-primary">
         <div>
           <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">La nostra storia</h1>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-4">Tutto è iniziato dalla voglia di metterci alla prova.</h2>
-          <p className="text-base mb-5">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Tutto è iniziato dalla voglia di metterci alla prova.</h2>
+          <p className="mb-5">
             L'idea di Vetra Studio è nata dall'incontro di due esigenze. Da una parte, la volontà di metterci alla prova insieme 
             in un'iniziativa concreta, in cui ciascuno potesse mettere in campo le proprie competenze. Dall'altra parte, la consapevolezza 
             di quanto sia fondamentale una presenza online curata per qualsiasi attività.
@@ -194,35 +197,29 @@ export default function AboutUs() {
           </Link>
         </div>
 
-        <div className="mt-10 sm:mt-0">
+        <div className="mt-10 md:mt-0 flex justify-center">
           <Image
-            src="/foto/IMG_0222.webp"
+            src={storyImage}
             alt="Il team di Vetra Studio riunito in ufficio"
-            width={5712}
-            height={4284}
-            sizes="(min-width: 640px) 40vw, 100vw"
-            className="w-full h-auto max-h-[36rem] object-cover rounded-lg"
+            className="w-full max-w-4xl rounded-lg"
           />
         </div>
       </div>
 
       {/* Il nostro modo di lavorare */}
-      <div className="sm:grid sm:grid-cols-2 py-20 items-center border-b border-stroke-primary">
-        <div className="mb-10 sm:mb-0 sm:pr-10">
+      <div className="md:grid md:grid-cols-2 py-20 md:gap-10 items-center border-b border-stroke-primary">
+        <div className="mb-10 md:mb-0 flex justify-center">
           <Image
-            src="/foto/IMG_0260.webp"
+            src={workImage}
             alt="Stretta di mano tra un membro del team e un cliente"
-            width={4284}
-            height={5712}
-            sizes="(min-width: 640px) 40vw, 100vw"
-            className="w-full h-auto max-h-[36rem] object-cover rounded-lg"
+            className="w-full max-w-4xl rounded-lg"
           />
         </div>
 
         <div>
           <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Il nostro modo di lavorare</h1>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-4">La collaborazione con il cliente è il cuore di ogni progetto.</h2>
-          <p className="text-base mb-5">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">La collaborazione con il cliente è il cuore di ogni progetto.</h2>
+          <p className="mb-5">
             Lavoriamo a stretto contatto durante ogni fase del progetto, confrontandoci passo dopo passo per assicurarci che il risultato finale 
             corrisponda alle esigenze e rispecchi le aspettative. Partiamo da un primo confronto per comprendere la realtà dell’attività, 
             le sue necessità e gli obiettivi da raggiungere. Presentiamo quindi una prima proposta grafica insieme al preventivo, definendo 
@@ -254,7 +251,7 @@ export default function AboutUs() {
           <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Tecnologie</h1>
           <h2 className="text-3xl font-semibold mb-4">Scegliamo la tecnologia in base a ciò che serve.</h2>
 
-          <p className="text-base mb-8">
+          <p className="mb-8">
             Non tutti i progetti hanno le stesse necessità. Prima capiamo cosa deve fare il sito, poi scegliamo lo strumento più adatto
             per costruire un'esperienza veloce, funzionale e pensata per durare nel tempo.
             <br/><br/>
@@ -269,31 +266,28 @@ export default function AboutUs() {
       </div>
       {/* Il team */}
       <div className="py-20 border-b border-stroke-primary">
-        <div className="sm:grid sm:grid-cols-2 mb-12">
+        <div className="md:grid md:grid-cols-2 mb-12 md:gap-10 items-center">
           <div>
             <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Il team</h1>
-            <h2 className="text-3xl sm:text-4xl font-semibold mb-4">Ognuno ha un ruolo. Il progetto è uno solo.</h2>
-            <p className="text-base">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Ognuno ha un ruolo. Il progetto è uno solo.</h2>
+            <p>
               Le nostre competenze si completano attraverso ruoli distinti, così da poter dedicare attenzione ai diversi aspetti del progetto.
             </p>
           </div>
-          <div className="mt-8 sm:mt-0">
+          <div className="mt-10 md:mt-0 flex justify-center">
             <Image
-            src="/foto/IMG_0296.webp"
-            alt="I cinque membri del team di Vetra Studio attorno a un tavolo di lavoro"
-            width={5712}
-            height={4284}
-            sizes="(min-width: 640px) 40vw, 100vw"
-            className="w-full h-auto max-h-[36rem] object-cover rounded-lg"
-          />
+              src={teamImage}
+              alt="I cinque membri del team di Vetra Studio attorno a un tavolo di lavoro"
+              className="w-full max-w-4xl rounded-lg"
+            />
           </div>
         </div>
 
-        <div className="sm:grid sm:grid-cols-2 sm:gap-10">
+        <div className="md:grid md:grid-cols-2 md:gap-10">
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="sm:pb-2 pt-6 py-6 last:pb-0 sm:pr-4 sm:border-t sm:border-stroke-primary"
+              className="md:pb-2 pt-6 py-6 last:pb-0 md:pr-4 md:border-t md:border-stroke-primary"
             >
               <h3 className="font-bold">
                 {member.name} — {member.role}
@@ -305,17 +299,17 @@ export default function AboutUs() {
       </div>
 
       {/* La nostra promessa */}
-      <div className="py-15 gap-15 sm:px-25">
+      <div className="py-15 gap-15 lg:px-25">
         <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">La nostra promessa</h1>
-        <h2 className="text-3xl sm:text-5xl font-semibold mb-6">Un progetto non è finito quando funziona. È finito quando risponde a ciò che serve.</h2>
+        <h2 className="text-3xl md:text-5xl font-semibold mb-6">Un progetto non è finito quando funziona. È finito quando risponde a ciò che serve.</h2>
         <p className="mb-8">
           Ci impegniamo a portare a termine il progetto nel miglior modo possibile e a intervenire non appena si presenta un problema. 
           Il nostro obiettivo è consegnare qualcosa che rispecchi le aspettative del cliente e che possa concretamente contribuire alla sua attività.
         </p>
 
-        <div className="sm:grid sm:grid-cols-3 sm:gap-4 border-t border-stroke-primary sm:divide-x-1 sm:divide-stroke-primary">
+        <div className="md:grid md:grid-cols-3 md:gap-4 border-t border-stroke-primary md:divide-x-1 md:divide-stroke-primary">
           {principles.map((principle) => (
-            <div key={principle.number} className="pb-2 pt-6 sm:pr-4 last:pb-0">
+            <div key={principle.number} className="pb-2 pt-6 md:pr-4 last:pb-0">
               <p className="font-extrabold text-orange-gradient-start">{principle.number}</p>
               <h3 className="font-bold">{principle.title}</h3>
               <p>{principle.description}</p>
