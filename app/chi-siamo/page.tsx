@@ -58,31 +58,31 @@ const benefits = [
 
 const teamMembers = [
   {
-    name: "Orso",
+    name: "Riccardo Rossato",
     role: "Client Manager",
     description:
       "Punto di riferimento per il cliente. Ascolta le esigenze iniziali, gestisce preventivi e aspetti amministrativi e garantisce massima trasparenza su tempi e costi.",
   },
   {
-    name: "Elia",
+    name: "Elia Morari",
     role: "Technical Lead",
     description:
       "Definisce l'architettura del codice e le tecnologie da utilizzare, assicurando che il sito sia veloce, sicuro, ben strutturato e facile da aggiornare nel tempo.",
   },
   {
-    name: "Alfonso",
+    name: "Francesco Alfonso",
     role: "UI/UX Designer",
     description:
       "Progetta la struttura visiva e l'interfaccia delle pagine, creando un'esperienza di navigazione intuitiva, curata nei dettagli e coerente con la tua identità.",
   },
   {
-    name: "Sella",
+    name: "Diego Sella",
     role: "Web Developer",
     description:
       "Trasforma i layout in codice, curando l'integrazione di tutte le funzionalità e verificando che il sito funzioni in modo fluido su ogni dispositivo.",
   },
   {
-    name: "Ricky",
+    name: "Riccardo Bosaro",
     role: "Project Manager",
     description:
       "Organizza le fasi di lavoro del team, coordina le scadenze e fa in modo che ogni progetto proceda senza intoppi dalla prima bozza alla pubblicazione.",
