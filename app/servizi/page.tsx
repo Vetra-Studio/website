@@ -148,7 +148,7 @@ export default function ServiziPage({
           {
             iconSrc: "/assistance.svg",
             title: "Assistenza",
-            description: "Ti affianchimo con disponibilità e supporto, dalla progettazione alla realizzazione.",
+            description: "Ti affianchiamo con disponibilità e supporto, dalla progettazione alla realizzazione.",
           },
           {
             iconSrc: "/reliability.svg",

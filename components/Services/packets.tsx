@@ -1,6 +1,5 @@
 interface PricingPlan {
   name: string;
-  subtitle: string;
   description: string;
   price: string;
   originalPrice?: string;
@@ -17,14 +16,13 @@ interface PricingPlan {
 const plans: PricingPlan[] = [
   {
     name: "Start",
-    subtitle: "Sito vetrina basico",
     description: "Il sito essenziale per farti trovare online",
     price: "€599",
     originalPrice: "€800",
     discountTag: { label: "-25%", variant: "blue" },
     features: [
       "Sito vetrina fino a 5 pagine",
-      "Si adatta a telefono,tablet e computer",
+      "Si adatta a telefono, tablet e computer",
       "Ideale se ti serve una presenza semplice e curata",
       "Aggiornamenti dei contenuti inclusi per 6 mesi",
       "Email promozionali agli iscritti"
@@ -34,32 +32,30 @@ const plans: PricingPlan[] = [
   },
   {
     name: "Top",
-    subtitle: "Sito vetrina avanzato",
-    description: "Per aziende che vogliono distinguersi e crescere online",
-    price: "€999",
+    description: "Il sito completo, seguito anche dopo la consegna.",
+    price: "€1000",
     originalPrice: "€1500",
     discountTag: { label: "IL PIÙ COMPLETO -30%", variant: "orange" },
     features: [
       "Fino a 10 pagine",
-      "Si adatta a telefono,tablet e computer",
-      "Ideale per attività che cambiano spesso orari,menù, eventi o offerte",
+      "Si adatta a telefono, tablet e computer",
+      "Ideale per attività che cambiano spesso orari, menù, eventi o offerte",
       "Aggiornamenti dei contenuti inclusi per 6 mesi",
       "Email promozionali agli iscritti"
     ],
     includedCount: 4,
     isPopular: true,
-    ctaText: "Attiva Pro",
+    ctaText: "Attiva Top",
   },
   {
     name: "Deluxe",
-    subtitle: "Web App su misura",
-    description: "Soluzione su misura per grandi aziende e volumi elevati.",
+    description: "Il sito che lavora per te: prenotazioni, ordini, clienti fidelizzati.",
     price: "€1800",
     originalPrice: "€3000",
     discountTag: { label: "OFFERTA -40%", variant: "red" },
     features: [
       "Pagine senza limiti",
-      "Si adatta a telefono,tablet e computer",
+      "Si adatta a telefono, tablet e computer",
       "Prenotazioni o ordini online, con area riservata ai clienti",
       "Aggiornamenti dei contenuti inclusi per 12 mesi",
       "Email promozionali agli iscritti"
@@ -124,10 +120,7 @@ export default function PricingSection() {
 
             <div className="space-y-4 mb-8">
               <div>
-                <p className="text-2xl font-bold text-foreground">{plan.name}</p>
-                <p className="text-xs font-semibold uppercase tracking-wider text-orange-gradient-start mt-1">
-                  {plan.subtitle}
-                </p>
+                <p className="text-2xl font-bold text-foreground text-orange-gradient-start">{plan.name}</p>
               </div>
 
               <p className="text-sm text-light-gray-text min-h-[40px]">
@@ -184,6 +177,11 @@ export default function PricingSection() {
             </button>
           </article>
         ))}
+      </div>
+      <div>
+        <p className="text-left text-light-gray-text text-sm">
+          Prezzi promozionali di lancio, per un periodo limitato. <br/> Ogni progetto parte da una chiacchierata: il preventivo finale dipende da ciò che ti serve davvero, e si possono trovare soluzioni a metà strada. <br/> Assistenza oltre il periodo incluso: 400 € l'anno.
+        </p>
       </div>
     </section>
   );
