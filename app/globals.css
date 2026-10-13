@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-  VETRA STUDIO — DUAL THEME (DARK & LIGHT)
+  VETRA STUDIO
 */
 
 @theme inline {
@@ -33,7 +33,7 @@
 }
 
 /* =========================
-   DARK THEME (DEFAULT)
+   DARK THEME
    ========================= */
 
 :root,
@@ -66,7 +66,7 @@
 }
 
 /* =========================
-   LIGHT THEME (WARM ALABASTER STUDIO)
+   LIGHT THEME
    ========================= */
 
 @media (prefers-color-scheme: light) {
