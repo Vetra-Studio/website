@@ -11,10 +11,10 @@ import FooterCTA from './Footer/FooterCTA';
 
 export default function Footer() {
     const socialLinks = [
-        { name: 'Instagram', href: 'https://www.instagram.com/vetrastudio', icon: InstagramIcon },
-        { name: 'X', href: 'https://www.x.com/company/vetra-studio/', icon: XIcon },
-        { name: 'Facebook', href: 'https://www.facebook.com/vetrastudio', icon: FacebookIcon },
-        { name: 'LinkedIn', href: 'https://www.linkedin.com/company/vetrastudio', icon: LinkedinIcon },
+        { name: 'Instagram', href: 'https://www.instagram.com/vetrastudio_social', icon: InstagramIcon },
+        { name: 'X', href: 'https://x.com/Vetrastudio_/', icon: XIcon },
+        { name: 'Facebook', href: 'https://www.facebook.com/', icon: FacebookIcon },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/', icon: LinkedinIcon },
     ];
 
     const usefulLinks = [
