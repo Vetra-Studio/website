@@ -198,7 +198,7 @@ export default function CookiePolicy() {
               Per esercitarli puoi scrivere ai recapiti indicati nella sezione “Titolare del trattamento”.
             </p>
             <p>
-              Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali (art. 77 GDPR), Piazza Venezia 11, 00187 Roma —{' '}
+              Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali, ai sensi dell'art. 77 GDPR, secondo le modalità indicate sul sito ufficiale {' '}
               <a
                 href="https://www.garanteprivacy.it"
                 target="_blank"

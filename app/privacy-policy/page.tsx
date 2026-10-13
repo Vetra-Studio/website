@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
             Informativa sulla Privacy
           </h1>
           <p className="mt-2 text-xs text-light-gray-text md:text-sm">
-            Ultimo aggiornamento: 29/09/2026
+            Ultimo aggiornamento: 13/10/2026
           </p>
         </header>
 
@@ -135,8 +135,8 @@ export default function PrivacyPolicy() {
               <li><strong>Finalità:</strong> recapitare al titolare la richiesta inviata tramite il modulo di contatto, consentendo di rispondere direttamente al mittente.</li>
               <li><strong>Base giuridica:</strong> esecuzione di una richiesta dell&apos;interessato e legittimo interesse del titolare a gestire le comunicazioni ricevute (art. 6(1)(b) e (f) GDPR).</li>
               <li><strong>Destinatario:</strong> Resend, in qualità di responsabile del trattamento (fornitore del servizio di invio email).</li>
-              <li><strong>Trasferimento extra-UE:</strong> Resend è una società con sede negli Stati Uniti; il trattamento può quindi comportare un trasferimento di dati fuori dallo Spazio economico europeo. <span className="italic">[DA VERIFICARE: gli estremi esatti dell&apos;accordo sul trattamento dei dati (Data Processing Addendum) e le garanzie specifiche adottate da Resend per il trasferimento extra-UE non sono verificabili dal codice.]</span></li>
-              <li><strong>Conservazione:</strong> <span className="italic">[DA VERIFICARE: la durata di conservazione dei dati lato Resend non è accertabile dal codice; il titolare conserva comunque il messaggio ricevuto secondo quanto indicato alla sezione 5.]</span></li>
+              <li><strong>Trasferimento extra-UE:</strong> Resend è una società con sede negli Stati Uniti; il trattamento può quindi comportare un trasferimento di dati fuori dallo Spazio economico europeo. Resend aderisce all&apos;EU-U.S. Data Privacy Framework e il rapporto con il titolare è regolato da un accordo sul trattamento dei dati (Data Processing Addendum) ai sensi dell&apos;art. 28 GDPR, che include le clausole contrattuali standard della Commissione europea.</li>
+              <li><strong>Conservazione:</strong> Resend conserva il contenuto e i dati di consegna dell&apos;email per 30 giorni; il titolare conserva comunque il messaggio ricevuto secondo quanto indicato al punto 5 «Conservazione dei dati» di questa informativa.</li>
             </ul>
             <p>
               La casella <strong>help@vetrastudio.org</strong> è un alias che instrada la posta, tramite Cloudflare Email Routing, verso una casella Gmail del titolare; anche in questo passaggio i dati restano trattati dai fornitori (Cloudflare e Google) come responsabili tecnici della consegna della posta.
@@ -167,7 +167,7 @@ export default function PrivacyPolicy() {
               <a href="mailto:info@vetrastudio.org" className="text-orange-gradient-start underline">info@vetrastudio.org</a>.
             </p>
             <p>
-              Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali (art. 77 GDPR), Piazza Venezia 11, 00187 Roma —{' '}
+              Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali, ai sensi dell'art. 77 GDPR, secondo le modalità indicate sul sito ufficiale {' '}
               <a
                 href="https://www.garanteprivacy.it"
                 target="_blank"
