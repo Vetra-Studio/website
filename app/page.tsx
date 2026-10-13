@@ -1,4 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
+import darkLogoImage from "@/public/vetra-studio-simbolo.svg"
+import logoImage from "@/public/vetra-studio-simbolo-bianco.svg"
 
 export default function Home() {
   return (
@@ -16,8 +19,7 @@ export default function Home() {
             Creiamo Esperienze Digitali di Successo.
           </h1>
           <p className="text-light-gray-text text-base sm:text-lg leading-relaxed max-w-lg">
-            Design Innovativo, Sviluppo All&apos;Avanguardia, Soluzioni Web su
-            Misura per la Tua Azienda.
+            Design Innovativo, Sviluppo All'Avanguardia, Soluzioni Web su Misura per la Tua Azienda.
           </p>
         </div>
 
@@ -26,15 +28,15 @@ export default function Home() {
   <div className="absolute inset-0 bg-amber-500/10 blur-3xl rounded-full scale-90 sm:scale-100" />
 
   {/* Logo per TEMA CHIARO (visibile di default, nascosto in dark mode) */}
-  <img
-    src="/vetra-studio-simbolo.svg"
+  <Image
+    src={darkLogoImage}
     alt="Vetra Studio Logo"
     className="w-full max-w-xs sm:max-w-md h-auto object-contain relative z-10 block dark:hidden"
   />
 
   {/* Logo per TEMA SCURO (nascosto di default, visibile in dark mode) */}
-  <img
-    src="/vetra-studio-simbolo-bianco.svg"
+  <Image
+    src={logoImage}
     alt="Vetra Studio Logo"
     className="w-full max-w-xs sm:max-w-md h-auto object-contain relative z-10 hidden dark:block"
   />
@@ -73,15 +75,15 @@ export default function Home() {
           <div className="space-y-6">
             <p className="text-foreground text-base sm:text-lg leading-relaxed">
               Siamo un team di cinque sviluppatori con competenze complementari.
-              Copriamo l&apos;intero ciclo di vita di un progetto digitale:
-              dalla progettazione dell&apos;architettura al frontend, dal
+              Copriamo l'intero ciclo di vita di un progetto digitale:
+              dalla progettazione dell'architettura al frontend, dal
               backend fino al deployment e alla manutenzione.
             </p>
             <Link
               href="/chi-siamo"
               className="inline-flex items-center justify-center w-full sm:w-auto min-h-[44px] px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
             >
-              Scopri l&apos;azienda
+              Scopri l'azienda
             </Link>
           </div>
         </div>
@@ -91,7 +93,7 @@ export default function Home() {
       <section id="servizi" className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {/* Card 1 */}
-          <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl hover:border-amber-500/50 transition-all text-center shadow-sm flex flex-col items-center">
+          <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center">
             <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
               <svg
                 className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500"
@@ -117,7 +119,7 @@ export default function Home() {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl hover:border-amber-500/50 transition-all text-center shadow-sm flex flex-col items-center">
+          <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center">
             <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
               <svg
                 className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500"
@@ -143,7 +145,7 @@ export default function Home() {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl hover:border-amber-500/50 transition-all text-center shadow-sm flex flex-col items-center sm:col-span-2 md:col-span-1">
+          <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center sm:col-span-2 md:col-span-1">
             <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
               <svg
                 className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500"
