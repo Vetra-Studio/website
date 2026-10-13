@@ -51,7 +51,7 @@ export default function Home() {
               Creiamo Esperienze Digitali di Successo.
             </h1>
             <p className="text-light-gray-text text-base sm:text-lg max-w-lg">
-              Design Innovativo, Sviluppo All'Avanguardia, Soluzioni Web su Misura per la Tua Azienda.
+              Design Innovativo, Sviluppo All’Avanguardia, Soluzioni Web su Misura per la Tua Azienda.
             </p>
           </div>
 
@@ -63,14 +63,14 @@ export default function Home() {
             <Image
               src={darkLogoImage}
               alt="Vetra Studio Logo"
-              className="w-full max-w-xs sm:max-w-md h-auto object-contain relative z-10 md:block dark:hidden"
+              className="relative z-10 hidden md:block dark:hidden"
             />
 
             {/* Logo per TEMA SCURO (nascosto di default, visibile in dark mode) */}
             <Image
               src={logoImage}
               alt="Vetra Studio Logo"
-              className="w-full max-w-xs sm:max-w-md h-auto object-contain relative z-10 hidden dark:md:block"
+              className="relative z-10 hidden md:dark:block"
             />
           </div>
         </section>
@@ -85,7 +85,7 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
             {/* TEAM IMAGE PLACEHOLDER */}
-            <div className="w-full aspect-video bg-card-muted border border-stroke-primary rounded-xl flex items-center justify-center overflow-hidden">
+            <div className="aspect-video bg-card-muted border border-stroke-primary rounded-xl flex items-center justify-center overflow-hidden">
               <div className="text-center text-light-gray-text p-4">
                 <svg
                   className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-light-gray-text opacity-70"
@@ -107,15 +107,15 @@ export default function Home() {
             <div className="space-y-6">
               <p className="text-foreground text-base sm:text-lg leading-relaxed">
                 Siamo un team di cinque sviluppatori con competenze complementari.
-                Copriamo l'intero ciclo di vita di un progetto digitale:
-                dalla progettazione dell'architettura al frontend, dal
+                Copriamo l’intero ciclo di vita di un progetto digitale:
+                dalla progettazione dell’architettura al frontend, dal
                 backend fino al deployment e alla manutenzione.
               </p>
               <Link
                 href="/chi-siamo"
-                className="inline-flex items-center justify-center w-full sm:w-auto min-h-[44px] px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
+                className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
               >
-                Scopri l'azienda
+                Scopri l’azienda
               </Link>
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Web Development</h3>
 
               <p className="text-light-gray-text text-sm leading-relaxed">
-                Sviluppo frontend e backend all'avanguardia con tecnologie
+                Sviluppo frontend e backend all’avanguardia con tecnologie
                 moderne, veloci e scalabili.
               </p>
             </div>
@@ -206,7 +206,7 @@ export default function Home() {
           <div className="text-center mt-8 sm:mt-10">
             <Link
               href="/servizi"
-              className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
+              className="inline-flex items-center justify-center sm:w-auto px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
             >
               Scopri tutti i servizi
             </Link>
@@ -272,7 +272,7 @@ export default function Home() {
                 Collaborazione reale
               </h3>
               <p className="text-light-gray-text text-sm sm:text-base leading-relaxed text-center">
-                Lavoriamo come un'unica squadra, unendo competenze diverse
+                Lavoriamo come un’unica squadra, unendo competenze diverse
                 per un{" "}
                 <strong className="text-foreground">prodotto coerente</strong>.
               </p>
@@ -326,7 +326,7 @@ export default function Home() {
           <div className="text-center mt-8 sm:mt-10">
             <Link
               href="/progetti"
-              className="inline-flex items-center justify-center w-full sm:w-auto min-h-[44px] px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
+              className="inline-flex items-center justify-center sm:w-auto px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
             >
               Guarda tutti i Lavori
             </Link>

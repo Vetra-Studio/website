@@ -140,7 +140,7 @@ export default function CookiePolicy() {
               <li><strong>Finalità:</strong> erogazione del sito, sicurezza e prevenzione degli abusi, diagnostica dei malfunzionamenti.</li>
               <li><strong>Base giuridica:</strong> legittimo interesse del titolare a erogare un sito funzionante e sicuro (art. 6(1)(f) GDPR).</li>
               <li><strong>Destinatario:</strong> Cloudflare, Inc., in qualità di responsabile del trattamento.</li>
-              <li><strong>Trasferimento extra-UE:</strong> Cloudflare, Inc. è una società con sede negli Stati Uniti. Il trattamento può quindi comportare un trasferimento di dati fuori dallo Spazio economico europeo, regolamentato dall&apos;accordo sul trattamento dei dati (Data Processing Addendum) del fornitore e dalle garanzie ivi previste.</li>
+              <li><strong>Trasferimento extra-UE:</strong> Cloudflare, Inc. è una società con sede negli Stati Uniti. Il trattamento può quindi comportare un trasferimento di dati fuori dallo Spazio economico europeo, regolamentato dall’accordo sul trattamento dei dati (Data Processing Addendum) del fornitore e dalle garanzie ivi previste.</li>
               <li><strong>Conservazione:</strong> secondo le politiche di conservazione dei log del fornitore.</li>
             </ul>
             <p className="mt-1">
@@ -198,7 +198,7 @@ export default function CookiePolicy() {
               Per esercitarli puoi scrivere ai recapiti indicati nella sezione “Titolare del trattamento”.
             </p>
             <p>
-              Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali, ai sensi dell'art. 77 GDPR, secondo le modalità indicate sul sito ufficiale {' '}
+              Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali, ai sensi dell’art. 77 GDPR, secondo le modalità indicate sul sito ufficiale {' '}
               <a
                 href="https://www.garanteprivacy.it"
                 target="_blank"
