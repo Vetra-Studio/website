@@ -38,10 +38,10 @@ export default function Home() {
   return (
     <main className="w-full flex flex-col items-center justify-center font-mono scroll-smooth overflow-x-hidden">
       {/* HERO SECTION */}
-      <div className="lg:max-w-2/3">
+      <div className="lg:max-w-2/3 px-0 sm:px-4 lg:px-0">
         <section
           id="home"
-          className="mx-auto px-4 sm:px-6 py-12 md:py-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center"
+          className="py-12 md:py-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center"
         >
           <div className="space-y-4 sm:space-y-6 text-left">
             <span className="text-amber-500 tracking-wide uppercase text-2xl sm:text-3xl md:text-4xl block">
@@ -50,7 +50,7 @@ export default function Home() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground">
               Creiamo Esperienze Digitali di Successo.
             </h1>
-            <p className="text-light-gray-text text-base sm:text-lg max-w-lg">
+            <p className="text-light-gray-text text-base sm:text-lg">
               Design Innovativo, Sviluppo All’Avanguardia, Soluzioni Web su Misura per la Tua Azienda.
             </p>
           </div>
@@ -78,7 +78,7 @@ export default function Home() {
         {/* CHI SIAMO SECTION */}
         <section
           id="chi-siamo"
-          className="mx-auto px-5 sm:px-10 md:px-16 lg:px-20 py-10 md:py-16 my-4 sm:my-8 bg-panel-background border border-stroke-primary rounded-2xl md:rounded-3xl"
+          className="px-5 sm:px-10 md:px-16 lg:px-20 py-10 md:py-16 my-4 sm:my-8 bg-panel-background border border-stroke-primary rounded-2xl md:rounded-3xl"
         >
           <h2 className="text-amber-500 font-bold tracking-wider uppercase text-xl sm:text-2xl mb-6 md:mb-8 text-left">
             CHI SIAMO
@@ -113,7 +113,10 @@ export default function Home() {
               </p>
               <Link
                 href="/chi-siamo"
-                className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
+                className="inline-flex items-center justify-center px-6 py-3 
+                text-base sm:text-lg font-medium text-center text-amber-500
+                border rounded-lg border-amber-500 
+                active:scale-95 transition-all"
               >
                 Scopri l’azienda
               </Link>
@@ -122,7 +125,7 @@ export default function Home() {
         </section>
 
         {/* SERVIZI SECTION */}
-        <section id="servizi" className="mx-auto px-4 sm:px-6 py-10 md:py-16">
+        <section id="servizi" className="py-10 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             {/* Card 1 */}
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center">
@@ -206,7 +209,10 @@ export default function Home() {
           <div className="text-center mt-8 sm:mt-10">
             <Link
               href="/servizi"
-              className="inline-flex items-center justify-center sm:w-auto px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
+              className="inline-flex items-center justify-center px-6 py-3 
+              text-base sm:text-lg font-medium text-center text-amber-500
+              border rounded-lg border-amber-500 
+              active:scale-95 transition-all"
             >
               Scopri tutti i servizi
             </Link>
@@ -214,7 +220,7 @@ export default function Home() {
         </section>
 
         {/* PROCESS STEPS */}
-        <section className="mx-auto px-4 sm:px-6 py-10 md:py-16">
+        <section className="py-10 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 relative">
             {processSteps.map((item) => (
               <div
@@ -238,7 +244,7 @@ export default function Home() {
         </section>
 
         {/* I NOSTRI TRE PILASTRI */}
-        <section className="mx-auto px-4 sm:px-6 py-10 md:py-16">
+        <section className="py-10 md:py-16">
           <h2 className="text-amber-500 font-bold text-center tracking-wider text-xl sm:text-2xl mb-8 sm:mb-10">
             I nostri tre pilastri
           </h2>
@@ -281,7 +287,7 @@ export default function Home() {
         </section>
 
         {/* LAVORI REALIZZATI */}
-        <section id="lavori" className="mx-auto px-4 sm:px-6 py-10 md:py-16">
+        <section id="lavori" className="py-10 md:py-16">
           <h2 className="text-amber-500 font-bold text-center tracking-wider text-xl sm:text-2xl mb-8 sm:mb-12">
             Lavori Realizzati
           </h2>
@@ -326,7 +332,10 @@ export default function Home() {
           <div className="text-center mt-8 sm:mt-10">
             <Link
               href="/progetti"
-              className="inline-flex items-center justify-center sm:w-auto px-6 py-3 text-base sm:text-lg font-medium border border-stroke-secondary rounded-lg hover:border-amber-500 hover:text-amber-500 active:scale-95 transition-all text-foreground text-center"
+              className="inline-flex items-center justify-center px-6 py-3 
+              text-base sm:text-lg font-medium text-center text-amber-500
+              border rounded-lg border-amber-500 
+              active:scale-95 transition-all"
             >
               Guarda tutti i Lavori
             </Link>
