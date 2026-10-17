@@ -1,8 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next"
 import Link from "next/link";
 import Image from "next/image";
+
+import { Pencil, CodeXml, TrendingUp } from "lucide-react";
+
 import darkLogoImage from "@/public/vetra-studio-simbolo.svg"
 import logoImage from "@/public/vetra-studio-simbolo-bianco.svg"
+import heroImage from "@/public/foto/IMG_0244.webp"
+import { Suspense } from "react";
+
+import { getLatestProjects } from "@/lib/supabase/queries";
+import LatestProjects from "@/components/Projects/LatestProjects";
+
 
 export const metadata: Metadata = {
   alternates: {
@@ -34,7 +43,9 @@ export const processSteps = [
 ];
 
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getLatestProjects(3);
+
   return (
     <main className="w-full flex flex-col items-center justify-center font-mono scroll-smooth overflow-x-hidden">
       {/* HERO SECTION */}
@@ -86,22 +97,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
             {/* TEAM IMAGE PLACEHOLDER */}
             <div className="aspect-video bg-card-muted border border-stroke-primary rounded-xl flex items-center justify-center overflow-hidden">
-              <div className="text-center text-light-gray-text p-4">
-                <svg
-                  className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-light-gray-text opacity-70"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                <span className="text-xs sm:text-sm">Immagine Team Placeholder</span>
-              </div>
+                <Image
+                  src={heroImage}
+                  alt="Il team di Vetra Studio al lavoro in ufficio"
+                  className="w-full max-w-4xl rounded-lg"
+                  priority
+                />
             </div>
 
             <div className="space-y-6">
@@ -130,19 +131,7 @@ export default function Home() {
             {/* Card 1 */}
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center">
               <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
+                <Pencil className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500" />
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Web Design</h3>
@@ -156,19 +145,7 @@ export default function Home() {
             {/* Card 2 */}
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center">
               <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
+                <CodeXml className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500" />
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Web Development</h3>
@@ -182,19 +159,7 @@ export default function Home() {
             {/* Card 3 */}
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center sm:col-span-2 md:col-span-1">
               <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                  />
-                </svg>
+                <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500" />
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">SEO & Marketing</h3>
@@ -292,41 +257,10 @@ export default function Home() {
             Lavori Realizzati
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
-                className="bg-panel-background border border-stroke-primary rounded-2xl overflow-hidden group"
-              >
-                {/* PORTFOLIO ITEM IMAGE PLACEHOLDER */}
-                <div className="aspect-video bg-card-muted border-b border-stroke-primary flex items-center justify-center">
-                  <div className="text-center text-light-gray-text">
-                    <svg
-                      className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1 text-light-gray-text opacity-70"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span className="text-xs">Immagine Progetto {item}</span>
-                  </div>
-                </div>
-
-                <div className="p-5 sm:p-6 text-center">
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">Progetto {item}</h3>
-                  <p className="text-light-gray-text text-sm sm:text-base">
-                    Questa è una descrizione generica e sintetica, pensata per
-                    offrire una panoramica chiara e completa.
-                  </p>
-                </div>
-              </div>
-            ))}
+          <div>
+            <Suspense fallback={null}>              
+              <LatestProjects projects={projects} />
+            </Suspense>
           </div>
 
           <div className="text-center mt-8 sm:mt-10">

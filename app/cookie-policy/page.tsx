@@ -1,6 +1,8 @@
 ﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { MoveLeft } from 'lucide-react';
+
 export const metadata: Metadata = {
   title: 'Cookie Policy',
   description: 'Informativa sui cookie e sul trattamento dei dati tecnici da parte di Vetra Studio.',
@@ -263,7 +265,7 @@ export default function CookiePolicy() {
             href="/"
             className="inline-flex items-center text-sm font-semibold text-orange-gradient-start hover:underline"
           >
-            ← Torna alla Home
+            <MoveLeft className="w-4 h-4 mr-2" /> Torna alla Home
           </Link>
         </div>
 

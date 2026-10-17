@@ -3,10 +3,10 @@ import Navbar from './Navbar/Navbar';
 import Image from 'next/image';
 import Link from 'next/link'
 
-import FacebookIcon from '@/public/facebook.svg'
-import InstagramIcon from '@/public/instagram.svg'
-import LinkedinIcon from '@/public/linkedin.svg'
-import XIcon from '@/public/x.svg'
+import FacebookIcon from '@/public/social/facebook.svg'
+import InstagramIcon from '@/public/social/instagram.svg'
+import LinkedinIcon from '@/public/social/linkedin.svg'
+import XIcon from '@/public/social/x.svg'
 import FooterCTA from './Footer/FooterCTA';
 
 export default function Footer() {
@@ -18,9 +18,9 @@ export default function Footer() {
     ];
 
     const usefulLinks = [
-        { name: 'Domande Frequenti', href: '/faq' },
-        { name: 'Contatti', href: '/contatti' },
-        { name: 'Presentazione Aziendale', href: '/presentazione' },
+        { name: 'Domande Frequenti', href: '/servizi#faq' },
+        { name: 'Contatti', href: '/contattaci' },
+        { name: 'Presentazione Aziendale', href: '/chi-siamo#il-nostro-modo-di-lavorare' },
     ];
 
     return (
@@ -77,7 +77,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {usefulLinks.map((link) => (
                                 <li key={link.name}>
-                                    <Link className="text-gray-400 hover:text-gray-200" href={link.href} target="_blank" aria-label={link.name}>
+                                    <Link className="text-gray-400 hover:text-gray-200" href={link.href} aria-label={link.name}>
                                         {link.name}
                                     </Link>
                                 </li>

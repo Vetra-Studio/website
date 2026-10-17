@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import arrowIcon from '@/public/right-arrow.svg';
+import { MoveRight } from 'lucide-react';
 
 interface SlotProps {
   title: string;
@@ -77,13 +77,7 @@ export default function SlotCard({
               Vedi progetto
             </span>
 
-            <Image
-              src={arrowIcon}
-              alt=""
-              width={28}
-              height={24}
-              className="transition-transform duration-300 group-hover/link:translate-x-1"
-            />
+            <MoveRight className="w-6 h-6 transition-transform duration-300 group-hover/link:translate-x-1 text-orange-gradient-start" />
           </Link>
         </div>
       </div>

@@ -62,3 +62,32 @@ export interface Project {
     slug: string;
   };
 }
+
+export async function getLatestProjects(limit = 3): Promise<Project[]> {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase
+    .from('projects')
+    .select(`
+      id,
+      title,
+      description,
+      release,
+      slug,
+      category_id,
+      category:categories!projects_category_id_fkey (
+        id,
+        name,
+        slug
+      )
+    `)
+    .order('release', { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    console.error('Error fetching latest projects:', error);
+    throw new Error('Failed to fetch latest projects');
+  }
+
+  return data;
+}

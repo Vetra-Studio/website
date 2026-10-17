@@ -7,13 +7,8 @@ import { FilterOption } from '@/components/Projects/CategoryMenu';
 
 
 export default async function ProjectsPage() {
-  console.time('getCategories');
   const dbCategories = await getCategories();
-  console.timeEnd('getCategories');
-
-  console.time('getProjects');
   const dbProjects = await getProjects();
-  console.timeEnd('getProjects');
   const categories = [
     { slug: 'all', name: 'Tutti i progetti' },
     ...dbCategories,

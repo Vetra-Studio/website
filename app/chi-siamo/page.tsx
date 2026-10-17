@@ -192,7 +192,7 @@ export default function AboutUs() {
               sviluppo e comunicazione lavorano nella stessa direzione.
             </p>
           </div>
-          <Link href="/contatti" className="inline-block border-2 p-4 rounded-lg border-orange-gradient-start cursor-pointer">
+          <Link href="/contattaci" className="inline-block border-2 p-4 rounded-lg border-orange-gradient-start cursor-pointer">
             Raccontaci la tua storia →
           </Link>
         </div>
@@ -207,7 +207,7 @@ export default function AboutUs() {
       </div>
 
       {/* Il nostro modo di lavorare */}
-      <div className="md:grid md:grid-cols-2 py-20 md:gap-10 items-center border-b border-stroke-primary">
+      <div id="il-nostro-modo-di-lavorare" className="md:grid md:grid-cols-2 py-20 md:gap-10 items-center border-b border-stroke-primary">
         <div className="mb-10 md:mb-0 flex justify-center">
           <Image
             src={workImage}

@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import arrowIcon from '@/public/down-arrow.svg';
 import type { Category } from '@/lib/supabase/queries';
 import SortButton from './SortButton';
+
+import { ChevronsDown } from 'lucide-react';
 
 export interface FilterOption {
   slug: string;
@@ -94,7 +94,7 @@ export default function CategoryMenu({
                     transition-transform duration-300
                     ${isOpen ? 'rotate-180' : 'group-hover:translate-y-1'}`}
       >
-        <Image src={arrowIcon} alt="" width={18} height={22} />
+        <ChevronsDown className="w-5 h-5 text-orange-gradient-start" />
       </div>
     </button>
 

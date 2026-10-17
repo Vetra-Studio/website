@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { MoveLeft } from 'lucide-react';
+
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Informativa sulla privacy di Vetra Studio: dati raccolti, finalità del trattamento, base giuridica e modalità di contatto.',
@@ -214,7 +216,7 @@ export default function PrivacyPolicy() {
             href="/"
             className="inline-flex items-center text-sm font-semibold text-orange-gradient-start hover:underline"
           >
-            ← Torna alla Home
+            <MoveLeft className="w-4 h-4 mr-2" /> Torna alla Home
           </Link>
         </div>
 

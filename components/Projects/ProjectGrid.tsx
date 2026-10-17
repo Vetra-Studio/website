@@ -73,10 +73,18 @@ export default function ProjectsGrid({
   }, [projects, categorySlug, sortSlug, searchQuery]);
 
   const visibleProjects = filteredAndSortedProjects.slice(0, visibleCount);
+
   const hasMore = visibleCount < filteredAndSortedProjects.length;
+  const canShowLess = visibleCount > initialCount;
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + step);
+    setVisibleCount((prev) =>
+      Math.min(prev + step, filteredAndSortedProjects.length)
+    );
+  };
+
+  const handleShowLess = () => {
+    setVisibleCount(initialCount);
   };
 
   return (
@@ -94,11 +102,20 @@ export default function ProjectsGrid({
         ))}
       </div>
 
-      {hasMore && (
-        <div className="mt-10 flex w-full justify-center md:mt-14">
+    {(hasMore || canShowLess) && (
+      <div className="mt-10 flex w-full justify-center gap-4 md:mt-14">
+        {canShowLess && (
+          <LoadMoreButton
+            onClick={handleShowLess}
+            label="Mostra meno"
+          />
+        )}
+
+        {hasMore && (
           <LoadMoreButton onClick={handleLoadMore} />
-        </div>
-      )}
+        )}
+      </div>
+    )}
     </section>
   );
 }

@@ -1,10 +1,9 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
-import arrowIcon from '@/public/down-arrow.svg';
 import { FilterOption } from './CategoryMenu';
+import { ChevronsDown } from 'lucide-react';
 
 interface SortButtonProps {
   dateSortOptions: FilterOption[];
@@ -74,13 +73,9 @@ export default function SortButton({
         {currentOption.name}
       </span>
 
-      <Image
-        src={arrowIcon}
-        alt=""
-        width={18}
-        height={22}
-        className={`absolute right-3 top-1/2 -translate-y-1/2
-                    transition-transform duration-300
+      <ChevronsDown
+        className={`w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2
+                    transition-transform duration-300 text-orange-gradient-start
                     ${isOpen ? 'rotate-180' : ''}`}
       />
 

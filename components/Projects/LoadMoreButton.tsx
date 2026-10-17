@@ -3,11 +3,13 @@
 interface LoadMoreButtonProps {
   onClick: () => void;
   className?: string;
+  label?: string;
 }
 
 export default function LoadMoreButton({
   onClick,
-  className,
+  className = '',
+  label = 'Carica altri progetti',
 }: LoadMoreButtonProps) {
   return (
     <button
@@ -23,8 +25,8 @@ export default function LoadMoreButton({
                   md:h-17
                   ${className}`}
     >
-      <span className="text-gradient-orange md:text-3xl lg:text-4xl">
-        Carica altri progetti
+      <span className="text-gradient-orange md:text-xl lg:text-2xl">
+        {label}
       </span>
     </button>
   );
