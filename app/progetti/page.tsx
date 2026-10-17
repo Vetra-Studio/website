@@ -47,7 +47,7 @@ export default async function ProjectsPage() {
           </div>
 
           {/* Colonna Destra: Grafica Logo con Sfocatura */}
-          <div className="flex justify-center">
+          <div className="flex justify-center hidden md:block">
             <Icon />
           </div>
 

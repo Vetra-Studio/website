@@ -11,6 +11,7 @@ import { Suspense } from "react";
 
 import { getLatestProjects } from "@/lib/supabase/queries";
 import LatestProjects from "@/components/Projects/LatestProjects";
+import Icon from "@/components/Icon";
 
 
 export const metadata: Metadata = {
@@ -67,22 +68,8 @@ export default async function Home() {
           </div>
 
           {/* HERO IMAGE */}
-          <div className="relative flex justify-center items-center mt-6 md:mt-0">
-            <div className="absolute inset-0 bg-amber-500/10 blur-3xl rounded-full scale-90 sm:scale-100" />
-
-            {/* Logo per TEMA CHIARO (visibile di default, nascosto in dark mode) */}
-            <Image
-              src={darkLogoImage}
-              alt="Vetra Studio Logo"
-              className="relative z-10 hidden md:block dark:hidden"
-            />
-
-            {/* Logo per TEMA SCURO (nascosto di default, visibile in dark mode) */}
-            <Image
-              src={logoImage}
-              alt="Vetra Studio Logo"
-              className="relative z-10 hidden md:dark:block"
-            />
+          <div className="flex justify-center hidden md:block">
+            <Icon />
           </div>
         </section>
 
