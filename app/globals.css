@@ -172,7 +172,10 @@ body {
   background: #d77635;
 }
 
-/* marquee Theme */
+/* =========================
+   MARQUEE THEME
+   ========================= */
+
 @theme inline {
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
@@ -193,4 +196,16 @@ body {
       transform: translateY(calc(-100% - var(--gap)));
     }
   }
+}
+
+
+.text-gradient-orange {
+  @apply bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-transparent;
+}
+
+.btn-transparent-gradient-orange {
+  @apply bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end border border-orange-btn-border-color;
+}
+.btn-gradient-orange {
+  @apply bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end border;
 }
