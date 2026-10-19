@@ -1,15 +1,8 @@
+import { SITE } from '@/lib/site'
 import type { MetadataRoute } from 'next'
 
+const PAGES = ['', '/chi-siamo', '/progetti']
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://www.vetrastudio.org',
-    },
-    {
-      url: 'https://www.vetrastudio.org/servizi',
-    },
-    {
-      url: 'https://www.vetrastudio.org/chi-siamo',
-    }
-  ]
+  return PAGES.map((p) => ({ url: `${SITE.url}${p}` }))
 }

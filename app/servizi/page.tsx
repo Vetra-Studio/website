@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Servizi',
-  description: 'Scopri le soluzioni digitali che proponiamo ad aziende e professionisti.',
-  alternates: {
-    canonical: '/servizi',
-  },
-}
+export const metadata = pageMetadata({ title: 'Servizi', path: '/servizi',
+  description: 'Scopri le soluzioni digitali che proponiamo ad aziende e professionisti.' })
+
 
 export default function Services() {
   return (

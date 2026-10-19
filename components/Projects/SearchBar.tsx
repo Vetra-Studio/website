@@ -1,12 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useSearchParams, usePathname } from 'next/navigation';
 
 export const searchParam = 'q';
 
 export default function SearchBar() {
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 

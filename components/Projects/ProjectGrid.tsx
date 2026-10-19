@@ -70,7 +70,7 @@ export default function ProjectsGrid({
     });
 
     return sorted;
-  }, [projects, categorySlug, sortSlug, searchQuery]);
+  }, [projects, categorySlug, sortSlug, searchQuery, defaultCategory]);
 
   const visibleProjects = filteredAndSortedProjects.slice(0, visibleCount);
 

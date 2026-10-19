@@ -4,7 +4,11 @@ import ProjectFilterSection from "@/components/Projects/ProjectFilterSection";
 import ProjectGrid from "@/components/Projects/ProjectGrid";
 import { getCategories, getProjects } from '@/lib/supabase/queries';
 import { FilterOption } from '@/components/Projects/CategoryMenu';
+import { pageMetadata } from "@/lib/seo";
 
+
+export const metadata = pageMetadata({ title: 'Progetti', path: '/progetti',
+  description: 'Una selezione dei siti web realizzati da Vetra Studio, con attenzione a design ed esperienza utente.' })
 
 export default async function ProjectsPage() {
   const dbCategories = await getCategories();
@@ -42,7 +46,7 @@ export default async function ProjectsPage() {
             <p className="text-lg sm:text-xl md:text-2xl 
                           text-light-gray-text 
                           leading-relaxed">
-              Una selezione dei siti web che abbiamo realizzato per i nostri clienti, con un focus sulla qualità del design e dell'esperienza utente.
+              Una selezione dei siti web che abbiamo realizzato per i nostri clienti, con un focus sulla qualità del design e dell’esperienza utente.
             </p>
           </div>
 

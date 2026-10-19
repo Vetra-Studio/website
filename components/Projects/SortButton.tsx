@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useSearchParams, usePathname } from 'next/navigation';
 import { FilterOption } from './CategoryMenu';
 import { ChevronsDown } from 'lucide-react';
 
@@ -22,7 +22,6 @@ export default function SortButton({
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-
+import { SITE } from '@/lib/site'
 
 export const viewport: Viewport = {
   themeColor: [
@@ -12,36 +12,35 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.vetrastudio.org'),
+  metadataBase: new URL(SITE.url),
 
   title: {
-    default: 'Vetra Studio — Realizzazione siti web',
-    template: '%s | Vetra Studio',
+    default: `${SITE.name} — Realizzazione siti web`,
+    template: `%s | ${SITE.name}`,
   },
-  description: 'Creiamo Esperienze Digitali di Successo. Realizziamo siti web, e-commerce e applicazioni web su misura per aziende e professionisti.',
+  description: SITE.description,
   category: 'technology',
 
   openGraph: {
-    title: 'Vetra Studio — Creiamo Esperienze Digitali di Successo.',
-    description: 'Creiamo Esperienze Digitali di Successo. Realizziamo siti web, e-commerce e applicazioni web su misura per aziende e professionisti.',
-    url: 'https://www.vetrastudio.org',
-    siteName: 'Vetra Studio',
+    title: SITE.homeTitle,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
     images: [
       {
-        url: '/og-image.png',
+        url: SITE.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Vetra Studio',
+        alt: SITE.name,
       },
     ],
-    locale: 'it_IT',
+    locale: SITE.locale,
     type: 'website',
   },
 
   icons: {
     icon: [
       { url: '/vetra-icon.svg' },
-      new URL('/vetra-icon.svg', 'https://www.vetrastudio.org'),
       { url: '/vetra-icon-dark.svg', media: '(prefers-color-scheme: dark)' },
     ],
     apple: '/vetra-icon.svg',
@@ -49,10 +48,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Vetra Studio — Creiamo Esperienze Digitali di Successo.',
-    description: 'Creiamo Esperienze Digitali di Successo. Realizziamo siti web, e-commerce e applicazioni web su misura per aziende e professionisti.',
-    //creator: '@vetrastudio',
-    images: ['/og-image.png'],
+    title: SITE.homeTitle,
+    description: SITE.description,
+    creator: '@Vetrastudio_',
+    images: [SITE.ogImage],
   },
 
 }
@@ -60,10 +59,19 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Vetra Studio',
-  url: 'https://www.vetrastudio.org',
-  logo: 'https://www.vetrastudio.org/vetra-icon.svg',
+  name: SITE.name,
+  url: SITE.url,
+  logo: `${SITE.url}/vetra-icon.svg`,
   description: 'Creiamo Esperienze Digitali di Successo.',
+  email: SITE.emails.info,
+  telephone: SITE.phone,
+  address: { '@type': 'PostalAddress', addressLocality: SITE.locality, addressRegion: SITE.province, addressCountry: 'IT' },
+  areaServed: { '@type': 'AdministrativeArea', name: SITE.region },
+  contactPoint: [
+    { '@type': 'ContactPoint', contactType: 'sales', email: SITE.emails.info, availableLanguage: 'it' },
+    { '@type': 'ContactPoint', contactType: 'customer support', email: SITE.emails.help, availableLanguage: 'it' },
+  ],
+  sameAs: ['https://www.instagram.com/vetrastudio_social', 'https://x.com/Vetrastudio_'],
 }
 
 export default function RootLayout({
@@ -77,7 +85,7 @@ export default function RootLayout({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify(jsonLd),
+              __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
             }}
           />
       </head>

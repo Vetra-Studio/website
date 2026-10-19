@@ -1,24 +1,17 @@
-import type { Metadata } from "next"
 import Link from "next/link";
 import Image from "next/image";
 
 import { Pencil, CodeXml, TrendingUp } from "lucide-react";
 
-import darkLogoImage from "@/public/vetra-studio-simbolo.svg"
-import logoImage from "@/public/vetra-studio-simbolo-bianco.svg"
 import heroImage from "@/public/foto/IMG_0244.webp"
 import { Suspense } from "react";
 
 import { getLatestProjects } from "@/lib/supabase/queries";
 import LatestProjects from "@/components/Projects/LatestProjects";
 import Icon from "@/components/Icon";
+import { pageMetadata } from "@/lib/seo";
 
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: '/',
-  },
-}
+export const metadata = pageMetadata({ path: '/' })
 
 export const processSteps = [
   {

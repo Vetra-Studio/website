@@ -48,7 +48,7 @@ export default function Header() {
           `}>
 
       <Link href="/">
-        <h1 className="text-3xl font-bold">Vetra Studio</h1>
+        <p className="text-3xl font-bold">Vetra Studio</p>
       </Link>
 
       <Navbar className="hidden text-lg md:flex space-x-16"

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useSearchParams, usePathname } from 'next/navigation';
 import type { Category } from '@/lib/supabase/queries';
 import SortButton from './SortButton';
 
@@ -25,7 +25,6 @@ export default function CategoryMenu({
   className,
   dateSortOptions,
 }: CategoryMenuProps) {
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 

@@ -45,6 +45,8 @@ export default function PrivacyPolicy() {
               Recapiti:{' '}
               <a href="mailto:info@vetrastudio.org" className="text-orange-gradient-start underline">info@vetrastudio.org</a>
               {' '}|{' '}
+              <a href="mailto:help@vetrastudio.org" className="text-orange-gradient-start underline">help@vetrastudio.org</a>
+              {' '}|{' '}
               +39 327 352 0087.
             </p>
           </section>

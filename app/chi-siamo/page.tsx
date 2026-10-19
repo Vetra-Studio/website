@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { MarqueeTech } from "@/components/ui/MarqueeTech"
 import Link from "next/link";
 import Image from "next/image";
@@ -8,15 +7,11 @@ import teamImage from "@/public/foto/IMG_0296.webp"
 import heroImage from "@/public/foto/IMG_0244.webp"
 import storyImage from "@/public/foto/IMG_0222.webp"
 import workImage from "@/public/foto/IMG_0260.webp"
+import { pageMetadata } from '@/lib/seo';
 
+export const metadata = pageMetadata({ title: 'Chi Siamo', path: '/chi-siamo',
+  description: 'Scopri Vetra Studio, il nostro approccio e il team che trasforma le idee in esperienze digitali.' })
 
-export const metadata: Metadata = {
-  title: 'Chi Siamo',
-  description: 'Scopri Vetra Studio, il nostro approccio e il team che trasforma le idee in esperienze digitali.',
-  alternates: {
-    canonical: '/chi-siamo',
-  },
-}
 
 const values = [
   {
@@ -37,7 +32,7 @@ const benefits = [
   {
     icon: Eye,
     title: "Più visibilità",
-    description: "Una presenza online curata permette a un'attività di raggiungere più utenti.",
+    description: "Una presenza online curata permette a un’attività di raggiungere più utenti.",
   },
   {
     icon: ListCheck,
@@ -46,13 +41,13 @@ const benefits = [
   },
   {
     icon: MousePointerClick,
-    title: "Un'esperienza migliore",
+    title: "Un’esperienza migliore",
     description: "Prestazioni, responsive design e usabilità contribuiscono a rendere il sito efficace su ogni dispositivo.",
   },
   {
     icon: FingerprintPattern,
     title: "Una storia unica",
-    description: "Ogni progetto ha un'anima propria che trasformiamo in un'identità digitale capace di rappresentarlo.",
+    description: "Ogni progetto ha un’anima propria che trasformiamo in un’identità digitale capace di rappresentarlo.",
   },
 ];
 
@@ -67,19 +62,19 @@ const teamMembers = [
     name: "Elia Morari",
     role: "Technical Lead",
     description:
-      "Definisce l'architettura del codice e le tecnologie da utilizzare, assicurando che il sito sia veloce, sicuro, ben strutturato e facile da aggiornare nel tempo.",
+      "Definisce l’architettura del codice e le tecnologie da utilizzare, assicurando che il sito sia veloce, sicuro, ben strutturato e facile da aggiornare nel tempo.",
   },
   {
     name: "Francesco Alfonso",
     role: "UI/UX Designer",
     description:
-      "Progetta la struttura visiva e l'interfaccia delle pagine, creando un'esperienza di navigazione intuitiva, curata nei dettagli e coerente con la tua identità.",
+      "Progetta la struttura visiva e l’interfaccia delle pagine, creando un’esperienza di navigazione intuitiva, curata nei dettagli e coerente con la tua identità.",
   },
   {
     name: "Diego Sella",
     role: "Web Developer",
     description:
-      "Trasforma i layout in codice, curando l'integrazione di tutte le funzionalità e verificando che il sito funzioni in modo fluido su ogni dispositivo.",
+      "Trasforma i layout in codice, curando l’integrazione di tutte le funzionalità e verificando che il sito funzioni in modo fluido su ogni dispositivo.",
   },
   {
     name: "Riccardo Bosaro",
@@ -118,7 +113,7 @@ export default function AboutUs() {
       <div className="md:grid md:grid-cols-2 pt-5 pb-15 py-20 md:pt-15 md:gap-15 border-b border-stroke-primary items-center">
         <div>
           <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Chi Siamo</h1>
-          <h2 className="text-3xl md:text-5xl font-semibold mb-6">Costruiamo il digitale partendo dalle persone.</h2>
+          <h3 className="text-3xl md:text-5xl font-semibold mb-6">Costruiamo il digitale partendo dalle persone.</h3>
           <p className="mb-8">
             Siamo Vetra Studio, un team che progetta e sviluppa siti web su misura. Siamo partiti dalla voglia di metterci alla prova insieme,
             unendo competenze diverse per creare soluzioni in cui ogni parte, dal design al codice, abbia uno scopo preciso.
@@ -145,8 +140,8 @@ export default function AboutUs() {
       {/* Perche lo facciamo */}
       <div className="flex flex-col py-20 items-center border-b border-stroke-primary">
         <div className="md:w-5/8 md:text-center">
-          <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Perché lo facciamo</h1>
-          <h2 className="text-3xl font-semibold mb-4">Un sito deve avere un motivo per esistere.</h2>
+          <h2 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Perché lo facciamo</h2>
+          <h3 className="text-3xl font-semibold mb-4">Un sito deve avere un motivo per esistere.</h3>
           <p className="mb-8">
             Non ci interessa realizzare una pagina che sia soltanto gradevole da vedere. Un sito non è solo una vetrina, 
             ma uno strumento che deve funzionare, comunicare e portare valore alla tua attività.
@@ -173,22 +168,22 @@ export default function AboutUs() {
       {/* la nostra storia */}
       <div className="md:grid md:grid-cols-2 py-20 md:gap-15 items-center border-b border-stroke-primary">
         <div>
-          <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">La nostra storia</h1>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Tutto è iniziato dalla voglia di metterci alla prova.</h2>
+          <h2 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">La nostra storia</h2>
+          <h3 className="text-3xl md:text-4xl font-semibold mb-4">Tutto è iniziato dalla voglia di metterci alla prova.</h3>
           <p className="mb-5">
-            L'idea di Vetra Studio è nata dall'incontro di due esigenze. Da una parte, la volontà di metterci alla prova insieme 
-            in un'iniziativa concreta, in cui ciascuno potesse mettere in campo le proprie competenze. Dall'altra parte, la consapevolezza 
+            L’idea di Vetra Studio è nata dall’incontro di due esigenze. Da una parte, la volontà di metterci alla prova insieme 
+            in un’iniziativa concreta, in cui ciascuno potesse mettere in campo le proprie competenze. Dall’altra parte, la consapevolezza 
             di quanto sia fondamentale una presenza online curata per qualsiasi attività.
             <br/><br/>
             Abbiamo così costruito un percorso di lavoro condiviso, definendo fin da subito ruoli chiari e un approccio basato sul confronto: 
-            ascoltare prima di progettare, capire le esigenze dell'attività e trasformarle in un'esperienza digitale coerente. 
+            ascoltare prima di progettare, capire le esigenze dell’attività e trasformarle in un’esperienza digitale coerente. 
             Non volevamo limitarci a scrivere codice o a realizzare qualcosa di bello da vedere, ma creare progetti in cui design, 
             sviluppo e comunicazione lavorassero nella stessa direzione e avessero uno scopo preciso.
           </p>
           <div className="border-l-3 rounded-lg border-orange-gradient-start bg-[#14151A] p-6 mb-5">
             <p>
               <strong className="font-bold">Vetra Studio nasce così </strong>
-              dalla voglia di creare, dalla passione per l'informatica e dalla scelta di affrontare insieme progetti in cui design, 
+              dalla voglia di creare, dalla passione per l’informatica e dalla scelta di affrontare insieme progetti in cui design, 
               sviluppo e comunicazione lavorano nella stessa direzione.
             </p>
           </div>
@@ -217,8 +212,8 @@ export default function AboutUs() {
         </div>
 
         <div>
-          <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Il nostro modo di lavorare</h1>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">La collaborazione con il cliente è il cuore di ogni progetto.</h2>
+          <h2 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Il nostro modo di lavorare</h2>
+          <h3 className="text-3xl md:text-4xl font-semibold mb-4">La collaborazione con il cliente è il cuore di ogni progetto.</h3>
           <p className="mb-5">
             Lavoriamo a stretto contatto durante ogni fase del progetto, confrontandoci passo dopo passo per assicurarci che il risultato finale 
             corrisponda alle esigenze e rispecchi le aspettative. Partiamo da un primo confronto per comprendere la realtà dell’attività, 
@@ -235,7 +230,7 @@ export default function AboutUs() {
           <div className="border-l-3 rounded-lg border-orange-gradient-start bg-[#14151A] p-6 mb-5">
             <p>
               <strong className="font-bold">Lavoriamo così </strong>
-              mettendo in relazione design, sviluppo e comunicazione, attraverso un confronto costante con il cliente e un'attenzione
+              mettendo in relazione design, sviluppo e comunicazione, attraverso un confronto costante con il cliente e un’attenzione
               concreta alle esigenze di ogni progetto.
             </p>
           </div>
@@ -248,12 +243,12 @@ export default function AboutUs() {
       {/* Tecnologie */}
       <div className="flex flex-col py-20 border-b border-stroke-primary">
         <div>
-          <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Tecnologie</h1>
-          <h2 className="text-3xl font-semibold mb-4">Scegliamo la tecnologia in base a ciò che serve.</h2>
+          <h2 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Tecnologie</h2>
+          <h3 className="text-3xl font-semibold mb-4">Scegliamo la tecnologia in base a ciò che serve.</h3>
 
           <p className="mb-8">
             Non tutti i progetti hanno le stesse necessità. Prima capiamo cosa deve fare il sito, poi scegliamo lo strumento più adatto
-            per costruire un'esperienza veloce, funzionale e pensata per durare nel tempo.
+            per costruire un’esperienza veloce, funzionale e pensata per durare nel tempo.
             <br/><br/>
             Valutiamo con attenzione complessità, gestione dei contenuti, personalizzazione e prestazioni, così da utilizzare la tecnologia
             che offre il miglior equilibrio tra ciò che il progetto richiede e ciò che il cliente vuole ottenere.
@@ -268,8 +263,8 @@ export default function AboutUs() {
       <div className="py-20 border-b border-stroke-primary">
         <div className="md:grid md:grid-cols-2 mb-12 md:gap-10 items-center">
           <div>
-            <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Il team</h1>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Ognuno ha un ruolo. Il progetto è uno solo.</h2>
+            <h2 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">Il team</h2>
+            <h3 className="text-3xl md:text-4xl font-semibold mb-4">Ognuno ha un ruolo. Il progetto è uno solo.</h3>
             <p>
               Le nostre competenze si completano attraverso ruoli distinti, così da poter dedicare attenzione ai diversi aspetti del progetto.
             </p>
@@ -300,8 +295,8 @@ export default function AboutUs() {
 
       {/* La nostra promessa */}
       <div className="py-15 gap-15 lg:px-25">
-        <h1 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">La nostra promessa</h1>
-        <h2 className="text-3xl md:text-5xl font-semibold mb-6">Un progetto non è finito quando funziona. È finito quando risponde a ciò che serve.</h2>
+        <h2 className="text-xs font-extrabold text-orange-gradient-start uppercase mb-3">La nostra promessa</h2>
+        <h3 className="text-3xl md:text-5xl font-semibold mb-6">Un progetto non è finito quando funziona. È finito quando risponde a ciò che serve.</h3>
         <p className="mb-8">
           Ci impegniamo a portare a termine il progetto nel miglior modo possibile e a intervenire non appena si presenta un problema. 
           Il nostro obiettivo è consegnare qualcosa che rispecchi le aspettative del cliente e che possa concretamente contribuire alla sua attività.
