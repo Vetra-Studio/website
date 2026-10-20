@@ -10,5 +10,7 @@ export const SITE = {
   emails: { info: "info@vetrastudio.org", help: "help@vetrastudio.org" },
   locality: "Noventa Vicentina",
   province: "VI",
+  via: "Via Papa Luciani 14",
+  zipCode: "36025",
   region: "Veneto",
 } as const;
