@@ -89,33 +89,42 @@ export default function ProjectsGrid({
 
   return (
     <section className={className}>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-        {visibleProjects.map((project) => (
-          <SlotCard
-            key={project.id}
-            category={project.category.name}
-            release={project.release}
-            title={project.title}
-            description={project.description}
-            slug={project.slug}
-          />
-        ))}
-      </div>
 
-    {(hasMore || canShowLess) && (
-      <div className="mt-10 flex w-full justify-center gap-4 md:mt-14">
-        {canShowLess && (
-          <LoadMoreButton
-            onClick={handleShowLess}
-            label="Mostra meno"
-          />
+      {visibleProjects.length === 0 ? (
+        <p className="py-12 text-center text-md md:text-xl font-bold text-light-gray-text">La ricerca non ha prodotto risultati.</p>
+      ) : (
+        <>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {visibleProjects.map((project) => (
+              <SlotCard
+                key={project.id}
+                category={project.category.name}
+                release={project.release}
+                title={project.title}
+                description={project.description}
+                slug={project.slug}
+              />
+            ))}
+          </div>
+
+        {(hasMore || canShowLess) && (
+          <div className="mt-10 flex w-full justify-center gap-4 md:mt-14">
+            {canShowLess && (
+              <LoadMoreButton
+                onClick={handleShowLess}
+                label="Mostra meno"
+              />
+            )}
+
+            {hasMore && (
+              <LoadMoreButton onClick={handleLoadMore} />
+            )}
+          </div>
         )}
 
-        {hasMore && (
-          <LoadMoreButton onClick={handleLoadMore} />
-        )}
-      </div>
-    )}
+      </>
+      )}
     </section>
   );
 }
