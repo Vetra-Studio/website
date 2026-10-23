@@ -71,8 +71,8 @@ export default async function Home() {
           id="chi-siamo"
           className="px-5 sm:px-10 md:px-16 lg:px-20 py-10 md:py-16 my-4 sm:my-8 bg-panel-background border border-stroke-primary rounded-2xl md:rounded-3xl"
         >
-          <h2 className="text-amber-500 font-bold tracking-wider uppercase text-xl sm:text-2xl mb-6 md:mb-8 text-left">
-            CHI SIAMO
+          <h2 className="text-amber-500 font-bold tracking-wider uppercase text-xl sm:text-3xl mb-6 md:mb-8 text-left">
+            Chi Siamo
           </h2>
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
             {/* TEAM IMAGE PLACEHOLDER */}
@@ -190,7 +190,7 @@ export default async function Home() {
 
         {/* I NOSTRI TRE PILASTRI */}
         <section className="py-10 md:py-16">
-          <h2 className="text-amber-500 font-bold text-center tracking-wider text-xl sm:text-2xl mb-8 sm:mb-10">
+          <h2 className="text-amber-500 font-bold text-center tracking-wider text-xl sm:text-3xl mb-8 sm:mb-10">
             I nostri tre pilastri
           </h2>
 
@@ -233,13 +233,19 @@ export default async function Home() {
 
         {/* LAVORI REALIZZATI */}
         <section id="lavori" className="py-10 md:py-16">
-          <h2 className="text-amber-500 font-bold text-center tracking-wider text-xl sm:text-2xl mb-8 sm:mb-12">
+          <h2 className="text-amber-500 font-bold text-center tracking-wider text-xl sm:text-3xl mb-8 sm:mb-12">
             Lavori Realizzati
           </h2>
 
           <div>
-            <Suspense fallback={null}>              
-              <LatestProjects projects={projects} />
+            <Suspense fallback={null}>
+            {projects.length === 0 ? (
+              <p className="py-6 text-center text-2xl font-bold text-light-gray-text">Non ci sono progetti disponibili.</p>
+            ) : (
+              <>            
+                  <LatestProjects projects={projects} />
+                </>
+            )}
             </Suspense>
           </div>
 
