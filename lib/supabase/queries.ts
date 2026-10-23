@@ -1,29 +1,26 @@
-import { createClient } from '@/lib/supabase/server'
+import { supabasePublic } from '@/lib/supabase/public';
 
-const log = process.env.NODE_ENV === 'production' ? console.error : console.warn
+const log = process.env.NODE_ENV === 'production'
+  ? console.error
+  : console.warn;
 
-export async function getCategories() {
+export async function getCategories(): Promise<Category[]> {
   try {
-    const supabase = await createClient()
-
-    const { data, error } = await supabase
+    const { data, error } = await supabasePublic
       .from('categories')
       .select('name, slug')
-      .order('name', { ascending: true })
+      .order('name', { ascending: true });
 
     if (error) {
-      log('Error fetching categories:', error.message)
+      log('Error fetching categories:', error.message);
       return [];
     }
 
     return data ?? [];
-
   } catch (error) {
-    log("Unable to connect to the database:", error)
+    log('Unexpected error fetching categories:', error);
     return [];
   }
-
-
 }
 
 export interface Category {
@@ -33,9 +30,7 @@ export interface Category {
 
 export async function getProjects(): Promise<Project[]> {
   try {
-    const supabase = await createClient()
-
-    const { data, error } = await supabase
+    const { data, error } = await supabasePublic
       .from('projects')
       .select(`
         id,
@@ -50,17 +45,17 @@ export async function getProjects(): Promise<Project[]> {
           slug
         )
       `)
-      .order('release', { ascending: false })
+      .order('release', { ascending: false });
     
     if (error) {
-      log('Error fetching projects:', error.message)
+      log('Error fetching projects:', error.message);
       return [];
     }
 
     return data ?? [];
 
   } catch (error) {
-    log("Unable to connect to the database:", error)
+    log("Unexpected error fetching projects:", error);
     return [];
   }
 }
@@ -81,9 +76,7 @@ export interface Project {
 
 export async function getLatestProjects(limit = 3): Promise<Project[]> {
   try {
-    const supabase = await createClient();
-
-    const { data, error } = await supabase
+    const { data, error } = await supabasePublic
       .from('projects')
       .select(`
         id,
@@ -108,7 +101,7 @@ export async function getLatestProjects(limit = 3): Promise<Project[]> {
 
     return data ?? [];
   } catch (error) {
-    log("Unable to connect to the database:", error)
+    log("Unexpected error fetching latest projects:", error);
     return [];
   }
 }
