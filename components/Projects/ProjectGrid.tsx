@@ -91,7 +91,7 @@ export default function ProjectsGrid({
     <section className={className}>
 
       {visibleProjects.length === 0 ? (
-        <p className="py-12 text-center text-xl font-bold text-light-gray-text">La ricerca non ha prodotto risultati.</p>
+        <p className="py-12 text-center text-md md:text-xl font-bold text-light-gray-text">La ricerca non ha prodotto risultati.</p>
       ) : (
         <>
 

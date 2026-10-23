@@ -240,7 +240,7 @@ export default async function Home() {
           <div>
             <Suspense fallback={null}>
             {projects.length === 0 ? (
-              <p className="py-6 text-center text-2xl font-bold text-light-gray-text">Non ci sono progetti disponibili.</p>
+              <p className="py-6 text-center text-md md:text-xl font-bold text-light-gray-text">Non ci sono progetti disponibili.</p>
             ) : (
               <>            
                   <LatestProjects projects={projects} />

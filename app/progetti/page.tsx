@@ -60,7 +60,7 @@ export default async function ProjectsPage() {
         {/* Sezione Filtri e Pulsante */}
         <Suspense fallback={null}>
         {dbProjects.length  === 0 && dbCategories.length === 0 ? (
-          <p className="py-12 text-center text-2xl font-bold text-light-gray-text">Non ci sono progetti disponibili.</p>
+          <p className="py-12 text-center text-md md:text-xl font-bold text-light-gray-text">Non ci sono progetti disponibili.</p>
         ) : (
           <>
             <ProjectFilterSection 
