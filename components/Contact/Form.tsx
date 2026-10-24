@@ -157,13 +157,14 @@ export default function ContactForm({className}: FormProps) {
         </p>
 
         {/* Button Invia Messaggio */}
-        <button type="submit"  disabled={isSending}
+        <button type="submit" disabled={isSending}
           className="
-            flex items-center justify-center gap-2 
+            flex items-center justify-center gap-2
             py-2 sm:py-3
             rounded-lg bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end
             text-black font-bold text-base sm:text-lg
-            hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer"
+            hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer
+            disabled:opacity-60 disabled:cursor-not-allowed"
         >
           <span>{isSending ? 'Invio in corso…' : 'Invia messaggio'}</span>
 
