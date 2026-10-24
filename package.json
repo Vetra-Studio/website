@@ -1,6 +1,7 @@
 {
   "name": "vetrastudiowebsite",
   "version": "0.1.0",
+  "packageManager": "npm@12.0.2",
   "private": true,
   "homepage": "https://github.com/Vetra-Studio/website#readme",
   "bugs": {
