@@ -144,14 +144,6 @@ export default function ContactForm({className}: FormProps) {
             Privacy Policy
           </Link>
         </p>
-        
-        {/* Checkbox Accettazione */}
-        <label className="group flex items-center gap-3 cursor-pointer">
-          <input type="checkbox" required className="size-4 sm:size-5 accent-orange-gradient-start cursor-pointer"/>
-          <span className="text-xs sm:text-sm text-light-gray-text group-hover:text-foreground transition-colors">
-            Ho letto e accetto la Privacy Policy
-          </span>
-        </label>
 
         {/* Button Invia Messaggio */}
         <button type="submit" className="flex items-center justify-center gap-2 
