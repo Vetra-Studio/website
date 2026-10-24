@@ -1,7 +1,16 @@
 import Form from "@/components/Contact/Form";
 import WhyContactUs from "@/components/Reasons";
 import Image from "next/image";
-//import { CircleUserRound, Compass, Shield, UserGroup } from 'lucide-react';
+/*import { CircleUserRound, Compass, Shield, UserGroup } from 'lucide-react';
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: 'Contattaci',
+  path: '/contattaci',
+  description: 'Contatta Vetra Studio per un preventivo o per maggiori informazioni sui nostri servizi: compila il modulo, ti risponderemo al più presto.',
+});
+*/
+
 
 export default function ContactPage() {
   return (
@@ -32,7 +41,7 @@ export default function ContactPage() {
       </div>
 
       <div className="">
-        <Form className="my-8 w-[640px]"/>
+        <Form className="my-8 w-full max-w-[640px]"/>
       </div>
 
       <WhyContactUs

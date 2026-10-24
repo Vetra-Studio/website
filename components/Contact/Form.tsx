@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import { useState } from "react";
 //import { Send } from 'lucide-react';
 
 const inputFields = [
@@ -15,44 +16,54 @@ interface FormProps {
   className?: string;  
 }
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-
-  const form = e.currentTarget;
-  const formData = new FormData(form);
-  const turnstileToken = formData.get('cf-turnstile-response');
-
-  if (!turnstileToken) {
-    alert('Completa la verifica anti-bot.');
-    return;
-  }
-
-  const response = await fetch('/api/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      firstName: formData.get('firstName'),
-      lastName: formData.get('lastName'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      subject: formData.get('subject'),
-      message: formData.get('message'),
-      turnstileToken,
-      website: formData.get('website'),
-    }),
-  });
-
-  if (response.ok) {
-    alert('Messaggio inviato!');
-    form.reset();
-  } else {
-    alert("Errore durante l'invio del messaggio.");
-  }
-};
-
 export default function ContactForm({className}: FormProps) {
+
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSending) return;
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const turnstileToken = formData.get('cf-turnstile-response');
+
+    if (!turnstileToken) {
+      alert('Completa la verifica anti-bot.');
+      return;
+    }
+
+    setIsSending(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.get('firstName'),
+          lastName: formData.get('lastName'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          subject: formData.get('subject'),
+          message: formData.get('message'),
+          turnstileToken,
+          website: formData.get('website'),
+        }),
+      });
+
+      if (response.ok) {
+        alert('Messaggio inviato!');
+        form.reset();
+      } else {
+        alert("Errore durante l'invio del messaggio.");
+      }
+    } catch {
+      alert("Errore durante l'invio del messaggio.");
+    } finally {
+      window.turnstile?.reset(); // the token is single-use
+      setIsSending(false);
+    }
+  };
+
   return (
     <div className={`${className}`}>
 
@@ -146,13 +157,15 @@ export default function ContactForm({className}: FormProps) {
         </p>
 
         {/* Button Invia Messaggio */}
-        <button type="submit" className="flex items-center justify-center gap-2 
-                                         py-2 sm:py-3
-                                         rounded-lg bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end
-                                         text-black font-bold text-base sm:text-lg
-                                         hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer"
+        <button type="submit"  disabled={isSending}
+          className="
+            flex items-center justify-center gap-2 
+            py-2 sm:py-3
+            rounded-lg bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end
+            text-black font-bold text-base sm:text-lg
+            hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer"
         >
-          <span>Invia messaggio</span>
+          <span>{isSending ? 'Invio in corso…' : 'Invia messaggio'}</span>
 
           <Image
             src="/arrow-contact.svg"

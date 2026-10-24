@@ -1,6 +1,15 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const LIMITS = {
+  firstName: 100,
+  lastName: 100,
+  email: 254,
+  phone: 30,
+  subject: 150,
+  message: 5000,
+} as const;
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const escapeHtml = (value: string) =>
     value.replaceAll('&', '&amp;')
@@ -9,24 +18,66 @@ const escapeHtml = (value: string) =>
          .replaceAll('"', '&quot;')
          .replaceAll("'", '&#039;');
 
+// Returns a trimmed string
+const clean = (value: unknown, max: number) =>
+  typeof value === 'string' ? value.trim().slice(0, max) : '';
 
 export async function POST(request: Request) {
+  let body: Record<string, unknown>;
   try {
-    const body = await request.json();
+    const parsed = await request.json();
+    if (typeof parsed !== 'object' || parsed === null) throw new Error();
+    body = parsed;
+  } catch {
+    return Response.json({ error: 'Richiesta non valida' }, { status: 400 });
+  }
 
-    const { firstName, lastName, email, phone, subject, message, turnstileToken, website} = body;
+  // Honeypot: bots fill it in, so we pretend everything went fine
+  if (body.website) {
+    return Response.json({ success: true });
+  }
+  
+  const firstName = clean(body.firstName, LIMITS.firstName);
+  const lastName = clean(body.lastName, LIMITS.lastName);
+  const email = clean(body.email, LIMITS.email);
+  const phone = clean(body.phone, LIMITS.phone) || 'Non specificato';
+  const subject = clean(body.subject, LIMITS.subject).replace(/[\r\n]+/g, ' ');
+  const message = clean(body.message, LIMITS.message);
+  const turnstileToken =
+    typeof body.turnstileToken === 'string' ? body.turnstileToken : '';
 
-    if (website) {
-      return Response.json({ success: true });
-    }
+  // Validate before Turnstile so a typo doesn't burn the single-use token
+  if (!firstName || !lastName || !email || !subject || !message) {
+    return Response.json(
+      { error: 'Compila tutti i campi obbligatori' },
+      { status: 400 }
+    );
+  }
 
-    if (!turnstileToken) {
-      return Response.json(
-        { error: 'Verifica anti-bot mancante' },
-        { status: 400 }
-      );
-    }
+  if (!EMAIL_REGEX.test(email)) {
+    return Response.json({ error: 'Email non valida' }, { status: 400 });
+  }
 
+  if (!turnstileToken) {
+    return Response.json(
+      { error: 'Verifica anti-bot mancante' },
+      { status: 400 }
+    );
+  }
+  
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error('RESEND_API_KEY is not set');
+    return Response.json({ error: "Errore durante l'invio" }, { status: 500 });
+  }
+
+  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+  if (!turnstileSecret) {
+    console.error('TURNSTILE_SECRET_KEY is not set');
+    return Response.json({ error: "Errore durante l'invio" }, { status: 500 });
+  }
+
+  try {
     const turnstileResponse = await fetch(
       'https://challenges.cloudflare.com/turnstile/v0/siteverify',
       {
@@ -35,7 +86,7 @@ export async function POST(request: Request) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          secret: process.env.TURNSTILE_SECRET_KEY,
+          secret: turnstileSecret,
           response: turnstileToken,
         }),
       }
@@ -50,19 +101,8 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!firstName || !lastName || !email || !subject || !message) {
-      return Response.json(
-        { error: 'Compila tutti i campi obbligatori' },
-        { status: 400 }
-      );
-    }
-
-    const safeFirstName = escapeHtml(firstName);
-    const safeLastName = escapeHtml(lastName);
-    const safeEmail = escapeHtml(email);
-    const safePhone = escapeHtml(phone || 'Non specificato');
-    const safeSubject = escapeHtml(subject);
-    const safeMessage = escapeHtml(message);
+    
+    const resend = new Resend(apiKey);
 
     const { data, error } = await resend.emails.send({
       from: 'Contattaci <contattaci@vetrastudio.org>',
@@ -72,23 +112,28 @@ export async function POST(request: Request) {
       html: `
         <h2>Nuovo messaggio dal sito</h2>
 
-        <p><strong>Nome:</strong> ${safeFirstName}</p>
-        <p><strong>Cognome:</strong> ${safeLastName}</p>
-        <p><strong>Email:</strong> ${safeEmail}</p>
-        <p><strong>Telefono:</strong> ${safePhone}</p>
-        <p><strong>Oggetto:</strong> ${safeSubject}</p>
+        <p><strong>Nome:</strong> ${escapeHtml(firstName)}</p>
+        <p><strong>Cognome:</strong> ${escapeHtml(lastName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Telefono:</strong> ${escapeHtml(phone)}</p>
+        <p><strong>Oggetto:</strong> ${escapeHtml(subject)}</p>
 
         <p><strong>Messaggio:</strong></p>
-        <p>${safeMessage}</p>
+        <p>${escapeHtml(message)}</p>
       `,
     });
 
     if (error) {
-      return Response.json({ error: error.message }, { status: 500 });
+      console.error('Resend error:', error);
+      return Response.json(
+        { error: "Errore durante l'invio del messaggio" },
+        { status: 500 }
+      );
     }
 
     return Response.json({ success: true, data });
-  } catch {
+  } catch (error) {
+    console.error('Contact form error:', error);
     return Response.json(
       { error: "Errore durante l'elaborazione della richiesta" },
       { status: 500 }
