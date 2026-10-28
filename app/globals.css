@@ -5,6 +5,10 @@
 */
 
 @theme inline {
+  --font-chillax: var(--font-family-chillax);
+  --font-clash: var(--font-family-clash);
+  --font-satoshi: var(--font-family-satoshi);
+
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
   --color-stroke-primary: var(--color-stroke-primary);
@@ -142,7 +146,7 @@ body {
   margin: 0;
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: sans-serif;
+  font-family: var(--font-satoshi), sans-serif;
 }
 
 /* =========================

@@ -3,6 +3,41 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { SITE } from '@/lib/site'
+import localFont from "next/font/local";
+
+
+const chillax = localFont({
+  src: "../fonts/Chillax/Chillax-Variable.woff2",
+  display: "swap",
+  variable: "--font-family-chillax",
+  weight: "200 700",
+});
+
+const clashGrotesk = localFont({
+  src: "../fonts/ClashGrotesk/ClashGrotesk-Variable.woff2",
+  display: "swap",
+  variable: "--font-family-clash",
+  weight: "200 700",
+});
+
+const satoshi = localFont({
+  src: [
+    {
+      path: "../fonts/Satoshi/Satoshi-Variable.woff2",
+      style: "normal",
+      weight: "300 900",
+    },
+    {
+      path: "../fonts/Satoshi/Satoshi-VariableItalic.woff2",
+      style: "italic",
+      weight: "300 900",
+    },
+  ],
+  display: "swap",
+  variable: "--font-family-satoshi",
+  weight: "300 900",
+});
+
 
 export const viewport: Viewport = {
   themeColor: [
@@ -90,7 +125,7 @@ export default function RootLayout({
           />
       </head>
       
-      <body className="min-h-screen grid grid-rows-[auto_1fr_auto]">
+      <body className={`${chillax.variable} ${clashGrotesk.variable} ${satoshi.variable} min-h-screen grid grid-rows-[auto_1fr_auto]`}>
         <Header />
 
         {children}

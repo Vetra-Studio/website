@@ -41,7 +41,7 @@ export default async function Home() {
   const projects = await getLatestProjects(3);
 
   return (
-    <main className="w-full flex flex-col items-center justify-center font-mono scroll-smooth overflow-x-hidden">
+    <main className="w-full flex flex-col items-center justify-center scroll-smooth overflow-x-hidden">
       {/* HERO SECTION */}
       <div className="lg:max-w-2/3 px-0 sm:px-4 lg:px-0">
         <section
@@ -49,10 +49,10 @@ export default async function Home() {
           className="py-12 md:py-20 grid md:grid-cols-2 gap-8 md:gap-12 items-center"
         >
           <div className="space-y-4 sm:space-y-6 text-left">
-            <span className="text-amber-500 tracking-wide uppercase text-2xl sm:text-3xl md:text-4xl block">
+            <span className="font-clash text-amber-500 tracking-wide uppercase text-2xl sm:text-3xl md:text-4xl block">
               <span className="font-bold">Vetra</span> Studio.
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground">
+            <h1 className="font-clash text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-foreground">
               Creiamo Esperienze Digitali di Successo.
             </h1>
             <p className="text-light-gray-text text-base sm:text-lg">
@@ -71,7 +71,7 @@ export default async function Home() {
           id="chi-siamo"
           className="px-5 sm:px-10 md:px-16 lg:px-20 py-10 md:py-16 my-4 sm:my-8 bg-panel-background border border-stroke-primary rounded-2xl md:rounded-3xl"
         >
-          <h2 className="text-amber-500 font-bold tracking-wider uppercase text-xl sm:text-3xl mb-6 md:mb-8 text-left">
+          <h2 className="font-clash text-amber-500 font-bold tracking-wider uppercase text-xl sm:text-3xl mb-6 md:mb-8 text-left">
             Chi Siamo
           </h2>
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
@@ -114,7 +114,7 @@ export default async function Home() {
                 <Pencil className="w-10 h-10 sm:w-12 sm:h-12 text-amber-600" />
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Web Design</h3>
+              <h3 className="text-lg sm:text-xl font-chillax font-semibold mb-3 text-foreground">Web Design</h3>
 
               <p className="text-light-gray-text text-sm leading-relaxed">
                 Design innovativo, interfacce curate al dettaglio, il UI/UX su
@@ -128,7 +128,7 @@ export default async function Home() {
                 <CodeXml className="w-10 h-10 sm:w-12 sm:h-12 text-amber-600" />
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Web Development</h3>
+              <h3 className="text-lg sm:text-xl font-chillax font-semibold mb-3 text-foreground">Web Development</h3>
 
               <p className="text-light-gray-text text-sm leading-relaxed">
                 Sviluppo frontend e backend all’avanguardia con tecnologie
@@ -142,7 +142,7 @@ export default async function Home() {
                 <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 text-amber-600" />
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">SEO & Marketing</h3>
+              <h3 className="text-lg sm:text-xl font-chillax font-semibold mb-3 text-foreground">SEO & Marketing</h3>
 
               <p className="text-light-gray-text text-sm leading-relaxed">
                 Ottimizzazione sui motori di ricerca e strategie mirate per far
@@ -172,11 +172,11 @@ export default async function Home() {
                 key={item.step}
                 className="flex flex-col items-center text-center"
               >
-                <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-2 border-amber-500/70 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-4 bg-background text-amber-500">
+                <div className="font-chillax font-semibold w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-2 border-amber-500/70 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-4 bg-background text-amber-500">
                   {item.step}
                 </div>
 
-                <h4 className="text-lg sm:text-xl font-bold mb-2 text-foreground">
+                <h4 className="text-lg sm:text-xl font-chillax font-semibold mb-2 text-foreground">
                   {item.title}
                 </h4>
 
@@ -190,13 +190,13 @@ export default async function Home() {
 
         {/* I NOSTRI TRE PILASTRI */}
         <section className="py-10 md:py-16">
-          <h2 className="text-amber-500 font-bold text-center tracking-wider text-xl sm:text-3xl mb-8 sm:mb-10">
+          <h2 className="font-clash text-amber-500 font-bold text-center tracking-wider text-xl sm:text-4xl mb-8 sm:mb-10">
             I nostri tre pilastri
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl">
-              <h3 className="text-amber-500 text-lg sm:text-xl mb-3 text-center">
+              <h3 className="font-chillax font-semibold text-amber-500 text-lg sm:text-xl mb-3 text-center">
                 Solidità tecnica
               </h3>
               <p className="text-light-gray-text text-sm sm:text-base leading-relaxed text-center">
@@ -209,7 +209,7 @@ export default async function Home() {
             </div>
 
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl">
-              <h3 className="text-amber-500 text-lg sm:text-xl mb-3 text-center">
+              <h3 className="font-chillax font-semibold text-amber-500 text-lg sm:text-xl mb-3 text-center">
                 Metodo strutturato
               </h3>
               <p className="text-light-gray-text text-sm sm:text-base leading-relaxed text-center">
@@ -219,7 +219,7 @@ export default async function Home() {
             </div>
 
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl">
-              <h3 className="text-amber-500 text-lg sm:text-xl mb-3 text-center">
+              <h3 className="font-chillax font-semibold text-amber-500 text-lg sm:text-xl mb-3 text-center">
                 Collaborazione reale
               </h3>
               <p className="text-light-gray-text text-sm sm:text-base leading-relaxed text-center">
@@ -233,7 +233,7 @@ export default async function Home() {
 
         {/* LAVORI REALIZZATI */}
         <section id="lavori" className="py-10 md:py-16">
-          <h2 className="text-amber-500 font-bold text-center tracking-wider text-xl sm:text-3xl mb-8 sm:mb-12">
+          <h2 className="font-clash text-amber-500 font-bold text-center tracking-wider text-xl sm:text-4xl mb-8 sm:mb-12">
             Lavori Realizzati
           </h2>
 
