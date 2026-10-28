@@ -1,0 +1,81 @@
+import Form from "@/components/Contact/Form";
+import WhyContactUs from "@/components/Reasons";
+import Image from "next/image";
+/*import { CircleUserRound, Compass, Shield, UserGroup } from 'lucide-react';
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: 'Contattaci',
+  path: '/contattaci',
+  description: 'Contatta Vetra Studio per un preventivo o per maggiori informazioni sui nostri servizi: compila il modulo, ti risponderemo al più presto.',
+});
+*/
+
+
+export default function ContactPage() {
+  return (
+    <main className="flex flex-col items-center justify-center scroll-smooth ">
+
+      <div className="items-center p-4 gap-12 mb-10 md:grid md:grid-cols-2">
+
+        {/* Colonna Sinistra */}
+        <div className="flex flex-col">
+          <h1 className="text-4xl font-bold leading-tight tracking-tight text-gradient-orange md:text-6xl sm:text-5xl">
+            Contattaci
+          </h1>
+          <h2 className="text-lg font-bold text-light-gray-text leading-relaxed md:text-2xl sm:text-xl">
+            Siamo qui per ascoltarti
+          </h2>
+          <p className="text-base text-light-gray-text leading-relaxed md:text-xl sm:text-lg">
+            Hai in mente o vuoi maggiori informazioni sui nostri servizi? <br />
+            Compila il modulo o contattaci direttamente.<br />
+            Ti risponderemo al più presto.<br />
+          </p>
+        </div>
+
+        {/* Colonna Destra */}
+        <div className="hidden md:flex items-center justify-center">
+          <Image src="/vetra-icon.svg" alt="logo" width={300} height={300} />
+        </div>
+
+      </div>
+
+      <div className="">
+        <Form className="my-8 w-full max-w-[640px]"/>
+      </div>
+
+      <WhyContactUs
+        title="perché contattarci"
+        listClassName= "lg:grid-cols-4 sm:grid-cols-2 grid-cols-1"
+        className="py-16 my-16"
+        items={[
+          {
+            iconSrc: "/CircleUserRound.svg",
+            title: "Incontro senza impegno",
+            description:
+              "Parliamo del tuo progetto, rispondiamo alle tue domande e valutiamo insieme le strade migliori.",
+          },
+          {
+            iconSrc: "/target.svg",
+            title: "Soluzione dedicata",
+            description:
+              "Analizziamo le esigenze della tua attività per sviluppare una strategia coerente con i tuoi obiettivi.",
+          },
+          {
+            iconSrc: "/shield.svg",
+            title: "Zero costi nascosti",
+            description:
+              "Panoramica completa dell'investimento necessario, senza alcuna revisione di prezzo a sorpresa in corso d'opera.",
+          },
+          {
+            iconSrc: "/UserGroup.svg",
+            title: "Un team al tuo fianco",
+            description:
+              "Competenze diverse lavorano insieme per seguire ogni dettaglio del progetto con attenzione e precisione.",
+          },
+        ]}
+      />
+
+    </main>
+  );
+}

@@ -1,0 +1,183 @@
+'use client';
+
+import Image from "next/image";
+import Link from "next/link";
+import Script from "next/script";
+import { useState } from "react";
+//import { Send } from 'lucide-react';
+
+const inputFields = [
+  { id: 'email', type: 'email', placeholder: 'Email', required: true },
+  { id: 'phone', type: 'tel', placeholder: 'Telefono', required: false},
+  { id: 'subject', type: 'text', placeholder: 'Oggetto', required: true },
+];
+
+interface FormProps {
+  className?: string;  
+}
+
+export default function ContactForm({className}: FormProps) {
+
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSending) return;
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const turnstileToken = formData.get('cf-turnstile-response');
+
+    if (!turnstileToken) {
+      alert('Completa la verifica anti-bot.');
+      return;
+    }
+
+    setIsSending(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.get('firstName'),
+          lastName: formData.get('lastName'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          subject: formData.get('subject'),
+          message: formData.get('message'),
+          turnstileToken,
+          website: formData.get('website'),
+        }),
+      });
+
+      if (response.ok) {
+        alert('Messaggio inviato!');
+        form.reset();
+      } else {
+        alert("Errore durante l'invio del messaggio.");
+      }
+    } catch {
+      alert("Errore durante l'invio del messaggio.");
+    } finally {
+      window.turnstile?.reset(); // the token is single-use
+      setIsSending(false);
+    }
+  };
+
+  return (
+    <div className={`${className}`}>
+
+      <h2 className="mb-2 text-xl sm:text-2xl font-bold uppercase tracking-wide text-gradient-orange">
+        invia un messaggio
+      </h2>
+
+      {/* Turnstile | cloudflare bot protection */}
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="afterInteractive"
+      />
+
+      {/* Form */}
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-5">
+        <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="firstName">Nome * :</label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                required
+                placeholder="Nome *"
+                className="input-base mt-2"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="lastName">Cognome * :</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                required
+                placeholder="Cognome *"
+                className="input-base mt-2"
+              />
+            </div>
+          </div>
+
+          {inputFields.map(({ id, type, placeholder, required }) => {
+            const label = `${placeholder}${required ? " *" : ""}`;
+
+            return(
+              <div key={id}>
+                <label htmlFor={id}>{`${label} :`}</label>
+                <input
+                  id={id}
+                  name={id}
+                  type={type}
+                  required={required}
+                  placeholder={label}
+                  className="input-base mt-2"
+                />
+              </div>
+            )
+          })}
+
+          <div>
+            <label htmlFor="message">Messaggio * :</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Messaggio *"
+              rows={4}
+              className="input-base textarea-scrollbar mt-2"
+              required
+            />
+          </div>
+        </div>
+
+        {/* Honeypot */}
+        <input type="text" name="website" autoComplete="off" className="absolute left-[-9999px]" tabIndex={-1}/>
+
+        {/* Turnstile */}
+        <div
+          className="cf-turnstile"
+          data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+        />
+
+        {/* Note Privacy Policy */}
+        <p className="text-xs leading-relaxed text-light-gray-text sm:text-sm">
+          I tuoi dati saranno trattati in conformità con la nostra{' '}
+          <Link href="/privacy-policy" className="text-blue-500 hover:underline">
+            Privacy Policy
+          </Link>
+        </p>
+
+        {/* Button Invia Messaggio */}
+        <button type="submit" disabled={isSending}
+          className="
+            flex items-center justify-center gap-2
+            py-2 sm:py-3
+            rounded-lg bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end
+            text-black font-bold text-base sm:text-lg
+            hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer
+            disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          <span>{isSending ? 'Invio in corso…' : 'Invia messaggio'}</span>
+
+          <Image
+            src="/arrow-contact.svg"
+            alt=""
+            aria-hidden="true"
+            width={24}
+            height={24}
+            />
+          
+        </button>
+      </form>
+    </div>
+  );
+}

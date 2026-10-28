@@ -26,3 +26,6 @@ next-env.d.ts
 
 # Supabase
 /supabase
+
+# TypeScript Build Info
+*.tsbuildinfo
