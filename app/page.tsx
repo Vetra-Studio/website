@@ -111,7 +111,7 @@ export default async function Home() {
             {/* Card 1 */}
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center">
               <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
-                <Pencil className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500" />
+                <Pencil className="w-10 h-10 sm:w-12 sm:h-12 text-amber-600" />
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Web Design</h3>
@@ -125,7 +125,7 @@ export default async function Home() {
             {/* Card 2 */}
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center">
               <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
-                <CodeXml className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500" />
+                <CodeXml className="w-10 h-10 sm:w-12 sm:h-12 text-amber-600" />
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Web Development</h3>
@@ -139,7 +139,7 @@ export default async function Home() {
             {/* Card 3 */}
             <div className="bg-panel-background border border-stroke-primary p-6 sm:p-8 rounded-2xl text-center flex flex-col items-center sm:col-span-2 md:col-span-1">
               <div className="w-20 h-20 sm:w-24 sm:h-24 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 text-amber-500" />
+                <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 text-amber-600" />
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">SEO & Marketing</h3>

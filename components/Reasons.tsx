@@ -8,7 +8,7 @@ interface ChoiceProps {
 }
 
 interface ElementChoice {
-  iconSrc: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }
@@ -50,13 +50,7 @@ export default function Choice({
                               rounded-xl bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end border border-orange-btn-border-color 
                               mb-4 
                               transition-transform group-hover:scale-105">
-                <Image
-                  src={item.iconSrc}
-                  alt=""
-                  aria-hidden="true"
-                  width={32}
-                  height={32}
-                />
+                {item.icon}
               </div>
 
               <h3 className="text-lg font-bold text-foreground mb-2">
