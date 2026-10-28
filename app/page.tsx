@@ -55,7 +55,7 @@ export default async function Home() {
             <h1 className="font-clash text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-foreground">
               Creiamo Esperienze Digitali di Successo.
             </h1>
-            <p className="text-light-gray-text text-base sm:text-lg">
+            <p className="text-light-gray-text text-base sm:text-2xl">
               Design Innovativo, Sviluppo All’Avanguardia, Soluzioni Web su Misura per la Tua Azienda.
             </p>
           </div>
@@ -86,7 +86,7 @@ export default async function Home() {
             </div>
 
             <div className="space-y-6">
-              <p className="text-foreground text-base sm:text-lg leading-relaxed">
+              <p className="text-foreground text-base sm:text-xl leading-relaxed">
                 Siamo un team di cinque sviluppatori con competenze complementari.
                 Copriamo l’intero ciclo di vita di un progetto digitale:
                 dalla progettazione dell’architettura al frontend, dal
@@ -99,7 +99,9 @@ export default async function Home() {
                 border rounded-lg border-amber-500 
                 active:scale-95 transition-all"
               >
-                Scopri l’azienda
+                <button>
+                  Scopri l’azienda
+                </button>
               </Link>
             </div>
           </div>
@@ -116,7 +118,7 @@ export default async function Home() {
 
               <h3 className="text-lg sm:text-xl font-chillax font-semibold mb-3 text-foreground">Web Design</h3>
 
-              <p className="text-light-gray-text text-sm leading-relaxed">
+              <p className="text-light-gray-text text-base lg:text-lg leading-relaxed">
                 Design innovativo, interfacce curate al dettaglio, il UI/UX su
                 misura per elevare il tuo brand.
               </p>
@@ -130,7 +132,7 @@ export default async function Home() {
 
               <h3 className="text-lg sm:text-xl font-chillax font-semibold mb-3 text-foreground">Web Development</h3>
 
-              <p className="text-light-gray-text text-sm leading-relaxed">
+              <p className="text-light-gray-text text-base lg:text-lg leading-relaxed">
                 Sviluppo frontend e backend all’avanguardia con tecnologie
                 moderne, veloci e scalabili.
               </p>
@@ -144,7 +146,7 @@ export default async function Home() {
 
               <h3 className="text-lg sm:text-xl font-chillax font-semibold mb-3 text-foreground">SEO & Marketing</h3>
 
-              <p className="text-light-gray-text text-sm leading-relaxed">
+              <p className="text-light-gray-text text-base lg:text-lg leading-relaxed">
                 Ottimizzazione sui motori di ricerca e strategie mirate per far
                 crescere costantemente il tuo business.
               </p>
@@ -159,7 +161,9 @@ export default async function Home() {
               border rounded-lg border-amber-500 
               active:scale-95 transition-all"
             >
-              Scopri tutti i servizi
+              <button>
+                Scopri tutti i servizi
+              </button>
             </Link>
           </div>
         </section>
@@ -257,7 +261,9 @@ export default async function Home() {
               border rounded-lg border-amber-500 
               active:scale-95 transition-all"
             >
-              Guarda tutti i Lavori
+              <button>
+                Guarda tutti i Lavori
+              </button>
             </Link>
           </div>
         </section>

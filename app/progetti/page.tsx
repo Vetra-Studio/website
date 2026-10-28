@@ -36,7 +36,7 @@ export default async function ProjectsPage() {
 
             {/* Sottotitolo / Titolo Sezione con gradiente arancione */}
             <h2 className="text-4xl sm:text-5xl md:text-6xl 
-                           font-bold 
+                           font-clash font-bold
                            text-gradient-orange  
                            leading-tight tracking-tight">
               I nostri lavori

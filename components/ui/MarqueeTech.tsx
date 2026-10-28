@@ -75,7 +75,7 @@ const TechCard = ({
         )}
 
         <div className="flex flex-col">
-          <div className="text-sm">
+          <div className="text-sm font-medium font-clash md:text-base md:font-semibold">
             {name}
           </div>
         </div>

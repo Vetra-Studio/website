@@ -146,7 +146,20 @@ body {
   margin: 0;
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-satoshi), sans-serif;
+  font-family: var(--font-family-satoshi), sans-serif;
+}
+
+button {
+  font-family: var(--font-family-clash), sans-serif;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: var(--font-family-clash), sans-serif;
+}
+
+h2 {
+  font-family: var(--font-family-chillax), sans-serif;
 }
 
 /* =========================

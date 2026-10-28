@@ -21,7 +21,7 @@ export default function FooterCTA({
 
   return (
     <section className={className}>
-      <div className="text-lg sm:text-xl md:text-2xl font-bold leading-tight text-foreground tracking-tight">
+      <div className="text-base sm:text-lg md:text-xl font-semibold leading-tight text-foreground tracking-tight">
         <h3>
           Scopri il nostro metodo e come possiamo{' '}
           <br className="hidden sm:block" />
@@ -30,7 +30,9 @@ export default function FooterCTA({
       </div>
 
       <Link href="/contattaci" className={ButtonClassName}>
-        Richiedi una consulenza gratuita
+        <button>
+          Richiedi una consulenza gratuita
+        </button>
       </Link>
     </section>
   );
