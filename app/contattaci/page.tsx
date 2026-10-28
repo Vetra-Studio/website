@@ -26,11 +26,11 @@ export default function ContactPage() {
           <h2 className="text-lg font-bold text-light-gray-text leading-relaxed md:text-2xl sm:text-xl">
             Siamo qui per ascoltarti
           </h2>
-          <h3 className="text-base text-light-gray-text leading-relaxed md:text-xl sm:text-lg">
+          <p className="text-base text-light-gray-text leading-relaxed md:text-xl sm:text-lg">
             Hai in mente o vuoi maggiori informazioni sui nostri servizi? <br />
             Compila il modulo o contattaci direttamente.<br />
             Ti risponderemo al più presto.<br />
-          </h3>
+          </p>
         </div>
 
         {/* Colonna Destra */}

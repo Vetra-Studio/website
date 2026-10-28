@@ -20,7 +20,7 @@ export default function Choice({
   items,
 }: ChoiceProps) {
   return (
-    <section className={`w-full transition-colors duration-300${className}`}>
+    <section className={`w-full transition-colors duration-300 ${className ?? ''}`}>
       <div className="flex flex-col items-center justify-center
                       max-w-7xl mx-auto 
                       px-6 md:px-12 "
