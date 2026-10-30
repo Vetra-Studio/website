@@ -310,8 +310,8 @@ export default function AboutUs() {
           {principles.map((principle) => (
             <div key={principle.number} className="pb-2 pt-6 md:pr-4 last:pb-0">
               <p className="font-extrabold text-orange-gradient-start">{principle.number}</p>
-              <h3 className="font-bold">{principle.title}</h3>
-              <p>{principle.description}</p>
+              <h3 className="font-bold text-2xl">{principle.title}</h3>
+              <p className="mt-2">{principle.description}</p>
             </div>
           ))}
         </div>

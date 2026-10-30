@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface ChoiceProps {
   title: string;
   listClassName?: string;
@@ -53,7 +51,7 @@ export default function Choice({
                 {item.icon}
               </div>
 
-              <h3 className="text-lg font-bold text-foreground mb-2">
+              <h3 className="text-lg font-chillax font-bold text-foreground mb-2">
                 {item.title}
               </h3>
 

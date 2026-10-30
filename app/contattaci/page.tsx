@@ -23,7 +23,7 @@ export default function ContactPage() {
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-gradient-orange md:text-6xl sm:text-5xl">
             Contattaci
           </h1>
-          <h2 className="text-lg font-bold text-light-gray-text leading-relaxed md:text-2xl sm:text-xl">
+          <h2 className="text-lg font-bold leading-relaxed md:text-2xl sm:text-xl">
             Siamo qui per ascoltarti
           </h2>
           <p className="text-base text-light-gray-text leading-relaxed md:text-xl sm:text-lg">

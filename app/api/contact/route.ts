@@ -104,7 +104,7 @@ export async function POST(request: Request) {
     
     const resend = new Resend(apiKey);
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Contattaci <contattaci@vetrastudio.org>',
       to: ['help@vetrastudio.org'],
       replyTo: email,
