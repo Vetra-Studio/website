@@ -42,7 +42,7 @@ const DEFAULT_FAQS: FaqItem[] = [
     id: '5',
     question: 'Offrite garanzia sui lavori?',
     answer:
-      'Certamente, tutti i nostri lavori includono una garanzia di assistenza e correzione di eventuali bug per 12 mesi dal momento della consegna.',
+      'Sì. Per 12 mesi dalla consegna correggiamo senza costi i bug che impediscono a una funzionalità inclusa nel contratto di funzionare come concordato. Le modifiche ai contenuti o gli aggiornamenti non previsti dal contratto sono invece a pagamento.',
   },
 ];
 

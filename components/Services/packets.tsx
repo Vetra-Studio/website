@@ -1,5 +1,6 @@
 interface PricingPlan {
   name: string;
+  scope: string;
   description: string;
   price: string;
   originalPrice?: string;
@@ -7,8 +8,7 @@ interface PricingPlan {
     label: string;
     variant: "orange" | "blue" | "red";
   };
-  features: string[];
-  includedCount?: number;
+  includedFeatures: string[];
   isPopular?: boolean;
   ctaText: string;
 }
@@ -16,51 +16,45 @@ interface PricingPlan {
 const plans: PricingPlan[] = [
   {
     name: "Start",
+    scope: "Sito vetrina · fino a 5 pagine, home compresa",
     description: "Il sito essenziale per farti trovare online",
-    price: "€599",
-    originalPrice: "€800",
+    price: "599 €",
+    originalPrice: "800 €",
     discountTag: { label: "-25%", variant: "blue" },
-    features: [
-      "Sito vetrina fino a 5 pagine",
+    includedFeatures: [
       "Si adatta a telefono, tablet e computer",
       "Ideale se ti serve una presenza semplice e curata",
-      "Aggiornamenti dei contenuti inclusi per 6 mesi",
-      "Email promozionali agli iscritti"
     ],
-    includedCount: 3,
     ctaText: "Inizia Ora",
   },
   {
     name: "Top",
+    scope: "Sito completo · fino a 10 pagine",
     description: "Il sito completo, seguito anche dopo la consegna.",
-    price: "€1000",
-    originalPrice: "€1500",
+    price: "999 €",
+    originalPrice: "1.500 €",
     discountTag: { label: "IL PIÙ COMPLETO -30%", variant: "orange" },
-    features: [
-      "Fino a 10 pagine",
+    includedFeatures: [
       "Si adatta a telefono, tablet e computer",
       "Ideale per attività che cambiano spesso orari, menù, eventi o offerte",
       "Aggiornamenti dei contenuti inclusi per 6 mesi",
-      "Email promozionali agli iscritti"
     ],
-    includedCount: 4,
     isPopular: true,
     ctaText: "Attiva Top",
   },
   {
     name: "Deluxe",
+    scope: "Sito con pagine senza limiti",
     description: "Il sito che lavora per te: prenotazioni, ordini, clienti fidelizzati.",
-    price: "€1800",
-    originalPrice: "€3000",
+    price: "1.800 €",
+    originalPrice: "3.000 €",
     discountTag: { label: "OFFERTA -40%", variant: "red" },
-    features: [
-      "Pagine senza limiti",
+    includedFeatures: [
       "Si adatta a telefono, tablet e computer",
       "Prenotazioni o ordini online, con area riservata ai clienti",
       "Aggiornamenti dei contenuti inclusi per 12 mesi",
       "Email promozionali agli iscritti"
     ],
-    includedCount: 5,
     ctaText: "Contattaci",
   },
 ];
@@ -71,116 +65,98 @@ const badgeBgMap = {
   red: "bg-red-discount",
 };
 
+const planCardClassName = "relative flex flex-col justify-between rounded-2xl border bg-panel-background p-6 pt-8 sm:p-8 sm:pt-10";
+const popularPlanClassName = "border-orange-gradient-start shadow-lg shadow-orange-gradient-start/10";
+const standardPlanClassName = "border-stroke-primary";
+const discountBadgeClassName = "absolute -top-3 right-6 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider text-white";
+
 export default function PricingSection() {
   return (
-    <section className="max-w-7xl 
-                        mx-auto 
-                        px-4 py-16 space-y-12"
-    >
+    <section className="mx-auto max-w-7xl space-y-10 px-4 py-16">
       {/* Intestazione Sezione */}
-      <header className="text-center space-y-3">
-        <p className="text-4xl font-bold tracking-tight 
-                      bg-gradient-to-r text-gradient-orange"
-        >
-          Scegli il tuo Piano
+      <header className="mx-auto max-w-3xl space-y-4 text-center">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-gradient-start">
+          Soluzioni per il tuo progetto
         </p>
-        <p className="text-light-gray-text text-lg">
-          Trasparente, flessibile e senza costi nascosti.
+        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r text-gradient-orange">
+          Piani e Prezzi
+        </h2>
+        <p className="mx-auto max-w-2xl text-light-gray-text text-lg leading-relaxed">
+          Scegli il pacchetto più adatto alla tua attività e confronta con chiarezza prezzi e contenuti inclusi.
         </p>
       </header>
 
       {/* Griglia Piani */}
-      <div className="grid 
-                      grid-cols-1 md:grid-cols-3 
-                      gap-8 items-stretch"
-      >
+      <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3 lg:gap-8">
         {plans.map((plan) => (
           <article
             key={plan.name}
-            className={`relative flex flex-col justify-between 
-                        p-8 
-                        border rounded-2xl 
-                        bg-panel-background  
-                        ${plan.isPopular
-                ? "border-orange-gradient-start md:-translate-y-2"
-                : "border-stroke-primary"
-              }`}
+            className={`${planCardClassName} ${plan.isPopular ? popularPlanClassName : standardPlanClassName}`}
           >
             {plan.discountTag && (
               <span
-                className={`absolute -top-3 right-6 
-                            px-3 py-1 
-                            rounded-full 
-                            text-xs font-bold text-white tracking-wider uppercase ${badgeBgMap[plan.discountTag.variant]
-                  }`}
+                className={`${discountBadgeClassName} ${badgeBgMap[plan.discountTag.variant]}`}
               >
                 {plan.discountTag.label}
               </span>
             )}
 
-            <div className="space-y-4 mb-8">
-              <div>
-                <p className="text-2xl font-bold text-foreground text-orange-gradient-start">{plan.name}</p>
+            <div className="space-y-6 mb-8">
+              <div className="space-y-3">
+                <h3 className="text-2xl font-bold text-orange-gradient-start text-foreground">{plan.name}</h3>
+                <p className="text-sm font-semibold text-foreground leading-relaxed">{plan.scope}</p>
+                <p className="text-sm text-light-gray-text leading-relaxed min-h-[40px]">
+                  {plan.description}
+                </p>
               </div>
 
-              <p className="text-sm text-light-gray-text min-h-[40px]">
-                {plan.description}
-              </p>
-
-              <div className="flex items-baseline gap-2 pt-2">
-                <span className="text-sm text-light-gray-text">A partire da:</span>
-                <span className="text-4xl font-extrabold text-green-text">
-                  {plan.price}
-                </span>
-                {plan.originalPrice && (
-                  <span className="ml-auto text-sm text-light-gray-text line-through">
-                    {plan.originalPrice}
-                  </span>
-                )}
+              <div className="border-y border-stroke-primary py-5">
+                <span className="block text-xs font-semibold uppercase tracking-wider text-light-gray-text">A partire da</span>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="text-4xl font-extrabold text-green-text">{plan.price}</span>
+                  {plan.originalPrice && <span className="text-sm text-light-gray-text line-through">{plan.originalPrice}</span>}
+                </div>
               </div>
 
-              {/* Lista Caratteristiche */}
-              <ul className="space-y-3 pt-4">
-                {plan.features.map((feature, idx) => {
-                  const isDisabled =
-                    plan.includedCount !== undefined && idx >= plan.includedCount;
-
-                  return (
+              <div className="space-y-4">
+                <p className="text-xs font-semibold uppercase tracking-wider text-light-gray-text">
+                  Il piano include
+                </p>
+                <ul className="space-y-4">
+                  {plan.includedFeatures.map((feature) => (
                     <li
-                      key={idx}
-                      className={`flex items-center gap-3 text-sm ${isDisabled ? "opacity-50 line-through" : ""
-                        }`}
+                      key={feature}
+                      className="flex items-start gap-3 text-sm leading-relaxed"
                     >
                       <img
-                        src={isDisabled ? "/x-mark.svg" : "/tick-mark.svg"}
+                        src="/tick-mark.svg"
                         alt=""
                         aria-hidden="true"
-                        className="w-5 h-5 shrink-0"
+                        className="mt-0.5 h-4 w-4 shrink-0"
                       />
                       <span>{feature}</span>
                     </li>
-                  );
-                })}
-              </ul>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Bottone d'azione */}
             <button
               type="button"
-              className="w-full 
-                         py-3 px-6 
-                         font-semibold
-                         rounded-xl btn-transparent-gradient-orange
-                         hover:opacity-90 active:scale-[0.98] transition-transform"
+              className="btn-transparent-gradient-orange w-full rounded-xl px-6 py-3 font-semibold transition-transform hover:opacity-90 active:scale-[0.98]"
             >
               {plan.ctaText}
             </button>
           </article>
         ))}
       </div>
-      <div>
-        <p className="text-left text-light-gray-text text-sm">
-          Prezzi promozionali di lancio, per un periodo limitato. <br/> Ogni progetto parte da una chiacchierata: il preventivo finale dipende da ciò che ti serve davvero, e si possono trovare soluzioni a metà strada. <br/> Assistenza oltre il periodo incluso: 400 € l'anno.
+      <div className="flex flex-col gap-2 border-t border-stroke-primary pt-6 text-sm leading-relaxed text-light-gray-text">
+        <p className="max-w-xl">
+          Prezzi promozionali di lancio, disponibili per un periodo limitato.
+        </p>
+        <p className="max-w-2xl">
+          Il preventivo finale viene definito insieme, in base alle esigenze del progetto. È possibile valutare una soluzione personalizzata tra i piani.
         </p>
       </div>
     </section>
