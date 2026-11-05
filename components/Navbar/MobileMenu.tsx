@@ -34,7 +34,7 @@ export default function MobileMenu({
             md:hidden
             transition-[width] ease-in-out
             ${isOpen ? "w-full" : "w-0"}
-            ${isAnimating ? "border-l border-gray-700" : "border-0"}
+            ${isAnimating ? "border-l border-stroke-primary" : "border-0"}
         `}
         style={{
           transitionDuration: `${animationDuration}ms`,
@@ -45,7 +45,7 @@ export default function MobileMenu({
 
       <Navbar className="flex flex-col space-y-20 text-3xl" onClick={onClose}/>
 
-      <Link href="/contattaci" className="md:hidden block">
+      <Link href="/contattaci" className="md:hidden block" onClick={onClose}>
         <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">
           Contattaci
         </button>

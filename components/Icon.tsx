@@ -16,7 +16,7 @@ export default function Icon({ className }: SculptureProps) {
       />
 
       {/* 2. Immagine del Logo */}
-      <div className="relative z-10 w-[83%] h-[83%]">
+      <div className="relative z-10 w-5/6 h-5/6">
         {/* Logo per Tema Chiaro (visibile di default, nascosto in dark mode) */}
         <Image
           src="/vetra-icon-dark.svg"

@@ -42,22 +42,22 @@ export default function Header() {
 
   return (
     <header className={`bg-background sticky
-          relative z-50 flex items-center justify-between px-12 border-b border-gray-700 top-0 py-4.25
+          relative z-50 flex items-center justify-between px-12 border-b border-stroke-primary top-0 py-4.25
           transition-transform duration-300 ease-in-out 
           ${hidden ? "-translate-y-full" : "translate-y-0"}
           `}>
 
       <Link href="/">
-        <h1 className="text-3xl font-bold">Vetra Studio</h1>
+        <p className="text-3xl font-clash font-bold">Vetra Studio</p>
       </Link>
 
-      <Navbar className="hidden text-lg md:flex space-x-16"
+      <Navbar className="hidden font-chillax text-lg md:flex space-x-16"
               linkClassName="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full hover:after:origin-left
               after:origin-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-400 hover:after:scale-x-100
               "/>
 
-      <Link href="/">
-        <button className="hidden md:block btn-gradient-orange text-black font-bold py-2 px-4 rounded-lg">
+      <Link href="/contattaci" className="hidden md:block">
+        <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-semibold py-2 px-4 rounded-lg">
           Contattaci
         </button>
       </Link>

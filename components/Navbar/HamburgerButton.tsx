@@ -1,9 +1,9 @@
 const hamburgerButtonLines = {
   generalClassName: 'absolute h-0.5 w-6 bg-foreground transition-transform duration-300',
   lines: [
-    { isOpenTrue: 'rotate-45', isOpenFalse: '-translate-y-2' },
-    { isOpenTrue: 'opacity-0', isOpenFalse: 'opacity-100' },
-    { isOpenTrue: '-rotate-45', isOpenFalse: 'translate-y-2' },
+    { isOpened: 'rotate-45', isClosed: '-translate-y-2' },
+    { isOpened: 'opacity-0', isClosed: 'opacity-100' },
+    { isOpened: '-rotate-45', isClosed: 'translate-y-2' },
   ],
 };
 
@@ -29,7 +29,7 @@ export default function HamburgerButton({
         <span
           key={index}
           className={`${hamburgerButtonLines.generalClassName} ${
-            isOpen ? line.isOpenTrue : line.isOpenFalse
+            isOpen ? line.isOpened : line.isClosed
           }`}
         />
       ))}
