@@ -14,7 +14,7 @@ export default function Footer() {
         { name: 'Instagram', href: 'https://www.instagram.com/vetrastudio_social', icon: InstagramIcon },
         { name: 'X', href: 'https://x.com/Vetrastudio_/', icon: XIcon },
         { name: 'Facebook', href: 'https://www.facebook.com/', icon: FacebookIcon },
-        { name: 'LinkedIn', href: 'https://www.linkedin.com/', icon: LinkedinIcon },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/company/vetra-studio-web/', icon: LinkedinIcon },
     ];
 
     const usefulLinks = [
