@@ -38,7 +38,6 @@ export default function ProjectsGrid({
       categorySlug === defaultCategory
         ? projects
         : projects.filter((project) => {
-            console.log(project.title, project.category);
             return project.category.slug === categorySlug;
           });
 
