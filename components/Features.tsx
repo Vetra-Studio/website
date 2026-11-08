@@ -1,4 +1,4 @@
-import Image from "next/image";
+import type { LucideIcon } from "lucide-react";
 
 interface FeaturesProps {
   title?: string;
@@ -7,7 +7,7 @@ interface FeaturesProps {
 }
 
 export interface ElementFeature {
-  iconSrc: string;
+  icon: LucideIcon;
   title: string;
   description: string;
 }
@@ -42,39 +42,40 @@ export default function Features({
                        gap-6 
                        w-full 
                        pt-4`}>
-          {items.map((item) => (
-            <li
-              key={item.title}
-              className="group 
+          {items.map((item) => {
+            const FeatureIcon = item.icon;
+
+            return (
+              <li
+                key={item.title}
+                className="group
                          flex flex-col items-center text-center 
                          p-6 
                          bg-background border border-stroke-primary rounded-2xl shadow-md
                          transition-all duration-300 hover:border-orange-gradient-start
                          hover:-translate-y-1"
-            >
-              <div className="flex items-center justify-center w-14 h-14 
+              >
+                <div className="flex items-center justify-center w-14 h-14
                               rounded-xl btn-transparent-gradient-orange
                               mb-4  
                               transition-transform group-hover:scale-105">
-                <Image
-                  src={item.iconSrc}
-                  alt="" /* Vuoto per icone decorative per evitare ridondanza con h3 */
-                  aria-hidden="true"
-                  width={32}
-                  height={32}
-                  className="object-contain"
-                />
-              </div>
+                  <FeatureIcon
+                    aria-hidden="true"
+                    className="h-8 w-8 text-orange-gradient-start"
+                    strokeWidth={1.75}
+                  />
+                </div>
 
-              <h3 className="text-lg font-bold text-foreground mb-2">
-                {item.title}
-              </h3>
+                <h3 className="text-lg font-bold text-foreground mb-2">
+                  {item.title}
+                </h3>
 
-              <p className="text-light-gray-text text-sm leading-relaxed">
-                {item.description}
-              </p>
-            </li>
-          ))}
+                <p className="text-light-gray-text text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </li>
+            );
+          })}
         </ul>
 
       </div>

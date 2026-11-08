@@ -1,3 +1,5 @@
+import { Check } from "lucide-react";
+
 interface PricingPlan {
   name: string;
   scope: string;
@@ -128,11 +130,10 @@ export default function PricingSection() {
                       key={feature}
                       className="flex items-start gap-3 text-sm leading-relaxed"
                     >
-                      <img
-                        src="/tick-mark.svg"
-                        alt=""
+                      <Check
                         aria-hidden="true"
-                        className="mt-0.5 h-4 w-4 shrink-0"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-green-text"
+                        strokeWidth={2.5}
                       />
                       <span>{feature}</span>
                     </li>
