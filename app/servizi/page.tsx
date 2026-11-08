@@ -2,7 +2,7 @@
 import Icon from "@/components/Icon";
 import FaqSection from "@/components/Services/faq-question";
 import PricingPlans from "@/components/Services/packets";
-import Features from "@/components/Features";
+import Reasons from "@/components/Reasons";
 import {
   FileText,
   Images,
@@ -147,32 +147,35 @@ export default function ServiziPage({
       </section>
 
       {/* Sezione Perché Scegliere Noi */}
-      <Features
+      <Reasons
         title="Perché Scegliere Noi"
-        className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
+        listClassName="grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
+        className="bg-panel-background border-y-2 border-stroke-primary
+                   py-16 my-16 
+                   transition-colors duration-300"
         items={[
           {
-            icon: Heart,
+            icon: <Heart className="w-8 h-8 text-amber-600"/>,
             title: "Passione",
             description: "Affrontiamo ogni progetto con entusiasmo, precisione e voglia di fare.",
           },
           {
-            icon: Lightbulb,
+            icon: <Lightbulb className="w-8 h-8 text-amber-600"/>,
             title: "Innovazione",
             description: "Cerchiamo approcci e soluzioni sempre nuovi per affrontare ogni esigenza con uno sguardo al futuro.",
           },
           {
-            icon: Headset,
+            icon: <Headset className="w-8 h-8 text-amber-600"/>,
             title: "Assistenza",
             description: "Ti affianchiamo con disponibilità e supporto, dalla progettazione alla realizzazione.",
           },
           {
-            icon: ShieldCheck,
+            icon: <ShieldCheck className="w-8 h-8 text-amber-600"/>,
             title: "Affidabilità",
             description: "Manteniamo gli impegni presi e rispettiamo tempi e accordi, costruendo rapporti basati su serietà, chiarezza e fiducia.",
           },
           {
-            icon: MessagesSquare,
+            icon: <MessagesSquare className="w-8 h-8 text-amber-600"/>,
             title: "Comunicazione",
             description: "Confronto diretto e aggiornamenti chiari durante il progetto.",
           },
