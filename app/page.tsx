@@ -40,12 +40,14 @@ const serviceCards = [
     icon: Pencil,
     title: 'Web Design',
     description: 'Design innovativo, interfacce curate al dettaglio, il UI/UX su misura per elevare il tuo brand.',
+    className: '',
   },
   {
     color: 'blue',
     icon: CodeXml,
     title: 'Web Development',
     description: 'Sviluppo frontend e backend all’avanguardia con tecnologie moderne, veloci e scalabili.',
+    className: '',
   },
   {
     color: 'rose',
