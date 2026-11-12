@@ -6,10 +6,8 @@ export default function NotFound() {
         <h1 className="text-2xl font-bold">Pagina non trovata</h1>
         <p>Non è stato possibile trovare la risorsa richiesta</p>
 
-        <Link href="/">
-          <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">
-              Torna alla Home
-          </button>
+        <Link href="/" className="btn-gradient-orange rounded-full px-5 py-2 font-bold">
+          Torna alla Home
         </Link>
     </main>
   );

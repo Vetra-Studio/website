@@ -41,8 +41,8 @@ const satoshi = localFont({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0b10' },
+    { media: '(prefers-color-scheme: light)', color: '#fbf8ef' },
+    { media: '(prefers-color-scheme: dark)', color: '#03111d' },
   ],
 }
 

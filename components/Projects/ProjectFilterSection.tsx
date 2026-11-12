@@ -3,7 +3,7 @@
 import SearchBar from './SearchBar';
 import FiltersMenu from './CategoryMenu';
 import type { Category } from '@/lib/supabase/queries';
-import { FilterOption } from './CategoryMenu';
+import type { FilterOption } from '@/lib/project-filters';
 
 interface ProjectFilterSectionProps {
   categories: Category[];
@@ -19,9 +19,7 @@ export default function ProjectFilterSection({
   return (
     <section className={className}>
       <SearchBar />
-      <div>
-        <FiltersMenu dateSortOptions={dateSortOptions} categories={categories} className="w-full" />
-      </div>
+      <FiltersMenu dateSortOptions={dateSortOptions} categories={categories} className="w-full" />
     </section>
   );
 }

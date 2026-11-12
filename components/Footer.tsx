@@ -1,20 +1,15 @@
 import FooterContact from './Footer/FooterContact';
 import Navbar from './Navbar/Navbar';
-import Image from 'next/image';
 import Link from 'next/link'
-
-import FacebookIcon from '@/public/social/facebook.svg'
-import InstagramIcon from '@/public/social/instagram.svg'
-import LinkedinIcon from '@/public/social/linkedin.svg'
-import XIcon from '@/public/social/x.svg'
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import FooterCTA from './Footer/FooterCTA';
 
 export default function Footer() {
     const socialLinks = [
-        { name: 'Instagram', href: 'https://www.instagram.com/vetrastudio_social', icon: InstagramIcon },
-        { name: 'X', href: 'https://x.com/Vetrastudio_/', icon: XIcon },
-        { name: 'Facebook', href: 'https://www.facebook.com/', icon: FacebookIcon },
-        { name: 'LinkedIn', href: 'https://www.linkedin.com/company/vetra-studio-web/', icon: LinkedinIcon },
+        { name: 'Instagram', href: 'https://www.instagram.com/vetrastudio_social', icon: FaInstagram },
+        { name: 'X', href: 'https://x.com/Vetrastudio_/', icon: FaXTwitter },
+        { name: 'Facebook', href: 'https://www.facebook.com/', icon: FaFacebookF },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/company/vetra-studio-web/', icon: FaLinkedinIn },
     ];
 
     const usefulLinks = [
@@ -24,7 +19,8 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="p-4 sm:w-17/20 mx-auto w-full">
+        <footer className="site-footer w-full text-foreground">
+          <div className="p-4 sm:w-17/20 mx-auto w-full">
 
             <FooterCTA
                 className="
@@ -32,15 +28,14 @@ export default function Footer() {
                     py-12 px-4
                     text-center
                     border-t border-stroke-primary
-                    bg-background
+                    footer-cta-panel
                     md:gap-10 md:py-16 md:px-8"
 
                 ButtonClassName="
                     inline-flex items-center justify-center
                     px-6 py-4
-                    text-sm font-bold uppercase tracking-wider text-foreground
-                    bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end
-                    border-2 border-orange-btn-border-color rounded-2xl
+                    text-sm font-bold uppercase tracking-wider
+                    btn-gradient-orange border-2 rounded-2xl
                     shadow-lg
                     transition-all duration-300
                     hover:brightness-125
@@ -48,17 +43,19 @@ export default function Footer() {
                     select-none cursor-pointer
                     md:px-10 md:py-5 md:text-lg"
             />
+          </div>
 
-            <div className="border-b border-t border-stroke-primary">
-            <div className="flex-col flex justify-between py-12 lg:px-8 lg:flex-row">
+          <div className="footer-links-panel border-b border-t border-stroke-primary">
+            <div className="p-4 sm:w-17/20 mx-auto w-full">
+              <div className="flex-col flex justify-between py-12 lg:px-8 lg:flex-row">
                 <div className="flex-col text-center space-y-4 lg:text-left">
                     <h2 className="text-5xl font-clash"><span className="font-bold">Vetra</span> Studio</h2>
-                    <p className="text-xl text-gray-400">Creiamo Esperienze Digitali <br className="hidden lg:block" /> di Successo.</p>
+                    <p className="text-xl text-light-gray-text">Creiamo Esperienze Digitali <br className="hidden lg:block" /> di Successo.</p>
                     <div className="flex space-x-4 justify-center lg:justify-between lg:space-x-0">
                         {socialLinks.map((link) => (
                             <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer"
-                               aria-label={link.name} className="text-gray-400 hover:text-white pt-4">
-                                <Image src={link.icon} alt={link.name} width={40} height={40} />
+                               aria-label={link.name} className="pt-4 text-light-gray-text transition-colors hover:text-foreground dark:text-orange-gradient-start">
+                                <link.icon aria-hidden="true" size={40} strokeWidth={1.75} />
                             </a>
                         ))}
                     </div>
@@ -69,7 +66,7 @@ export default function Footer() {
                                 ">
                     <div className="px-[10%] border-r border-stroke-primary lg:border-0 lg:px-0 space-y-4">
                         <h3 className="text-sm font-clash font-bold uppercase">Navigazione</h3>
-                        <Navbar className="flex-col text-gray-400 space-y-4" linkClassName="text-gray-400 hover:text-gray-200" />
+                        <Navbar className="flex-col text-light-gray-text space-y-4" linkClassName="text-light-gray-text hover:text-foreground" />
                     </div>
 
                     <div className="px-[10%] space-y-4 lg:px-0">
@@ -77,7 +74,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {usefulLinks.map((link) => (
                                 <li key={link.name}>
-                                    <Link className="text-gray-400 hover:text-gray-200" href={link.href} aria-label={link.name}>
+                                    <Link className="text-light-gray-text hover:text-foreground" href={link.href} aria-label={link.name}>
                                         {link.name}
                                     </Link>
                                 </li>
@@ -90,17 +87,17 @@ export default function Footer() {
                     <h3 className="text-center lg:text-left text-sm font-clash font-bold uppercase">Contatti</h3>
                     <FooterContact className="flex-col flex space-y-4 lg:block"/>
                 </div>
-            </div>
-            </div>
+              </div>
 
             <div className="text-lg flex-col sm:flex-row flex justify-between items-center pb-4 pt-10 lg:px-16">
-                <p className="text-gray-400" suppressHydrationWarning>&copy; {new Date().getFullYear()} Vetra Studio. All rights reserved.</p>
+                <p className="text-light-gray-text" suppressHydrationWarning>&copy; {new Date().getFullYear()} Vetra Studio. All rights reserved.</p>
                 <div className="flex">
-                    <Link href="/privacy-policy" className="text-gray-400 hover:text-gray-200 pr-4">Privacy Policy</Link>
-                    <Link href="/cookie-policy" className="text-gray-400 hover:text-gray-200">Cookie Policy</Link>
+                    <Link href="/privacy-policy" className="text-light-gray-text hover:text-foreground pr-4">Privacy Policy</Link>
+                    <Link href="/cookie-policy" className="text-light-gray-text hover:text-foreground">Cookie Policy</Link>
                 </div>
             </div>
-
+          </div>
+          </div>
         </footer>
     );
 }

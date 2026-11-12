@@ -50,25 +50,25 @@ export default function ContactPage() {
         className="py-16 my-16"
         items={[
           {
-            icon: <CircleUserRound className="w-8 h-8 text-amber-600" />,
+            icon: <CircleUserRound className="w-8 h-8 text-orange-gradient-start" />,
             title: "Incontro senza impegno",
             description:
               "Parliamo del tuo progetto, rispondiamo alle tue domande e valutiamo insieme le strade migliori.",
           },
           {
-            icon: <Compass className="w-8 h-8 text-amber-600" />,
+            icon: <Compass className="w-8 h-8 text-orange-gradient-start" />,
             title: "Soluzione dedicata",
             description:
               "Analizziamo le esigenze della tua attività per sviluppare una strategia coerente con i tuoi obiettivi.",
           },
           {
-            icon: <Shield className="w-8 h-8 text-amber-600" />,
+            icon: <Shield className="w-8 h-8 text-orange-gradient-start" />,
             title: "Zero costi nascosti",
             description:
               "Panoramica completa dell'investimento necessario, senza alcuna revisione di prezzo a sorpresa in corso d'opera.",
           },
           {
-            icon: <Users className="w-8 h-8 text-amber-600" />,
+            icon: <Users className="w-8 h-8 text-orange-gradient-start" />,
             title: "Un team al tuo fianco",
             description:
               "Competenze diverse lavorano insieme per seguire ogni dettaglio del progetto con attenzione e precisione.",

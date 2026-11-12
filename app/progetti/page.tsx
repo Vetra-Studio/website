@@ -3,7 +3,7 @@ import Icon from "@/components/Icon";
 import ProjectFilterSection from "@/components/Projects/ProjectFilterSection";
 import ProjectGrid from "@/components/Projects/ProjectGrid";
 import { getCategories, getProjects } from '@/lib/supabase/queries';
-import { FilterOption } from '@/components/Projects/CategoryMenu';
+import type { FilterOption } from '@/lib/project-filters';
 import { pageMetadata } from "@/lib/seo";
 
 
@@ -13,9 +13,16 @@ export const metadata = pageMetadata({ title: 'Progetti', path: '/progetti',
 export default async function ProjectsPage() {
   const dbCategories = await getCategories();
   const dbProjects = await getProjects();
+  const fallbackCategories = [
+    { slug: 'blog-magazine', name: 'Blog & Magazine' },
+    { slug: 'e-commerce', name: 'E-Commerce' },
+    { slug: 'landing-page', name: 'Landing page' },
+    { slug: 'siti-aziendali', name: 'Siti aziendali' },
+    { slug: 'web-app', name: 'Web App' },
+  ];
   const categories = [
     { slug: 'all', name: 'Tutti i progetti' },
-    ...dbCategories,
+    ...(dbCategories.length > 0 ? dbCategories : fallbackCategories),
   ];
 
   const dateSortOptions: FilterOption[] = [
@@ -34,13 +41,12 @@ export default async function ProjectsPage() {
                           flex-col 
                           gap-4">
 
-            {/* Sottotitolo / Titolo Sezione con gradiente arancione */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl 
+            <h1 className="text-4xl sm:text-5xl md:text-6xl
                            font-clash font-bold
                            text-gradient-orange  
                            leading-tight tracking-tight">
               I nostri lavori
-            </h2>
+            </h1>
 
             {/* Descrizione grigia */}
             <p className="text-lg sm:text-xl md:text-2xl 
@@ -59,24 +65,24 @@ export default async function ProjectsPage() {
 
         {/* Sezione Filtri e Pulsante */}
         <Suspense fallback={null}>
-        {dbProjects.length  === 0 && dbCategories.length === 0 ? (
-          <p className="py-12 text-center text-md md:text-xl font-bold text-light-gray-text">Non ci sono progetti disponibili.</p>
-        ) : (
-          <>
-            <ProjectFilterSection 
-              categories={categories} 
-              dateSortOptions={dateSortOptions} 
-              className="p-6 md:px-12" 
-            />
+          <ProjectFilterSection
+            categories={categories}
+            dateSortOptions={dateSortOptions}
+            className="p-6 md:px-12"
+          />
 
-            <ProjectGrid 
-              projects={dbProjects} 
-              defaultCategory={categories[0].slug} 
-              defaultDateSortOption={dateSortOptions[0].slug} 
-              className="p-6 md:px-12" 
+          {dbProjects.length === 0 ? (
+            <div className="empty-project-state">
+              <p className="font-bold text-light-gray-text text-md md:text-xl">Non ci sono progetti disponibili.</p>
+            </div>
+          ) : (
+            <ProjectGrid
+              projects={dbProjects}
+              defaultCategory={categories[0].slug}
+              defaultDateSortOption={dateSortOptions[0].slug}
+              className="p-6 md:px-12"
             />
-          </>
-        )}
+          )}
         </Suspense>
       </div>
     </main>

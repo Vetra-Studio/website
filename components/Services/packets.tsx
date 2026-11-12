@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 interface PricingPlan {
   name: string;
@@ -8,7 +9,6 @@ interface PricingPlan {
   originalPrice?: string;
   discountTag?: {
     label: string;
-    variant: "orange" | "blue" | "red";
   };
   includedFeatures: string[];
   isPopular?: boolean;
@@ -22,7 +22,7 @@ const plans: PricingPlan[] = [
     description: "Il sito essenziale per farti trovare online",
     price: "599 €",
     originalPrice: "800 €",
-    discountTag: { label: "-25%", variant: "blue" },
+    discountTag: { label: "-25%" },
     includedFeatures: [
       "Si adatta a telefono, tablet e computer",
       "Ideale se ti serve una presenza semplice e curata",
@@ -35,7 +35,7 @@ const plans: PricingPlan[] = [
     description: "Il sito completo, seguito anche dopo la consegna.",
     price: "999 €",
     originalPrice: "1.500 €",
-    discountTag: { label: "IL PIÙ COMPLETO -30%", variant: "orange" },
+    discountTag: { label: "IL PIÙ COMPLETO -30%" },
     includedFeatures: [
       "Si adatta a telefono, tablet e computer",
       "Ideale per attività che cambiano spesso orari, menù, eventi o offerte",
@@ -50,7 +50,7 @@ const plans: PricingPlan[] = [
     description: "Il sito che lavora per te: prenotazioni, ordini, clienti fidelizzati.",
     price: "1.800 €",
     originalPrice: "3.000 €",
-    discountTag: { label: "OFFERTA -40%", variant: "red" },
+    discountTag: { label: "OFFERTA -40%" },
     includedFeatures: [
       "Si adatta a telefono, tablet e computer",
       "Prenotazioni o ordini online, con area riservata ai clienti",
@@ -61,80 +61,65 @@ const plans: PricingPlan[] = [
   },
 ];
 
-const badgeBgMap = {
-  orange: "bg-orange-discount",
-  blue: "bg-blue-discount",
-  red: "bg-red-discount",
-};
-
-const planCardClassName = "relative flex flex-col justify-between rounded-2xl border bg-panel-background p-6 pt-8 sm:p-8 sm:pt-10";
-const popularPlanClassName = "border-orange-gradient-start shadow-lg shadow-orange-gradient-start/10";
-const standardPlanClassName = "border-stroke-primary";
-const discountBadgeClassName = "absolute -top-3 right-6 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider text-white";
+const featuredPlanClassName = "pricing-plan--featured";
 
 export default function PricingSection() {
   return (
-    <section className="mx-auto max-w-7xl space-y-10 px-4 py-16">
+    <section className="pricing-section mx-auto max-w-7xl space-y-10 px-4 py-16">
       {/* Intestazione Sezione */}
-      <header className="mx-auto max-w-3xl space-y-4 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-gradient-start">
-          Soluzioni per il tuo progetto
-        </p>
-        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r text-gradient-orange">
+      <header className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <p className="pricing-eyebrow">Soluzioni per il tuo progetto</p>
+        <h2 className="mt-5 bg-gradient-to-r text-4xl font-bold tracking-tight text-gradient-orange sm:text-5xl">
           Piani e Prezzi
         </h2>
-        <p className="mx-auto max-w-2xl text-light-gray-text text-lg leading-relaxed">
+        <p className="mx-auto mt-3 max-w-2xl text-light-gray-text text-lg leading-relaxed">
           Scegli il pacchetto più adatto alla tua attività e confronta con chiarezza prezzi e contenuti inclusi.
         </p>
       </header>
 
       {/* Griglia Piani */}
-      <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3 lg:gap-8">
+      <div className="pricing-grid">
         {plans.map((plan) => (
           <article
             key={plan.name}
-            className={`${planCardClassName} ${plan.isPopular ? popularPlanClassName : standardPlanClassName}`}
+            className={`pricing-plan ${plan.isPopular ? featuredPlanClassName : ''}`}
           >
             {plan.discountTag && (
-              <span
-                className={`${discountBadgeClassName} ${badgeBgMap[plan.discountTag.variant]}`}
-              >
+              <span className={`plan-badge ${plan.isPopular ? "plan-badge--featured" : ""}`}>
                 {plan.discountTag.label}
               </span>
             )}
 
-            <div className="space-y-6 mb-8">
-              <div className="space-y-3">
-                <h3 className="text-2xl font-bold text-orange-gradient-start text-foreground">{plan.name}</h3>
-                <p className="text-sm font-semibold text-foreground leading-relaxed">{plan.scope}</p>
-                <p className="text-sm text-light-gray-text leading-relaxed min-h-[40px]">
+            <div className="pricing-plan-content">
+              <div className="pricing-plan-heading">
+                <h3 className="pricing-plan-title">{plan.name}</h3>
+                <p className="pricing-plan-scope">{plan.scope}</p>
+                <p className="pricing-plan-description">
                   {plan.description}
                 </p>
               </div>
 
-              <div className="border-y border-stroke-primary py-5">
-                <span className="block text-xs font-semibold uppercase tracking-wider text-light-gray-text">A partire da</span>
-                <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <span className="text-4xl font-extrabold text-green-text">{plan.price}</span>
-                  {plan.originalPrice && <span className="text-sm text-light-gray-text line-through">{plan.originalPrice}</span>}
+              <div className="pricing-price-block">
+                <span className="pricing-price-label">A partire da</span>
+                <div className="pricing-price-row">
+                  <span className="pricing-price">{plan.price}</span>
+                  {plan.originalPrice && (
+                    <span className="pricing-original-price">{plan.originalPrice}</span>
+                  )}
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-light-gray-text">
-                  Il piano include
-                </p>
-                <ul className="space-y-4">
+              <div className="pricing-inclusions">
+                <p className="pricing-inclusions-title">Il piano include</p>
+                <ul className="pricing-feature-list">
                   {plan.includedFeatures.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-3 text-sm leading-relaxed"
+                      className="pricing-feature"
                     >
-                      <Check
-                        aria-hidden="true"
-                        className="mt-0.5 h-4 w-4 shrink-0 text-green-text"
-                        strokeWidth={2.5}
-                      />
+                      <span className="pricing-check">
+                        <Check aria-hidden="true" className="h-3.5 w-3.5" strokeWidth={2.75} />
+                      </span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -143,16 +128,16 @@ export default function PricingSection() {
             </div>
 
             {/* Bottone d'azione */}
-            <button
-              type="button"
-              className="btn-transparent-gradient-orange w-full rounded-xl px-6 py-3 font-semibold transition-transform hover:opacity-90 active:scale-[0.98]"
+            <Link
+              href="/contattaci"
+              className={`plan-cta w-full px-6 py-3 font-semibold active:scale-[0.98] ${plan.isPopular ? "plan-cta--featured" : ""}`}
             >
               {plan.ctaText}
-            </button>
+            </Link>
           </article>
         ))}
       </div>
-      <div className="flex flex-col gap-2 border-t border-stroke-primary pt-6 text-sm leading-relaxed text-light-gray-text">
+      <div className="pricing-notes flex flex-col gap-2 text-sm leading-relaxed text-light-gray-text">
         <p className="max-w-xl">
           Prezzi promozionali di lancio, disponibili per un periodo limitato.
         </p>

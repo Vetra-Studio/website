@@ -30,9 +30,7 @@ export default function FooterCTA({
       </div>
 
       <Link href="/contattaci" className={ButtonClassName}>
-        <button>
-          Richiedi una consulenza gratuita
-        </button>
+        Richiedi una consulenza gratuita
       </Link>
     </section>
   );

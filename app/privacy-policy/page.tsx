@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-
-import { MoveLeft } from 'lucide-react';
+import LegalPageLayout, { LegalSection } from '@/components/Legal/LegalPageLayout';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -17,27 +16,10 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <main className="mx-auto w-full max-w-4xl py-10 md:py-16">
-      <article className="flex flex-col gap-8 p-6 md:p-10">
-
-        {/* Header */}
-        <header className="border-b border-stroke-primary/50 pb-6">
-          <h1 className="bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
-            Informativa sulla Privacy
-          </h1>
-          <p className="mt-2 text-xs text-light-gray-text md:text-sm">
-            Ultimo aggiornamento: 13/10/2026
-          </p>
-        </header>
-
-        {/* Contenuto Testuale */}
-        <div className="flex flex-col gap-6 text-sm leading-relaxed text-light-gray-text md:text-base">
+    <LegalPageLayout title="Informativa sulla Privacy" lastUpdated="13/10/2026">
 
           {/* 1. Titolare del trattamento */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              1. Titolare del trattamento dei dati
-            </h2>
+          <LegalSection title="1. Titolare del trattamento dei dati">
             <p>
               Il titolare del trattamento dei dati è <strong>Vetra Studio</strong>, attività svolta dal Sig. <strong>Riccardo Rossato</strong>, con sede in <strong>Via Papa Luciani 14, 36025 Noventa Vicentina (VI)</strong>.
             </p>
@@ -49,13 +31,10 @@ export default function PrivacyPolicy() {
               {' '}|{' '}
               +39 327 352 0087.
             </p>
-          </section>
+          </LegalSection>
 
           {/* 2. Tipologia di dati raccolti */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              2. Tipologia di dati raccolti
-            </h2>
+          <LegalSection title="2. Tipologia di dati raccolti">
             <p>
               Il sito <strong>non utilizza cookie</strong> e non impiega strumenti di tracciamento, profilazione o statistica. I dati personali raccolti sono quindi limitati a:
             </p>
@@ -73,26 +52,20 @@ export default function PrivacyPolicy() {
                 Cookie Policy
               </Link>.
             </p>
-          </section>
+          </LegalSection>
 
           {/* 3. Finalità del trattamento */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              3. Finalità del trattamento
-            </h2>
+          <LegalSection title="3. Finalità del trattamento">
             <p>I dati raccolti vengono utilizzati esclusivamente per:</p>
             <ul className="list-disc space-y-1 pl-5">
               <li>Rispondere alle tue richieste di informazioni, preventivi o supporto.</li>
               <li>Gestire la corrispondenza e le richieste a noi rivolte.</li>
               <li>Garantire il corretto funzionamento e la sicurezza del sito web.</li>
             </ul>
-          </section>
+          </LegalSection>
 
           {/* 4. Base giuridica */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              4. Base giuridica del trattamento
-            </h2>
+          <LegalSection title="4. Base giuridica del trattamento">
             <p>
               In conformità al Regolamento (UE) 2016/679 (GDPR), il trattamento si fonda su:
             </p>
@@ -103,23 +76,17 @@ export default function PrivacyPolicy() {
             <p className="mt-1">
               Non viene richiesto alcun consenso: il sito non installa cookie, quindi non è presente alcun banner di consenso.
             </p>
-          </section>
+          </LegalSection>
 
           {/* 5. Conservazione dei dati */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              5. Conservazione dei dati
-            </h2>
+          <LegalSection title="5. Conservazione dei dati">
             <p>
               I dati sono conservati solo per il periodo necessario alle finalità indicate. La corrispondenza viene mantenuta fino alla definizione della richiesta e successivamente eliminata o anonimizzata; non è previsto alcun archiviamento automatizzato.
             </p>
-          </section>
+          </LegalSection>
 
           {/* 6. Cessione a terzi */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              6. Cessione a soggetti terzi
-            </h2>
+          <LegalSection title="6. Cessione a soggetti terzi">
             <p>
               I dati personali non vengono ceduti né conferiti a soggetti diversi dal titolare, né utilizzati a fini di marketing. I trattamenti a opera di soggetti distinti dal titolare sono limitati a quelli tecnici strettamente necessari al funzionamento del sito e del modulo di contatto, descritti di seguito.
             </p>
@@ -148,13 +115,10 @@ export default function PrivacyPolicy() {
             <p>
               <strong>Verifica anti-spam (Cloudflare Turnstile).</strong> Il modulo di contatto utilizza <strong>Cloudflare Turnstile</strong> per distinguere le richieste umane da quelle automatizzate. Turnstile tratta dati tecnici minimi (equiparabili a quelli già descritti per l’hosting) al solo fine di generare e verificare il token anti-spam; il trattamento è svolto da Cloudflare, Inc., già indicato come responsabile per l’hosting.
             </p>
-          </section>
+          </LegalSection>
 
           {/* 7. Diritti dell'utente */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              7. I tuoi diritti (GDPR)
-            </h2>
+          <LegalSection title="7. I tuoi diritti (GDPR)">
             <p>
               In relazione ai dati personali trattati tramite questo sito puoi esercitare, nei limiti e alle condizioni previsti dagli articoli 15-22 del GDPR, il diritto di:
             </p>
@@ -182,23 +146,17 @@ export default function PrivacyPolicy() {
               </a>
               .
             </p>
-          </section>
+          </LegalSection>
 
           {/* 8. Modifiche */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              8. Modifiche a questa informativa
-            </h2>
+          <LegalSection title="8. Modifiche a questa informativa">
             <p>
               Questa pagina può essere aggiornata quando cambiano gli strumenti utilizzati dal sito o la normativa applicabile. La data in cima indica l’ultimo aggiornamento.
             </p>
-          </section>
+          </LegalSection>
 
           {/* Cookie Policy Link */}
-          <section className="flex flex-col gap-2">
-            <h2 className="text-lg font-bold text-foreground md:text-xl">
-              Cookie Policy
-            </h2>
+          <LegalSection title="Cookie Policy">
             <p>
               Per il trattamento dei cookie e dei dati tecnici, consulta la nostra{' '}
               <Link
@@ -208,22 +166,9 @@ export default function PrivacyPolicy() {
                 Cookie Policy
               </Link>.
             </p>
-          </section>
+          </LegalSection>
 
-        </div>
-
-        {/* Footer della scheda */}
-        <div className="pt-6">
-          <Link
-            href="/"
-            className="inline-flex items-center text-sm font-semibold text-orange-gradient-start hover:underline"
-          >
-            <MoveLeft className="w-4 h-4 mr-2" /> Torna alla Home
-          </Link>
-        </div>
-
-      </article>
-    </main>
+    </LegalPageLayout>
   );
 }
 

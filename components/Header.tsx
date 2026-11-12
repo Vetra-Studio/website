@@ -53,13 +53,11 @@ export default function Header() {
 
       <Navbar className="hidden font-chillax text-lg md:flex space-x-16"
               linkClassName="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full hover:after:origin-left
-              after:origin-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-400 hover:after:scale-x-100
+              after:origin-right after:scale-x-0 after:bg-orange-gradient-start after:transition-transform after:duration-400 hover:after:scale-x-100
               "/>
 
-      <Link href="/contattaci" className="hidden md:block">
-        <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-semibold py-2 px-4 rounded-lg">
-          Contattaci
-        </button>
+      <Link href="/contattaci" className="btn-gradient-orange hidden rounded-full px-5 py-2 font-semibold md:block">
+        Contattaci
       </Link>
 
       <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} className="z-50"/>

@@ -18,7 +18,7 @@ export default function SlotCard({
   release
 }: SlotProps) {
   return (
-    <article className="group flex flex-col overflow-hidden
+    <article className="project-card group flex flex-col overflow-hidden
                         rounded-2xl border border-stroke-primary 
                         bg-panel-background/35 p-4 backdrop-blur-md 
                         transition-all duration-300 hover:border-orange-gradient-start/50 

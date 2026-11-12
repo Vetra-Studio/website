@@ -3,22 +3,16 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
 import type { Category } from '@/lib/supabase/queries';
+import { categoryParam, updateSearchParams, type FilterOption } from '@/lib/project-filters';
 import SortButton from './SortButton';
 
 import { ChevronsDown } from 'lucide-react';
-
-export interface FilterOption {
-  slug: string;
-  name: string;
-}
 
 interface CategoryMenuProps {
   categories: Category[];
   className?: string;
   dateSortOptions: FilterOption[];
 }
-
-export const categoryParam = 'category';
 
 export default function CategoryMenu({
   categories,
@@ -55,14 +49,7 @@ export default function CategoryMenu({
 
   // Aggiorna i parametri dell'URL cliccando sui pulsanti
   const handleSelect = (id: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set(categoryParam, id);
-    window.history.replaceState(
-      null,
-      '',
-      `${pathname}?${params.toString()}`
-    );
-    
+    updateSearchParams(pathname, searchParams, { [categoryParam]: id });
     setIsOpen(false);
   };
 
@@ -150,7 +137,7 @@ export default function CategoryMenu({
                       lg:h-14 lg:px-5
                       ${
                         isActive
-                          ? 'btn-gradient-orange text-[#070a0f] shadow-md shadow-[#d77635]/20'
+                          ? 'btn-gradient-orange shadow-md shadow-orange-gradient-start/20'
                           : 'border border-stroke-primary bg-panel-background text-foreground hover:border-orange-btn-border-color'
                       }`}
         >

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
-import { FilterOption } from './CategoryMenu';
+import { sortParam, updateSearchParams, type FilterOption } from '@/lib/project-filters';
 import { ChevronsDown } from 'lucide-react';
 
 interface SortButtonProps {
@@ -10,8 +10,6 @@ interface SortButtonProps {
   className?: string;
   spanClassName?: string;
 }
-
-export const sortParam = 'sort';
 
 export default function SortButton({
   dateSortOptions,
@@ -50,15 +48,7 @@ export default function SortButton({
   }, []);
 
   const handleSelect = (option: FilterOption) => {
-    const params = new URLSearchParams(searchParams.toString());
-
-    params.set(sortParam, option.slug);
-
-    window.history.replaceState(
-      null,
-      '',
-      `${pathname}?${params.toString()}`
-    );
+    updateSearchParams(pathname, searchParams, { [sortParam]: option.slug });
     setIsOpen(false);
   };
 

@@ -112,8 +112,7 @@ export default function AboutUs() {
       {/* Hero */}
       <div className="md:grid md:grid-cols-2 pt-5 pb-15 py-20 md:pt-15 md:gap-15 border-b border-stroke-primary items-center">
         <div>
-          <h1 className="text-xs font-clash font-extrabold text-orange-gradient-start uppercase mb-3">Chi Siamo</h1>
-          <h2 className="text-3xl md:text-5xl font-semibold mb-6">Costruiamo il digitale partendo dalle persone.</h2>
+          <h1 className="text-3xl md:text-5xl font-semibold mb-6">Costruiamo il digitale partendo dalle persone.</h1>
           <p className="mb-8">
             Siamo Vetra Studio, un team che progetta e sviluppa siti web su misura. Siamo partiti dalla voglia di metterci alla prova insieme,
             unendo competenze diverse per creare soluzioni in cui ogni parte, dal design al codice, abbia uno scopo preciso.
@@ -127,11 +126,11 @@ export default function AboutUs() {
             ))}
           </div>
         </div>
-        <div className="mt-10 md:mt-0 flex justify-center">
+        <div className="about-image-frame mt-10 md:mt-0 flex w-full justify-center rounded-lg">
           <Image
             src={heroImage}
             alt="Il team di Vetra Studio al lavoro in ufficio"
-            className="w-full max-w-4xl rounded-lg"
+            className="relative z-10 w-full max-w-4xl rounded-lg"
             priority
           />
         </div>
@@ -140,7 +139,6 @@ export default function AboutUs() {
       {/* Perche lo facciamo */}
       <div className="flex flex-col py-20 items-center border-b border-stroke-primary">
         <div className="md:w-5/8 md:text-center">
-          <p className="text-xs font-clash font-extrabold text-orange-gradient-start uppercase mb-3">Perché lo facciamo</p>
           <h2 className="text-3xl font-semibold mb-4">Un sito deve avere un motivo per esistere.</h2>
           <p className="mb-8">
             Non ci interessa realizzare una pagina che sia soltanto gradevole da vedere. Un sito non è solo una vetrina, 
@@ -168,7 +166,6 @@ export default function AboutUs() {
       {/* la nostra storia */}
       <div className="md:grid md:grid-cols-2 py-20 md:gap-15 items-center border-b border-stroke-primary">
         <div>
-          <p className="text-xs  font-clash font-extrabold text-orange-gradient-start uppercase mb-3">La nostra storia</p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-4">Tutto è iniziato dalla voglia di metterci alla prova.</h2>
           <p className="mb-5">
             L’idea di Vetra Studio è nata dall’incontro di due esigenze. Da una parte, la volontà di metterci alla prova insieme 
@@ -180,41 +177,38 @@ export default function AboutUs() {
             Non volevamo limitarci a scrivere codice o a realizzare qualcosa di bello da vedere, ma creare progetti in cui design, 
             sviluppo e comunicazione lavorassero nella stessa direzione e avessero uno scopo preciso.
           </p>
-          <div className="border-l-3 rounded-lg border-orange-gradient-start bg-[#14151A] p-6 mb-5">
+          <div className="story-callout border-l-3 rounded-lg border-orange-gradient-start bg-panel-background p-6 mb-5">
             <p>
               <strong className="font-bold">Vetra Studio nasce così </strong>
               dalla voglia di creare, dalla passione per l’informatica e dalla scelta di affrontare insieme progetti in cui design, 
               sviluppo e comunicazione lavorano nella stessa direzione.
             </p>
           </div>
-          <Link href="/contattaci" className="inline-block border-2 p-4 rounded-lg border-orange-gradient-start cursor-pointer">
-            <button className="font-semibold">
-              Raccontaci la tua storia →
-            </button>
+          <Link href="/contattaci" className="inline-block cursor-pointer rounded-lg border-2 border-orange-gradient-start p-4 font-semibold">
+            Raccontaci la tua storia →
           </Link>
         </div>
 
-        <div className="mt-10 md:mt-0 flex justify-center">
+        <div className="about-image-frame mt-10 md:mt-0 flex w-full justify-center rounded-lg">
           <Image
             src={storyImage}
             alt="Il team di Vetra Studio riunito in ufficio"
-            className="w-full max-w-4xl rounded-lg"
+            className="relative z-10 w-full max-w-4xl rounded-lg"
           />
         </div>
       </div>
 
       {/* Il nostro modo di lavorare */}
       <div id="il-nostro-modo-di-lavorare" className="md:grid md:grid-cols-2 py-20 md:gap-10 items-center border-b border-stroke-primary">
-        <div className="mb-10 md:mb-0 flex justify-center">
+        <div className="about-image-frame mb-10 md:mb-0 flex w-full justify-center rounded-lg">
           <Image
             src={workImage}
             alt="Stretta di mano tra un membro del team e un cliente"
-            className="w-full max-w-4xl rounded-lg"
+            className="relative z-10 w-full max-w-4xl rounded-lg"
           />
         </div>
 
         <div>
-          <p className="text-xs font-clash font-extrabold text-orange-gradient-start uppercase mb-3">Il nostro modo di lavorare</p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-4">La collaborazione con il cliente è il cuore di ogni progetto.</h2>
           <p className="mb-5">
             Lavoriamo a stretto contatto durante ogni fase del progetto, confrontandoci passo dopo passo per assicurarci che il risultato finale 
@@ -229,17 +223,15 @@ export default function AboutUs() {
             Curiamo con la stessa attenzione gli aspetti visivi e la qualità tecnica. Lavoriamo su interfacce intuitive e coerenti, prestazioni, 
             struttura e codice, con l’obiettivo di realizzare prodotti digitali piacevoli da vedere, efficienti e progettati per funzionare nel tempo.
           </p>
-          <div className="border-l-3 rounded-lg border-orange-gradient-start bg-[#14151A] p-6 mb-5">
+          <div className="story-callout border-l-3 rounded-lg border-orange-gradient-start bg-panel-background p-6 mb-5">
             <p>
               <strong className="font-bold">Lavoriamo così </strong>
               mettendo in relazione design, sviluppo e comunicazione, attraverso un confronto costante con il cliente e un’attenzione
               concreta alle esigenze di ogni progetto.
             </p>
           </div>
-          <Link href="/servizi" className="inline-block border-2 p-4 rounded-lg border-orange-gradient-start cursor-pointer">
-              <button className="font-semibold">
-                Scopri i nostri servizi →
-              </button>
+          <Link href="/servizi" className="inline-block cursor-pointer rounded-lg border-2 border-orange-gradient-start p-4 font-semibold">
+            Scopri i nostri servizi →
           </Link>
         </div>
       </div>
@@ -247,7 +239,6 @@ export default function AboutUs() {
       {/* Tecnologie */}
       <div className="flex flex-col py-20 border-b border-stroke-primary">
         <div>
-          <p className="text-xs font-clash font-extrabold text-orange-gradient-start uppercase mb-3">Tecnologie</p>
           <h2 className="text-3xl font-semibold mb-4">Scegliamo la tecnologia in base a ciò che serve.</h2>
 
           <p className="mb-8">
@@ -267,17 +258,16 @@ export default function AboutUs() {
       <div className="py-20 border-b border-stroke-primary">
         <div className="md:grid md:grid-cols-2 mb-12 md:gap-10 items-center">
           <div>
-            <p className="text-xs font-clash font-extrabold text-orange-gradient-start uppercase mb-3">Il team</p>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">Ognuno ha un ruolo. Il progetto è uno solo.</h2>
             <p>
               Le nostre competenze si completano attraverso ruoli distinti, così da poter dedicare attenzione ai diversi aspetti del progetto.
             </p>
           </div>
-          <div className="mt-10 md:mt-0 flex justify-center">
+          <div className="about-image-frame mt-10 md:mt-0 flex w-full justify-center rounded-lg">
             <Image
               src={teamImage}
               alt="I cinque membri del team di Vetra Studio attorno a un tavolo di lavoro"
-              className="w-full max-w-4xl rounded-lg"
+              className="relative z-10 w-full max-w-4xl rounded-lg"
             />
           </div>
         </div>
@@ -299,7 +289,6 @@ export default function AboutUs() {
 
       {/* La nostra promessa */}
       <div className="py-15 gap-15 lg:px-25">
-        <p className="text-xs font-clash font-extrabold text-orange-gradient-start uppercase mb-3">La nostra promessa</p>
         <h2 className="text-3xl md:text-5xl font-semibold mb-6">Un progetto non è finito quando funziona. È finito quando risponde a ciò che serve.</h2>
         <p className="mb-8">
           Ci impegniamo a portare a termine il progetto nel miglior modo possibile e a intervenire non appena si presenta un problema. 

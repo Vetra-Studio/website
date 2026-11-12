@@ -151,7 +151,7 @@ export default function ContactForm({className}: FormProps) {
         {/* Note Privacy Policy */}
         <p className="text-xs leading-relaxed text-light-gray-text sm:text-sm">
           I tuoi dati saranno trattati in conformità con la nostra{' '}
-          <Link href="/privacy-policy" className="text-blue-500 hover:underline">
+          <Link href="/privacy-policy" className="text-orange-gradient-start hover:underline">
             Privacy Policy
           </Link>
         </p>
@@ -161,8 +161,8 @@ export default function ContactForm({className}: FormProps) {
           className="
             flex items-center justify-center gap-2
             py-2 sm:py-3
-            rounded-lg bg-gradient-to-b from-orange-gradient-start to-orange-gradient-end
-            text-black font-bold text-base sm:text-lg
+            btn-gradient-orange rounded-lg
+            font-bold text-base sm:text-lg
             hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer
             disabled:opacity-60 disabled:cursor-not-allowed"
         >

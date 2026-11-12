@@ -45,10 +45,8 @@ export default function MobileMenu({
 
       <Navbar className="flex flex-col space-y-20 text-3xl" onClick={onClose}/>
 
-      <Link href="/contattaci" className="md:hidden block" onClick={onClose}>
-        <button className="bg-gradient-to-tr from-orange-300 to-orange-400 text-black font-bold py-2 px-4 rounded-lg">
-          Contattaci
-        </button>
+      <Link href="/contattaci" className="btn-gradient-orange block rounded-full px-5 py-2 font-bold md:hidden" onClick={onClose}>
+        Contattaci
       </Link>
     </main>
 

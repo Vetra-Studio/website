@@ -37,16 +37,14 @@ export default function Choice({
           {items.map((item) => (
             <li
               key={item.title}
-              className="group 
+              className="reason-card group
                          flex flex-col items-center text-center 
                          p-6 
                          bg-background border border-stroke-primary rounded-2xl shadow-md
                          transition-all duration-300 hover:border-orange-gradient-start
                          hover:-translate-y-1"
             >
-              <div className="flex items-center justify-center w-14 h-14 
-                              rounded-xl bg-gradient-to-b from-orange-btn-gradient-start to-orange-btn-gradient-end border border-orange-btn-border-color 
-                              mb-4 
+              <div className="reason-icon flex items-center justify-center w-14 h-14 rounded-full mb-4
                               transition-transform group-hover:scale-105">
                 {item.icon}
               </div>

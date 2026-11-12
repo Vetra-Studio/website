@@ -78,16 +78,16 @@ export default function ServiziPage({
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-10 lg:grid-cols-2 lg:px-16">
         {/* Colonna Sinistra: Testi */}
         <div className="mx-auto flex max-w-2xl flex-col items-start gap-4">
-          <h2 className="bg-gradient-to-b text-4xl font-bold leading-tight tracking-tight text-gradient-orange sm:text-5xl md:text-6xl">
+          <h1 className="bg-gradient-to-b text-4xl font-bold leading-tight tracking-tight text-gradient-orange sm:text-5xl md:text-6xl">
             {title}
-          </h2>
+          </h1>
           <p className="text-lg leading-relaxed text-light-gray-text sm:text-xl md:text-2xl">
             {description}
           </p>
         </div>
 
         {/* Colonna Destra: Grafica Logo con Sfocatura */}
-        <div className="hidden lg:block">
+        <div className="services-hero-toucan hidden lg:block">
           <Icon />
         </div>
       </div>
@@ -155,27 +155,27 @@ export default function ServiziPage({
                    transition-colors duration-300"
         items={[
           {
-            icon: <Heart className="w-8 h-8 text-amber-600"/>,
+            icon: <Heart className="w-8 h-8 text-orange-gradient-start"/>,
             title: "Passione",
             description: "Affrontiamo ogni progetto con entusiasmo, precisione e voglia di fare.",
           },
           {
-            icon: <Lightbulb className="w-8 h-8 text-amber-600"/>,
+            icon: <Lightbulb className="w-8 h-8 text-orange-gradient-start"/>,
             title: "Innovazione",
             description: "Cerchiamo approcci e soluzioni sempre nuovi per affrontare ogni esigenza con uno sguardo al futuro.",
           },
           {
-            icon: <Headset className="w-8 h-8 text-amber-600"/>,
+            icon: <Headset className="w-8 h-8 text-orange-gradient-start"/>,
             title: "Assistenza",
             description: "Ti affianchiamo con disponibilità e supporto, dalla progettazione alla realizzazione.",
           },
           {
-            icon: <ShieldCheck className="w-8 h-8 text-amber-600"/>,
+            icon: <ShieldCheck className="w-8 h-8 text-orange-gradient-start"/>,
             title: "Affidabilità",
             description: "Manteniamo gli impegni presi e rispettiamo tempi e accordi, costruendo rapporti basati su serietà, chiarezza e fiducia.",
           },
           {
-            icon: <MessagesSquare className="w-8 h-8 text-amber-600"/>,
+            icon: <MessagesSquare className="w-8 h-8 text-orange-gradient-start"/>,
             title: "Comunicazione",
             description: "Confronto diretto e aggiornamenti chiari durante il progetto.",
           },

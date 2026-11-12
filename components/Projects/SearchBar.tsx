@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
-
-export const searchParam = 'q';
+import { searchParam, updateSearchParams } from '@/lib/project-filters';
 
 export default function SearchBar() {
   const pathname = usePathname();
@@ -15,17 +14,9 @@ export default function SearchBar() {
   // Aggiunta parametro nell'url dopo 300ms
   useEffect(() => {
     const timeout = setTimeout(() => {
-      const params = new URLSearchParams(searchParams.toString());
-      if (value) {
-        params.set(searchParam, value);
-      } else {
-        params.delete(searchParam);
-      }
-      window.history.replaceState(
-        null,
-        '',
-        `${pathname}?${params.toString()}`
-      );
+      updateSearchParams(pathname, searchParams, {
+        [searchParam]: value || null,
+      });
       
     }, 300);
 

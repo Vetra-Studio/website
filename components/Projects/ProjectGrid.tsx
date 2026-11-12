@@ -2,12 +2,10 @@
 
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import SlotCard from './SlotCard';
+import ProjectCards from './ProjectCards';
 import LoadMoreButton from './LoadMoreButton';
 import type { Project } from '@/lib/supabase/queries';
-import { searchParam } from './SearchBar';
-import { categoryParam } from './CategoryMenu';
-import { sortParam } from './SortButton';
+import { categoryParam, searchParam, sortParam } from '@/lib/project-filters';
 
 interface ProjectsGridProps {
   initialCount?: number;
@@ -37,10 +35,7 @@ export default function ProjectsGrid({
     const byCategory =
       categorySlug === defaultCategory
         ? projects
-        : projects.filter((project) => {
-            console.log(project.title, project.category);
-            return project.category.slug === categorySlug;
-          });
+        : projects.filter((project) => project.category.slug === categorySlug);
 
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
@@ -89,41 +84,22 @@ export default function ProjectsGrid({
 
   return (
     <section className={className}>
-
       {visibleProjects.length === 0 ? (
-        <p className="py-12 text-center text-md md:text-xl font-bold text-light-gray-text">La ricerca non ha prodotto risultati.</p>
+        <div className="empty-project-state">
+          <p className="font-bold text-light-gray-text text-md md:text-xl">La ricerca non ha prodotto risultati.</p>
+        </div>
       ) : (
         <>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            {visibleProjects.map((project) => (
-              <SlotCard
-                key={project.id}
-                category={project.category.name}
-                release={project.release}
-                title={project.title}
-                description={project.description}
-                slug={project.slug}
-              />
-            ))}
-          </div>
-
-        {(hasMore || canShowLess) && (
-          <div className="mt-10 flex w-full justify-center gap-4 md:mt-14">
-            {canShowLess && (
-              <LoadMoreButton
-                onClick={handleShowLess}
-                label="Mostra meno"
-              />
-            )}
-
-            {hasMore && (
-              <LoadMoreButton onClick={handleLoadMore} />
-            )}
-          </div>
-        )}
-
-      </>
+          <ProjectCards projects={visibleProjects} />
+          {(hasMore || canShowLess) && (
+            <div className="mt-10 flex w-full justify-center gap-4 md:mt-14">
+              {canShowLess && (
+                <LoadMoreButton onClick={handleShowLess} label="Mostra meno" />
+              )}
+              {hasMore && <LoadMoreButton onClick={handleLoadMore} />}
+            </div>
+          )}
+        </>
       )}
     </section>
   );
