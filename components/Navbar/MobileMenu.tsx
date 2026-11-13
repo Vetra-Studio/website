@@ -17,13 +17,18 @@ export default function MobileMenu({
   const [isAnimating, setIsAnimating] = useState(false);
   const animationDuration = 1500; // Duration of the animation in milliseconds
   useEffect(() => {
-    setIsAnimating(true);
+    const showTimer = setTimeout(() => {
+      setIsAnimating(true);
+    }, 0);
 
-    const timer = setTimeout(() => {
+    const hideTimer = setTimeout(() => {
       setIsAnimating(false);
     }, animationDuration);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
   }, [isOpen]);
   return (
     <div
